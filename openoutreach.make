@@ -3,8 +3,6 @@
 ; Drupal version
 core = 6.x
 
-projects[] = drupal
-
 ; Contrib modules
 projects[admin][subdir] = contrib
 projects[adminrole][subdir] = contrib
