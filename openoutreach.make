@@ -3,6 +3,8 @@
 ; Drupal version
 core = 6.x
 
+projects[] = drupal
+
 ; Contrib modules
 projects[admin][subdir] = contrib
 projects[adminrole][subdir] = contrib
@@ -20,6 +22,13 @@ projects[context][subdir] = contrib
 projects[context][version] = 3.0-beta5
 projects[ctools][subdir] = contrib
 projects[date][subdir] = contrib
+projects[debut][subdir] = contrib
+; Not sure why version is needed here.
+projects[debut][version] = 1.x-dev
+projects[debut_audio][subdir] = contrib
+projects[debut_event][subdir] = contrib
+projects[debut_image][subdir] = contrib
+projects[debut_video][subdir] = contrib
 projects[designkit][subdir] = contrib
 projects[diff][subdir] = contrib
 projects[email][subdir] = contrib
@@ -36,7 +45,7 @@ projects[image_caption][subdir] = contrib
 projects[imagefield][subdir] = contrib
 projects[imagefield_crop][subdir] = contrib
 projects[jcarousel][subdir] = contrib
-projects[jcarousel][version] = 6.x-1.x-dev
+projects[jcarousel][version] = 1.x-dev
 projects[jquery_ui][subdir] = contrib
 projects[jquery_update][subdir] = contrib
 projects[jquery_update][version] = 2.0-alpha1
@@ -76,9 +85,8 @@ projects[views_slideshow][subdir] = contrib
 projects[vote_up_down][subdir] = contrib
 projects[votingapi][subdir] = contrib
 projects[wysiwyg][subdir] = contrib
-; This patch is not yet ready, but when it is we will apply it to get
-; support for wysiwyg in features. See http://drupal.org/node/624018.
-; projects[wysiwyg][patch][] = http://drupal.org/files/issues/wysiwyg-624018-with-ui-3.patch
+; Support for wysiwyg in features. See http://drupal.org/node/624018.
+projects[wysiwyg][patch][] = http://drupal.org/files/issues/wysiwyg-624018-with-ui-3.patch
 
 ; External modules
 projects[seed][subdir] = external

@@ -91,6 +91,11 @@ function openoutreach_profile_modules() {
 function openoutreach_profile_tasks(&$task, $url) {
   // This is where features are usually being enabled.
   $features = array(
+    'debut',
+    'debut_audio',
+    'debut_event',
+    'debut_image',
+    'debut_video',
   );
   drupal_install_modules($features);
 
