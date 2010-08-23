@@ -72,6 +72,11 @@ projects[strongarm][subdir] = contrib
 projects[tagging][subdir] = contrib
 projects[token][subdir] = contrib
 projects[transliteration][subdir] = contrib
+projects[uuid][subdir] = contrib
+; UUID support for files, required for filefield values to be included in features.
+projects[uuid][patch][] = "http://drupal.org/files/issues/uuid-files-808690.patch"
+projects[uuid_features][subdir] = contrib
+projects[uuid_features][version] = 1.x-dev
 projects[views][subdir] = contrib
 projects[views_attach][subdir] = contrib
 projects[views_bulk_operations][subdir] = contrib
