@@ -92,7 +92,10 @@ function openoutreach_profile_tasks(&$task, $url) {
   // This is where features are usually being enabled.
   $features = array(
     'debut',
+    'debut_admin',
     'debut_audio',
+    'debut_article',
+    'debut_blog',
     'debut_event',
     'debut_image',
     'debut_video',
