@@ -17,7 +17,6 @@ projects[captcha][version] = 2.x-dev
 projects[cck][subdir] = contrib
 projects[content_profile][subdir] = contrib
 projects[context][subdir] = contrib
-projects[context][version] = 3.0
 projects[ctools][subdir] = contrib
 projects[date][subdir] = contrib
 projects[debut][subdir] = contrib
@@ -91,7 +90,7 @@ projects[vote_up_down][subdir] = contrib
 projects[votingapi][subdir] = contrib
 projects[wysiwyg][subdir] = contrib
 ; Support for wysiwyg in features. See http://drupal.org/node/624018.
-projects[wysiwyg][patch][] = http://drupal.org/files/issues/wysiwyg-624018-with-ui-3.patch
+projects[wysiwyg][patch][] = http://drupal.org/files/issues/wysiwyg-624018-with-ui-4.patch
 
 ; External modules
 projects[seed][subdir] = external
