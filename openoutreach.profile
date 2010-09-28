@@ -34,42 +34,14 @@ function openoutreach_profile_modules() {
     'update',
     'user',
   // Drupal contrib + external.
-    'admin',
-    'ctools',
-    'boxes',
-    'content',
     'optionwidgets',
-    'text',
-    'context',
     'context_ui',
-    'date_api',
-    'date_timezone',
-    'date',
-    'date_popup',
-    'designkit',
-    'extractor',
     'features',
-    'feeds',
-    'feeds_ui',
     'imageapi',
     'imageapi_gd',
-    'imagecache',
-    'jquery_ui',
     'libraries',
-    'mark',
-    'markdown',
-    'porterstemmer',
-    'purl',
     'spaces',
-    'spaces_dashboard',
-    'tagging',
-    'views',
     'views_ui',
-    'views_rss',
-    'views_modes',
-    'votingapi',
-    'seed',
-    'strongarm',
   );
   return $modules;
 }
@@ -98,6 +70,7 @@ function openoutreach_profile_tasks(&$task, $url) {
     'debut_blog',
     'debut_event',
     'debut_image',
+    'debut_section',
     'debut_video',
   );
   drupal_install_modules($features);
@@ -105,8 +78,8 @@ function openoutreach_profile_tasks(&$task, $url) {
   // Rebuild key tables/caches.
   drupal_flush_all_caches();
 
-  // Enabe rubik as default theme.
-  openoutreach_enable_theme('rubik');
+  // Enable nitobe as default theme.
+  openoutreach_enable_theme('nitobe');
 }
 
 /**
