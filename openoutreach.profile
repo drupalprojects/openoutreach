@@ -39,8 +39,6 @@ function openoutreach_profile_modules() {
     'features',
     'imageapi',
     'imageapi_gd',
-    'libraries',
-    'spaces',
     'views_ui',
   );
   return $modules;
