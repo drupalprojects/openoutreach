@@ -69,7 +69,9 @@ function openoutreach_profile_tasks(&$task, $url) {
     'debut_event',
     'debut_image',
     'debut_section',
+    'debut_social',
     'debut_video',
+    'debut_wysiwyg',
   );
   drupal_install_modules($features);
 
