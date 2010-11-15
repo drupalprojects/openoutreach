@@ -14,6 +14,6 @@ includes[debut_blog] = "http://drupalcode.org/viewvc/drupal/contributions/module
 includes[debut_event] = "http://drupalcode.org/viewvc/drupal/contributions/modules/debut_event/debut_event.make.inc?content-type=text%2Fplain&view=co"
 includes[debut_image] = "http://drupalcode.org/viewvc/drupal/contributions/modules/debut_image/debut_image.make.inc?content-type=text%2Fplain&view=co"
 includes[debut_section] = "http://drupalcode.org/viewvc/drupal/contributions/modules/debut_section/debut_section.make.inc?content-type=text%2Fplain&view=co"
-includes[debut_social] = "http://drupalcode.org/viewvc/drupal/contributions/modules/debut_section/debut_social.make.inc?content-type=text%2Fplain&view=co"
+includes[debut_social] = "http://drupalcode.org/viewvc/drupal/contributions/modules/debut_social/debut_social.make.inc?content-type=text%2Fplain&view=co"
 includes[debut_video] = "http://drupalcode.org/viewvc/drupal/contributions/modules/debut_video/debut_video.make.inc?content-type=text%2Fplain&view=co"
-includes[debut_wysiwyg] = "http://drupalcode.org/viewvc/drupal/contributions/modules/debut_section/debut_wysiwyg.make.inc?content-type=text%2Fplain&view=co"
+includes[debut_wysiwyg] = "http://drupalcode.org/viewvc/drupal/contributions/modules/debut_wysiwyg/debut_wysiwyg.make.inc?content-type=text%2Fplain&view=co"
