@@ -69,7 +69,8 @@ function openoutreach_profile_tasks(&$task, $url) {
     'debut_event',
     'debut_image',
     'debut_section',
-    'debut_social',
+    // Temporarily commented out until correct releases available.
+    // 'debut_social',
     'debut_video',
     'debut_wysiwyg',
   );
