@@ -66,11 +66,14 @@ function openoutreach_profile_tasks(&$task, $url) {
     'debut_audio',
     'debut_article',
     'debut_blog',
+    // Temporarily commented out until correct releases available.
+    'debut_comment',
     'debut_event',
     'debut_image',
     'debut_section',
+    'debut_social',
     // Temporarily commented out until correct releases available.
-    // 'debut_social',
+    'debut_tagging',
     'debut_video',
     'debut_wysiwyg',
   );
@@ -79,8 +82,9 @@ function openoutreach_profile_tasks(&$task, $url) {
   // Rebuild key tables/caches.
   drupal_flush_all_caches();
 
-  // Enable nitobe as default theme.
-  openoutreach_enable_theme('nitobe');
+  // Enable granada as default theme.
+  // Commented out as granada not yet posted.
+  // openoutreach_enable_theme('granada');
 }
 
 /**
