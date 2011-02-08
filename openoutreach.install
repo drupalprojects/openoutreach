@@ -27,7 +27,7 @@ function openoutreach_install() {
       'theme' => $default_theme,
       'status' => 1,
       'weight' => -1,
-      'region' => 'sidebar_first',
+      'region' => 'sidebar_second',
       'pages' => '',
       'cache' => -1,
     ),
@@ -123,6 +123,7 @@ function openoutreach_install() {
     'link_title' => st('Home'),
     'link_path' => '<front>',
     'menu_name' => 'main-menu',
+    'weight' => -10,
   );
   menu_link_save($item);
 
