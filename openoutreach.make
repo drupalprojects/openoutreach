@@ -7,7 +7,6 @@ api = 2
 includes[debut] = "http://drupalcode.org/viewvc/drupal/contributions/modules/debut/debut.make.inc?content-type=text%2Fplain&view=co"
 includes[debut_article] = "http://drupalcode.org/viewvc/drupal/contributions/modules/debut_article/debut_article.make.inc?content-type=text%2Fplain&view=co"
 includes[debut_blog] = "http://drupalcode.org/viewvc/drupal/contributions/modules/debut_blog/debut_blog.make.inc?content-type=text%2Fplain&view=co"
-// Release information not yet available.
 includes[debut_comment] = "http://drupalcode.org/viewvc/drupal/contributions/modules/debut_comment/debut_comment.make.inc?content-type=text%2Fplain&view=co"
 includes[debut_event] = "http://drupalcode.org/viewvc/drupal/contributions/modules/debut_event/debut_event.make.inc?content-type=text%2Fplain&view=co"
 includes[debut_media] = "http://drupalcode.org/viewvc/drupal/contributions/modules/debut_media/debut_media.make.inc?content-type=text%2Fplain&view=co"
