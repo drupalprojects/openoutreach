@@ -1,0 +1,40 @@
+; $Id$
+name = 'Open Outreach',
+description = 'Open Outreach provides a highly usable and feature rich website suited to small non-profits and community organizations.'
+core = 7.x
+; Core dependencies.
+dependencies[] = block
+dependencies[] = color
+dependencies[] = comment
+dependencies[] = contextual
+dependencies[] = dashboard
+dependencies[] = help
+dependencies[] = image
+dependencies[] = list
+dependencies[] = menu
+dependencies[] = number
+dependencies[] = options
+dependencies[] = path
+dependencies[] = taxonomy
+dependencies[] = dblog
+dependencies[] = search
+dependencies[] = shortcut
+dependencies[] = toolbar
+dependencies[] = overlay
+dependencies[] = field_ui
+dependencies[] = file
+dependencies[] = rdf
+; Contrib dependencies.
+dependencies[] = views_ui
+; Features.
+dependencies[] = debut
+dependencies[] = debut_article
+dependencies[] = debut_blog
+dependencies[] = debut_comment
+dependencies[] = debut_event
+dependencies[] = debut_media
+dependencies[] = debut_section
+dependencies[] = debut_social
+dependencies[] = debut_wysiwyg
+
+files[] = openoutreach.profile
