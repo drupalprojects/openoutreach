@@ -1,6 +1,8 @@
 <?php
 // $Id$
 
+include_once('openoutreach_core.features.inc');
+
 /**
  * Implements hook_form_FORM_ID_alter().
  *

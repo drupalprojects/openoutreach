@@ -37,5 +37,9 @@ dependencies[] = debut_media
 dependencies[] = debut_section
 dependencies[] = debut_social
 dependencies[] = debut_wysiwyg
+; Features
+features[ctools][] = "strongarm:strongarm:1"
+features[variable][] = "menu_main_links_source"
+features[variable][] = "menu_secondary_links_source"
 
 files[] = openoutreach.profile
