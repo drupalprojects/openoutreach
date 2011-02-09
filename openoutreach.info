@@ -25,6 +25,7 @@ dependencies[] = field_ui
 dependencies[] = file
 dependencies[] = rdf
 ; Contrib dependencies.
+dependencies[] = pathauto
 dependencies[] = views_ui
 ; Features.
 dependencies[] = debut
