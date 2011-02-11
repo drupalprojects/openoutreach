@@ -21,8 +21,11 @@ function openoutreach_form_install_configure_form_alter(&$form, $form_state) {
  */
 if (!function_exists('system_form_install_select_profile_form_alter')) {
   function system_form_install_select_profile_form_alter(&$form, $form_state) {
-    foreach($form['profile'] as $key => $element) {
-      $form['profile'][$key]['#value'] = 'openoutreach';
+    // Only set the value if Open Outreach is the only additional profile (besides standard and minimal).
+    if (count($form['profile']) == 3) {
+      foreach($form['profile'] as $key => $element) {
+        $form['profile'][$key]['#value'] = 'openoutreach';
+      }
     }
   }
 }
