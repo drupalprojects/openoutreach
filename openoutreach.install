@@ -149,6 +149,8 @@ function openoutreach_install() {
     // Contrib.
     'context_ui',
     'views_ui',
+    // Temporary fix, see http://drupal.org/node/1058860
+    'date_popup',
   );
 
   $operations = array();
