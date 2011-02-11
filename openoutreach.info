@@ -37,4 +37,6 @@ features[ctools][] = "strongarm:strongarm:1"
 features[variable][] = "menu_main_links_source"
 features[variable][] = "menu_secondary_links_source"
 
+version = "7.x-1.0-beta1"
+
 files[] = openoutreach.profile
