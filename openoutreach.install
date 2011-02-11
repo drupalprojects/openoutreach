@@ -143,7 +143,7 @@ function openoutreach_install() {
   $modules = array(
     // Core.
     'contextual',
-    'overlay'
+    'overlay',
     'shortcut',
     'toolbar',
     // Contrib.
