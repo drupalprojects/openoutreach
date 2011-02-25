@@ -1,5 +1,4 @@
 <?php
-// $Id$
 
 include_once('openoutreach.features.inc');
 

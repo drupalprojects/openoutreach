@@ -1,4 +1,3 @@
-; $Id$
 name = Open Outreach
 description = 'Open Outreach provides a highly usable and feature rich website suited to small non-profits and community organizations.'
 core = 7.x
