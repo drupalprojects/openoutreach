@@ -1,6 +1,34 @@
 name = Open Outreach
 description = 'Open Outreach provides a highly usable and feature rich website suited to small non-profits and community organizations.'
+distribution_name = Open Outreach
 core = 7.x
+
+; Sub-profiles.
+; default sub-profile is named 'standard'.
+subprofiles[standard][name] = Openoutreach standard
+subprofiles[standard][description] = Install a full version of Open Outreach with all commonly needed features enabled.
+subprofiles[standard][features][debut] = TRUE
+subprofiles[standard][features][debut_article] = TRUE
+subprofiles[standard][features][debut_blog] = TRUE
+subprofiles[standard][features][debut_comment] = TRUE
+subprofiles[standard][features][debut_event] = TRUE
+subprofiles[standard][features][debut_media] = TRUE
+subprofiles[standard][features][debut_section] = TRUE
+subprofiles[standard][features][debut_social] = TRUE
+subprofiles[standard][features][debut_wysiwyg] = TRUE
+; minimal sub-profile.
+subprofiles[minimal][name] = Openoutreach minimal
+subprofiles[minimal][description] = Install a minimal Open Outreach site with article and comment functionality.
+subprofiles[minimal][features][debut] = TRUE
+subprofiles[minimal][features][debut_article] = TRUE
+subprofiles[minimal][features][debut_blog] = FALSE
+subprofiles[minimal][features][debut_comment] = TRUE
+subprofiles[minimal][features][debut_event] = FALSE
+subprofiles[minimal][features][debut_media] = FALSE
+subprofiles[minimal][features][debut_section] = FALSE
+subprofiles[minimal][features][debut_social] = FALSE
+subprofiles[minimal][features][debut_wysiwyg] = FALSE
+
 ; Core dependencies.
 dependencies[] = block
 dependencies[] = color
@@ -20,22 +48,20 @@ dependencies[] = field_ui
 dependencies[] = file
 dependencies[] = rdf
 ; Contrib dependencies.
-dependencies[] = pathauto
-; Features.
-dependencies[] = debut
-dependencies[] = debut_article
-dependencies[] = debut_blog
-dependencies[] = debut_comment
-dependencies[] = debut_event
-dependencies[] = debut_media
-dependencies[] = debut_section
-dependencies[] = debut_social
-dependencies[] = debut_wysiwyg
+dependencies[] = features
+; Core recommended.
+recommended[] = contextual
+recommended[] = overlay
+recommended[] = shortcut
+recommended[] = toolbar
+; Contrib recommended.
+recommended[] = pathauto
+recommended[] = context_ui
+recommended[] = views_ui
+
 ; Features
 features[ctools][] = "strongarm:strongarm:1"
 features[variable][] = "menu_main_links_source"
 features[variable][] = "menu_secondary_links_source"
-
-version = "7.x-1.0-beta1"
 
 files[] = openoutreach.profile

@@ -1,31 +1,32 @@
 <?php
 
 include_once('openoutreach.features.inc');
-
-/**
- * Implements hook_form_FORM_ID_alter().
- *
- * Allows the profile to alter the site configuration form.
- */
-function openoutreach_form_install_configure_form_alter(&$form, $form_state) {
-  // Pre-populate the site name with the server name.
-  $form['site_information']['site_name']['#default_value'] = $_SERVER['SERVER_NAME'];
+// Include only when in install mode. MAINTENANCE_MODE is defined in install.php.
+if (defined('MAINTENANCE_MODE') && MAINTENANCE_MODE == 'install') {
+  include_once('openoutreach.install.inc');
 }
 
 /**
- * Check that other install profiles are not present to ensure we don't collide with a
- * similar form alter in their profile.
- *
- * Set Open Outreach as default install profile.
+ * Return an array of data about subprofiles of openoutreach.
  */
-if (!function_exists('system_form_install_select_profile_form_alter')) {
-  function system_form_install_select_profile_form_alter(&$form, $form_state) {
-    // Only set the value if Open Outreach is the only additional profile (besides standard and minimal).
-    if (count($form['profile']) == 3) {
-      foreach($form['profile'] as $key => $element) {
-        $form['profile'][$key]['#value'] = 'openoutreach';
-      }
-    }
-  }
+function openoutreach_get_subprofiles($profile = 'openoutreach') {
+  include_once DRUPAL_ROOT . '/includes/install.inc';
+  $info = install_profile_info($profile);
+  return $info['subprofiles'];
 }
 
+/**
+ * Return an array of data about a specified subprofile of openoutreach.
+ */
+function openoutreach_get_subprofile($profile = 'openoutreach', $subprofile = 'openoutreach_standard') {
+  $subprofiles = openoutreach_get_sub_profiles($profile);
+  return isset($subprofiles[$subprofile]) ? $subprofiles[$subprofile] : FALSE;
+}
+
+/**
+ * Implements hook_modules_installed().
+ */
+function openoutreach_modules_installed($modules) {
+  module_load_include('inc', 'openoutreach', 'openoutreach.module_batch');
+  openoutreach_module_batch($modules);
+}
