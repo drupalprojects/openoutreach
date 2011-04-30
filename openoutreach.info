@@ -49,15 +49,15 @@ dependencies[] = file
 dependencies[] = rdf
 ; Contrib dependencies.
 dependencies[] = features
-; Core recommended.
-recommended[] = contextual
-recommended[] = overlay
-recommended[] = shortcut
-recommended[] = toolbar
-; Contrib recommended.
-recommended[] = pathauto
-recommended[] = context_ui
-recommended[] = views_ui
+; Core recommends.
+recommends[] = contextual
+recommends[] = overlay
+recommends[] = shortcut
+recommends[] = toolbar
+; Contrib recommends.
+recommends[] = pathauto
+recommends[] = context_ui
+recommends[] = views_ui
 
 ; Features
 features[ctools][] = "strongarm:strongarm:1"

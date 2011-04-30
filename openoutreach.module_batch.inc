@@ -7,24 +7,23 @@
  */
 
 /**
- * Set a batch operation to enable 'recommended' enhancing modules of a given set of modules.
+ * Set a batch operation to enable recommended enhancing modules of a given set of modules.
  *
  * Recommendations are identified in a module's .info file as follows:
  * <code>
- * recommended[] = comment
- * recommended[] = views_ui
+ * recommends[] = comment
+ * recommends[] = views_ui
  * </code>
  *
  * @param $modules
  *   An array of names of modules whose recommended modules should be enabled.
  */
 function openoutreach_module_batch($modules) {
-  $operations = array();
   $recommended = array();
   foreach ($modules as $module) {
     $info = drupal_parse_info_file(drupal_get_path('module', $module) . "/$module.info");
-    if ($info && isset($info['recommended'])) {
-      $recommended = array_unique(array_merge($recommended, $info['recommended']));
+    if ($info && isset($info['recommends'])) {
+      $recommended = array_unique(array_merge($recommended, $info['recommends']));
     }
   }
   openoutreach_set_module_batch($recommended);
@@ -86,6 +85,7 @@ function openoutreach_get_module_batch($modules) {
   // Ensure modules are not already enabled.
   $modules = array_filter(array_keys($modules), 'openoutreach_module_disabled');
 
+  $operations = array();
   foreach ($modules as $module) {
     if (isset($files[$module])) {
       $operations[] = array('_install_module_batch', array($module, $files[$module]->info['name']));
