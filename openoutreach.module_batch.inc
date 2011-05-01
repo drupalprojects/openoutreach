@@ -97,7 +97,7 @@ function openoutreach_get_module_batch($modules) {
     'progress_message' => st('Enabling @current out of @total modules.'),
     'operations' => $operations,
     'error_message' => st('Module enabling encountered an error.'),
-    'file' => DRUPAL_ROOT . '/includes/install.core.inc',
+    'file' => 'includes/install.core.inc',
   );
   return $batch;
 }
