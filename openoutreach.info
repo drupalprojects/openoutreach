@@ -49,6 +49,7 @@ dependencies[] = file
 dependencies[] = rdf
 ; Contrib dependencies.
 dependencies[] = features
+dependencies[] = subprofiles
 ; Core recommends.
 recommends[] = contextual
 recommends[] = overlay

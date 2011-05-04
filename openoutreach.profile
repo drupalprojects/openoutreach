@@ -6,34 +6,10 @@
  */
 
 include_once('openoutreach.features.inc');
-// Include only when in install mode. MAINTENANCE_MODE is defined in install.php.
+// Include only when in install mode. MAINTENANCE_MODE is defined in
+// install.php and in drush_core_site_install().
 if (defined('MAINTENANCE_MODE') && MAINTENANCE_MODE == 'install') {
   include_once('openoutreach.install.inc');
-}
-
-/**
- * Return an array of data about subprofiles of openoutreach.
- */
-function openoutreach_get_subprofiles($profile = 'openoutreach') {
-  include_once DRUPAL_ROOT . '/includes/install.inc';
-  $info = install_profile_info($profile);
-  return $info['subprofiles'];
-}
-
-/**
- * Return an array of data about a specified subprofile of openoutreach.
- *
- * @param $profile
- *   The name of a profile.
- * @param $subprofile
- *   The name of a subprofile.
- *
- * @return
- *   Array of information about the specified subprofile, if available.
- */
-function openoutreach_get_subprofile($profile = 'openoutreach', $subprofile = 'openoutreach_standard') {
-  $subprofiles = openoutreach_get_sub_profiles($profile);
-  return isset($subprofiles[$subprofile]) ? $subprofiles[$subprofile] : FALSE;
 }
 
 /**
