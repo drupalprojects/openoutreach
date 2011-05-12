@@ -11,3 +11,6 @@ includes[debut_media] = "http://drupalcode.org/project/debut_media.git/blob_plai
 includes[debut_section] = "http://drupalcode.org/project/debut_section.git/blob_plain/HEAD:/debut_section.make.inc"
 includes[debut_social] = "http://drupalcode.org/project/debut_social.git/blob_plain/HEAD:/debut_social.make.inc"
 includes[debut_wysiwyg] = "http://drupalcode.org/project/debut_wysiwyg.git/blob_plain/HEAD:/debut_wysiwyg.make.inc"
+
+projects[subprofiles][subdir] = contrib
+projects[subprofiles][version] = 1.x-dev
