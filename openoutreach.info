@@ -1,12 +1,52 @@
-name = Open Outreach
-description = 'Open Outreach provides a highly usable and feature rich website suited to small non-profits and community organizations.'
-distribution_name = Open Outreach
-core = 7.x
-
-; Sub-profiles.
-; default sub-profile is named 'standard'.
-subprofiles[standard][name] = Openoutreach standard
-subprofiles[standard][description] = Install a full version of Open Outreach with all commonly needed features enabled.
+core = "7.x"
+dependencies[] = "block"
+dependencies[] = "color"
+dependencies[] = "comment"
+dependencies[] = "dashboard"
+dependencies[] = "dblog"
+dependencies[] = "features"
+dependencies[] = "field_ui"
+dependencies[] = "file"
+dependencies[] = "help"
+dependencies[] = "image"
+dependencies[] = "list"
+dependencies[] = "menu"
+dependencies[] = "number"
+dependencies[] = "options"
+dependencies[] = "path"
+dependencies[] = "rdf"
+dependencies[] = "search"
+dependencies[] = "strongarm"
+dependencies[] = "subprofiles"
+dependencies[] = "taxonomy"
+description = "Open Outreach provides a highly usable and feature rich website suited to small non-profits and community organizations."
+distribution_name = "Open Outreach"
+features[ctools][] = "strongarm:strongarm:1"
+features[user_permission][] = "access content"
+features[user_permission][] = "search content"
+features[user_permission][] = "use advanced search"
+features[variable][] = "menu_main_links_source"
+features[variable][] = "menu_secondary_links_source"
+features[variable][] = "user_picture_dimensions"
+features[variable][] = "user_picture_file_size"
+features[variable][] = "user_picture_style"
+features[variable][] = "user_pictures"
+features[variable][] = "user_register"
+files[] = "openoutreach.profile"
+hidden = TRUE
+name = "Open Outreach"
+package = "Other"
+php = "5.2.4"
+recommends[] = "contextual"
+recommends[] = "overlay"
+recommends[] = "shortcut"
+recommends[] = "toolbar"
+recommends[] = "pathauto"
+recommends[] = "context_ui"
+recommends[] = "views_ui"
+required = TRUE
+subprofiles[standard][name] = "Openoutreach standard"
+subprofiles[standard][description] = "Install a full version of Open Outreach with all commonly needed features enabled."
 subprofiles[standard][features][debut] = TRUE
 subprofiles[standard][features][debut_article] = TRUE
 subprofiles[standard][features][debut_blog] = TRUE
@@ -16,9 +56,8 @@ subprofiles[standard][features][debut_media] = TRUE
 subprofiles[standard][features][debut_section] = TRUE
 subprofiles[standard][features][debut_social] = TRUE
 subprofiles[standard][features][debut_wysiwyg] = TRUE
-; minimal sub-profile.
-subprofiles[minimal][name] = Openoutreach minimal
-subprofiles[minimal][description] = Install a minimal Open Outreach site with article and comment functionality.
+subprofiles[minimal][name] = "Openoutreach minimal"
+subprofiles[minimal][description] = "Install a minimal Open Outreach site with article and comment functionality."
 subprofiles[minimal][features][debut] = TRUE
 subprofiles[minimal][features][debut_article] = TRUE
 subprofiles[minimal][features][debut_blog] = FALSE
@@ -29,40 +68,3 @@ subprofiles[minimal][features][debut_section] = FALSE
 subprofiles[minimal][features][debut_social] = FALSE
 subprofiles[minimal][features][debut_wysiwyg] = FALSE
 
-; Core dependencies.
-dependencies[] = block
-dependencies[] = color
-dependencies[] = comment
-dependencies[] = dashboard
-dependencies[] = help
-dependencies[] = image
-dependencies[] = list
-dependencies[] = menu
-dependencies[] = number
-dependencies[] = options
-dependencies[] = path
-dependencies[] = taxonomy
-dependencies[] = dblog
-dependencies[] = search
-dependencies[] = field_ui
-dependencies[] = file
-dependencies[] = rdf
-; Contrib dependencies.
-dependencies[] = features
-dependencies[] = subprofiles
-; Core recommends.
-recommends[] = contextual
-recommends[] = overlay
-recommends[] = shortcut
-recommends[] = toolbar
-; Contrib recommends.
-recommends[] = pathauto
-recommends[] = context_ui
-recommends[] = views_ui
-
-; Features
-features[ctools][] = "strongarm:strongarm:1"
-features[variable][] = "menu_main_links_source"
-features[variable][] = "menu_secondary_links_source"
-
-files[] = openoutreach.profile
