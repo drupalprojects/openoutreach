@@ -4,18 +4,16 @@
 core = 6.x
 api = 2
 
-includes[debut] = "http://drupalcode.org/viewvc/drupal/contributions/modules/debut/debut.make.inc?content-type=text%2Fplain&view=co&pathrev=DRUPAL-6--1"
-includes[debut_admin] = "http://drupalcode.org/viewvc/drupal/contributions/modules/debut_admin/debut_admin.make.inc?content-type=text%2Fplain&view=co&pathrev=DRUPAL-6--1"
-includes[debut_article] = "http://drupalcode.org/viewvc/drupal/contributions/modules/debut_article/debut_article.make.inc?content-type=text%2Fplain&view=co&pathrev=DRUPAL-6--1"
-includes[debut_audio] = "http://drupalcode.org/viewvc/drupal/contributions/modules/debut_audio/debut_audio.make.inc?content-type=text%2Fplain&view=co&pathrev=DRUPAL-6--1"
-includes[debut_blog] = "http://drupalcode.org/viewvc/drupal/contributions/modules/debut_blog/debut_blog.make.inc?content-type=text%2Fplain&view=co&pathrev=DRUPAL-6--1"
-// Release information not yet available.
-// includes[debut_comment] = "http://drupalcode.org/viewvc/drupal/contributions/modules/debut_comment/debut_comment.make.inc?content-type=text%2Fplain&view=co&pathrev=DRUPAL-6--1"
-includes[debut_event] = "http://drupalcode.org/viewvc/drupal/contributions/modules/debut_event/debut_event.make.inc?content-type=text%2Fplain&view=co&pathrev=DRUPAL-6--1"
-includes[debut_image] = "http://drupalcode.org/viewvc/drupal/contributions/modules/debut_image/debut_image.make.inc?content-type=text%2Fplain&view=co&pathrev=DRUPAL-6--1"
-includes[debut_section] = "http://drupalcode.org/viewvc/drupal/contributions/modules/debut_section/debut_section.make.inc?content-type=text%2Fplain&view=co&pathrev=DRUPAL-6--1"
-includes[debut_social] = "http://drupalcode.org/viewvc/drupal/contributions/modules/debut_social/debut_social.make.inc?content-type=text%2Fplain&view=co&pathrev=DRUPAL-6--1"
-// Release information not yet available.
-// includes[debut_tagging] = "http://drupalcode.org/viewvc/drupal/contributions/modules/debut_tagging/debut_tagging.make.inc?content-type=text%2Fplain&view=co&pathrev=DRUPAL-6--1"
-includes[debut_video] = "http://drupalcode.org/viewvc/drupal/contributions/modules/debut_video/debut_video.make.inc?content-type=text%2Fplain&view=co&pathrev=DRUPAL-6--1"
-includes[debut_wysiwyg] = "http://drupalcode.org/viewvc/drupal/contributions/modules/debut_wysiwyg/debut_wysiwyg.make.inc?content-type=text%2Fplain&view=co&pathrev=DRUPAL-6--1"
+includes[debut] = "http://drupalcode.org/project/debut.git/blob_plain/refs/heads/6.x-1.x:/debut.make.inc"
+includes[debut_admin] = "http://drupalcode.org/project/debut_admin.git/blob_plain/refs/heads/6.x-1.x:/debut_admin.make.inc"
+includes[debut_article] = "http://drupalcode.org/project/debut_article.git/blob_plain/refs/heads/6.x-1.x:/debut_article.make.inc"
+includes[debut_audio] = "http://drupalcode.org/project/debut_audio.git/blob_plain/refs/heads/6.x-1.x:/debut_audio.make.inc"
+includes[debut_blog] = "http://drupalcode.org/project/debut_blog.git/blob_plain/refs/heads/6.x-1.x:/debut_blog.make.inc"
+includes[debut_comment] = "http://drupalcode.org/project/debut_comment.git/blob_plain/refs/heads/6.x-1.x:/debut_comment.make.inc"
+includes[debut_event] = "http://drupalcode.org/project/debut_event.git/blob_plain/refs/heads/6.x-1.x:/debut_event.make.inc"
+includes[debut_image] = "http://drupalcode.org/project/debut_image.git/blob_plain/refs/heads/6.x-1.x:/debut_image.make.inc"
+includes[debut_section] = "http://drupalcode.org/project/debut_section.git/blob_plain/refs/heads/6.x-1.x:/debut_section.make.inc"
+includes[debut_social] = "http://drupalcode.org/project/debut_social.git/blob_plain/refs/heads/6.x-1.x:/debut_social.make.inc"
+includes[debut_tagging] = "http://drupalcode.org/project/debut_tagging.git/blob_plain/refs/heads/6.x-1.x:/debut_tagging.make.inc"
+includes[debut_video] = "http://drupalcode.org/project/debut_video.git/blob_plain/refs/heads/6.x-1.x:/debut_video.make.inc"
+includes[debut_wysiwyg] = "http://drupalcode.org/project/debut_wysiwyg.git/blob_plain/refs/heads/6.x-1.x:/debut_wysiwyg.make.inc"
