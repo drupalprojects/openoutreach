@@ -17,7 +17,7 @@ function openoutreach_front_page_views_default_views() {
   $view->base_table = 'node';
   $view->human_name = 'Front page top stories';
   $view->core = 7;
-  $view->api_version = '3.0-alpha1';
+  $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
 
   /* Display: Master */
@@ -148,8 +148,12 @@ function openoutreach_front_page_views_default_views() {
   $handler->display->display_options['fields']['field_image']['element_default_classes'] = 1;
   $handler->display->display_options['fields']['field_image']['hide_empty'] = 0;
   $handler->display->display_options['fields']['field_image']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['field_image']['hide_alter_empty'] = 0;
   $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_image']['type'] = 'styles_media_medium';
+  $handler->display->display_options['fields']['field_image']['settings'] = array(
+    'file_view_mode' => 'media_preview',
+  );
   $handler->display->display_options['fields']['field_image']['field_api_classes'] = 0;
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
