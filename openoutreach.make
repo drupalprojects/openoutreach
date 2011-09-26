@@ -15,12 +15,10 @@ includes[debut_section] = "http://drupalcode.org/project/debut_section.git/blob_
 includes[debut_social] = "http://drupalcode.org/project/debut_social.git/blob_plain/refs/heads/7.x-1.x:/debut_social.make.inc"
 includes[debut_wysiwyg] = "http://drupalcode.org/project/debut_wysiwyg.git/blob_plain/refs/heads/7.x-1.x:/debut_wysiwyg.make.inc"
 
-; Drupal 6 version of Designkit with D7 upgrade patch.
 projects[designkit][download][type] = "git"
-projects[designkit][download][url] = "git://git.drupal.org/project/designkit.git"
-projects[designkit][download][branch] = "6.x-1.x"
+projects[designkit][download][url] = "git://git.drupal.org/sandbox/nedjo/1289398"
+projects[designkit][type] = "module"
 projects[designkit][subdir] = contrib
-projects[designkit][patch][http://drupal.org/files/issues/d7-upgrade-1036386-9.patch] = http://drupal.org/files/issues/d7-upgrade-1036386-9.patch
 projects[fusion][subdir] = contrib
 projects[fusion][version] = 1.0-alpha2
 projects[granada][subdir] = contrib
