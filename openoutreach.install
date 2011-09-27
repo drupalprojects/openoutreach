@@ -142,7 +142,6 @@ function openoutreach_install() {
     ->condition('type', 'theme')
     ->condition('name', $themes, 'IN')
     ->execute();
-  }
   variable_set('theme_default', $default_theme);
   variable_set('admin_theme', $admin_theme);
   variable_set('node_admin_theme', '1');
