@@ -40,7 +40,6 @@ recommends[] = "contextual"
 recommends[] = "context_ui"
 recommends[] = "dashboard"
 recommends[] = "field_ui"
-recommends[] = "openoutreach_front_page"
 recommends[] = "overlay"
 recommends[] = "pathauto"
 recommends[] = "rdf"
@@ -61,7 +60,7 @@ subprofiles[standard][features][debut_link] = TRUE
 subprofiles[standard][features][debut_media] = TRUE
 subprofiles[standard][features][debut_section] = TRUE
 subprofiles[standard][features][debut_social] = TRUE
-subprofiles[standard][features][debut_wysiwyg] = TRUE
+subprofiles[standard][features]openoutreach_front_page] = TRUE
 subprofiles[minimal][name] = "Openoutreach minimal"
 subprofiles[minimal][description] = "Install a minimal Open Outreach site with article and comment functionality."
 subprofiles[minimal][features][debut] = TRUE
@@ -75,4 +74,6 @@ subprofiles[minimal][features][debut_media] = FALSE
 subprofiles[minimal][features][debut_section] = FALSE
 subprofiles[minimal][features][debut_social] = FALSE
 subprofiles[minimal][features][debut_wysiwyg] = FALSE
+subprofiles[minimal][features]openoutreach_front_page] = FALSE
+
 
