@@ -62,7 +62,8 @@ subprofiles[standard][features][debut_link] = TRUE
 subprofiles[standard][features][debut_media] = TRUE
 subprofiles[standard][features][debut_section] = TRUE
 subprofiles[standard][features][debut_social] = TRUE
-subprofiles[standard][features]openoutreach_front_page] = TRUE
+subprofiles[standard][features][debut_wysiwyg] = TRUE
+subprofiles[standard][features][openoutreach_front_page] = TRUE
 subprofiles[minimal][name] = "Openoutreach minimal"
 subprofiles[minimal][description] = "Install a minimal Open Outreach site with article and comment functionality."
 subprofiles[minimal][features][debut] = TRUE
@@ -70,12 +71,12 @@ subprofiles[minimal][features][debut_article] = TRUE
 subprofiles[minimal][features][debut_blog] = FALSE
 subprofiles[minimal][features][debut_comment] = TRUE
 subprofiles[minimal][features][debut_event] = FALSE
-subprofiles[standard][features][debut_forum] = FALSE
-subprofiles[standard][features][debut_link] = FALSE
+subprofiles[minimal][features][debut_forum] = FALSE
+subprofiles[minimal][features][debut_link] = FALSE
 subprofiles[minimal][features][debut_media] = FALSE
 subprofiles[minimal][features][debut_section] = FALSE
 subprofiles[minimal][features][debut_social] = FALSE
 subprofiles[minimal][features][debut_wysiwyg] = FALSE
-subprofiles[minimal][features]openoutreach_front_page] = FALSE
+subprofiles[minimal][features][openoutreach_front_page] = FALSE
 
 
