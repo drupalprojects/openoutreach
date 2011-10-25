@@ -151,6 +151,7 @@ h2.pane-title {
     $pane->cache = array();
     $pane->style = array(
       'settings' => NULL,
+      'style' => 'block',
     );
     $pane->css = array();
     $pane->extras = array();
@@ -183,6 +184,7 @@ h2.pane-title {
     $pane->cache = array();
     $pane->style = array(
       'settings' => NULL,
+      'style' => 'block',
     );
     $pane->css = array();
     $pane->extras = array();
@@ -215,6 +217,7 @@ h2.pane-title {
     $pane->cache = array();
     $pane->style = array(
       'settings' => NULL,
+      'style' => 'block',
     );
     $pane->css = array();
     $pane->extras = array();
