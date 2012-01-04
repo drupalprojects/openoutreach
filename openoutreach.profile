@@ -16,11 +16,17 @@ if (defined('MAINTENANCE_MODE') && MAINTENANCE_MODE == 'install') {
  * Implements hook_modules_installed().
  *
  * When a module is installed, enable the modules it recommends if they are
- * present.
+ * present. For Open Outreach, also install permissions.
  */
 function openoutreach_modules_installed($modules) {
   module_load_include('inc', 'openoutreach', 'openoutreach.module_batch');
   openoutreach_module_batch($modules);
+
+  // After enabling modules in the "recommends" array in openoutreach.info,
+  // apply their permissions.
+  if (drupal_installation_attempted() && in_array($modules, 'openoutreach')) {
+    openoutreach_install_permissions();
+  }
 }
 
 /**
