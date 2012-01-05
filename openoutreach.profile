@@ -24,7 +24,7 @@ function openoutreach_modules_installed($modules) {
 
   // After enabling modules in the "recommends" array in openoutreach.info,
   // apply their permissions.
-  if (drupal_installation_attempted() && in_array($modules, 'openoutreach')) {
+  if (drupal_installation_attempted() && in_array('openoutreach', $modules)) {
     openoutreach_install_permissions();
   }
 }
