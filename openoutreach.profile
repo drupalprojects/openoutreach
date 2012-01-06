@@ -21,12 +21,6 @@ if (defined('MAINTENANCE_MODE') && MAINTENANCE_MODE == 'install') {
 function openoutreach_modules_installed($modules) {
   module_load_include('inc', 'openoutreach', 'openoutreach.module_batch');
   openoutreach_module_batch($modules);
-
-  // After enabling modules in the "recommends" array in openoutreach.info,
-  // apply their permissions.
-  if (drupal_installation_attempted() && in_array('openoutreach', $modules)) {
-    openoutreach_install_permissions();
-  }
 }
 
 /**

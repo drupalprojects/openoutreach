@@ -21,21 +21,21 @@ function openoutreach_install_tasks($install_state) {
   else {
     $tasks = array();
   }
-  $tasks['openoutreach_cleanup'] = array();
+  $tasks['openoutreach_wrapup'] = array();
   return $tasks;
 }
 
 /**
- * Installation task; revert the openoutreach feature's user_permissions.
+ * Installation task; install permissions.
  *
- * This seems to be needed because the permissions are not correctly
- * registered when the feature is enabled.
+ * Permissions for optional modules need to be assigned after the modules
+ * have been installed.
  *
  * @param $install_state
  *   An array of information about the current installation state.
  */
-function openoutreach_cleanup(&$install_state) {
-  features_revert(array('openoutreach' => array('user_permission')));
+function openoutreach_wrapup(&$install_state) {
+  openoutreach_install_permissions();
 }
 
 /**
@@ -121,5 +121,6 @@ function openoutreach_install_user_default_permissions() {
  */
 function openoutreach_install_permissions() {
   features_include();
+  module_load_include('inc', 'features', 'features.export');
   user_permission_features_rebuild('openoutreach_install');
 }
