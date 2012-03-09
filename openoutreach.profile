@@ -57,7 +57,7 @@ function openoutreach_form_install_configure_form_alter(&$form, &$form_state) {
  * with the blogger role.
  */
 function openoutreach_context_default_contexts_alter(&$contexts) {
-  if (isset($contexts['shortcut']) && modules_exists('debut_blog') && !openoutreach_is_recreating('openoutreach')) {
+  if (isset($contexts['shortcut']) && module_exists('debut_blog') && !openoutreach_is_recreating('openoutreach')) {
     $contexts['shortcut']->conditions['user']['values']['blogger'] = 'blogger';
   }
 }
