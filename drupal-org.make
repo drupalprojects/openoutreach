@@ -22,6 +22,8 @@ core = 7.x
 ; includes[debut_wysiwyg] = "http://drupalcode.org/project/debut_wysiwyg.git/blob_plain/refs/heads/7.x-1.x:/debut_wysiwyg.make.inc"
 
 ; Projects specific to Open Outreach.
+projects[admin_menu][subdir] = contrib
+projects[admin_menu][version] = 3.0-rc2
 projects[designkit][subdir] = contrib
 projects[designkit][version] = 1.0-beta1
 projects[fusion][subdir] = contrib

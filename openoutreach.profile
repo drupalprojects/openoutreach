@@ -63,6 +63,23 @@ function openoutreach_context_default_contexts_alter(&$contexts) {
 }
 
 /**
+ * Implements hook_admin_menu_output_build().
+ *
+ * Add links to the admin_menu shortcuts menu.
+ */
+function openoutreach_admin_menu_output_build(&$content) {
+  $content['shortcuts']['shortcuts']['admin-structure-taxonomy'] = array(
+    '#title' => t('Add terms'),
+    '#href' => 'admin/structure/taxonomy',
+    '#access' => user_access('administer taxonomy'),
+  );
+  $content['shortcuts']['shortcuts']['user'] = array(
+    '#title' => t('My account'),
+    '#href' => 'user',
+  );
+}
+
+/**
  * Determine whether a feature is being recreated.
  */
 function openoutreach_is_recreating($feature = NULL) {
