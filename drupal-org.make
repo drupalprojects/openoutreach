@@ -1,6 +1,6 @@
 api = 2
 core = 7.x
-projects[drupal][type] = core
+
 ; Includes are not yet supported on drupal-org.make files.
 ; See http://drupal.org/node/1427752.
 
