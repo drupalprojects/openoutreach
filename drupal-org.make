@@ -43,7 +43,7 @@ projects[subprofiles][version] = 1.0
 
 ; TODO: delete everything below once http://drupal.org/node/1427752 is fixed.
 projects[advanced_forum][subdir] = contrib
-projects[advanced_forum][version] = 2.0-rc1
+projects[advanced_forum][version] = 2.0
 projects[advanced_help][subdir] = contrib
 projects[calendar][subdir] = contrib
 projects[calendar][version] = 3.3
