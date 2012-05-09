@@ -160,6 +160,9 @@ libraries[colorbox][directory_name] = "colorbox"
 libraries[colorbox][download][type] = "get"
 libraries[colorbox][download][url] = "https://github.com/jackmoore/colorbox/zipball/v1.3.16"
 libraries[jquery.cycle][download][type] = "get"
-libraries[jquery.cycle][download][url] = "https://raw.github.com/malsup/cycle/master/jquery.cycle.all.js"
-libraries[json2][download][type] = "get"
-libraries[json2][download][url] = "https://github.com/douglascrockford/JSON-js/raw/master/json2.js"
+; Permissions wrong when specifying single file. See http://drupal.org/node/1459618.
+; libraries[jquery.cycle][download][url] = "https://raw.github.com/malsup/cycle/master/jquery.cycle.all.js"
+libraries[jquery.cycle][download][url] = "https://github.com/malsup/cycle/tarball/master"
+; Optional so disabled for now pending a fix to http://drupal.org/node/1459618.
+; libraries[json2][download][type] = "get"
+; libraries[json2][download][url] = "https://github.com/douglascrockford/JSON-js/raw/master/json2.js"
