@@ -44,10 +44,15 @@ if (!function_exists('system_form_install_select_profile_form_alter')) {
  * Implements hook_install_configure_form_alter().
  */
 function openoutreach_form_install_configure_form_alter(&$form, &$form_state) {
+  // Set some reasonable defaults for site configuration form.
   $form['site_information']['site_name']['#default_value'] = 'Open Outreach';
-  $form['site_information']['site_mail']['#default_value'] = 'admin@'. $_SERVER['HTTP_HOST'];
   $form['admin_account']['account']['name']['#default_value'] = 'admin';
-  $form['admin_account']['account']['mail']['#default_value'] = 'admin@'. $_SERVER['HTTP_HOST'];
+  // Don't set the email address to "admin@localhost" as that will fail D7's
+  // email address validation.
+  if ($_SERVER['HTTP_HOST'] != 'localhost') {
+    $form['site_information']['site_mail']['#default_value'] = 'admin@'. $_SERVER['HTTP_HOST'];
+    $form['admin_account']['account']['mail']['#default_value'] = 'admin@'. $_SERVER['HTTP_HOST'];
+  }
 }
 
 /**
@@ -101,5 +106,24 @@ function openoutreach_is_recreating($feature = NULL) {
     return TRUE;
   }
   return FALSE;
+}
+
+
+/**
+ * Implements hook_apps_servers_info().
+ */
+function openoutreach_apps_servers_info() {
+  $info =  drupal_parse_info_file(dirname(__file__) . '/openoutreach.info');
+  return array(
+    'debut' => array(
+      'title' => 'Debut',
+      'description' => "Apps in the Debut se",
+      'manifest' => 'http://appserver.openoutreach.com/app/query',
+      'profile' => 'openoutreach',
+      'profile_version' => isset($info['version']) ? $info['version'] : '7.x-1.x',
+      'server_name' => $_SERVER['SERVER_NAME'],
+      'server_ip' => $_SERVER['SERVER_ADDR'],
+    ),
+  );
 }
 
