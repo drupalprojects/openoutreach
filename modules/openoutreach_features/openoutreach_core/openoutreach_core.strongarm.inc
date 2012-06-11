@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * openoutreach.strongarm.inc
+ * openoutreach_core.strongarm.inc
  */
 
 /**
  * Implementation of hook_strongarm().
  */
-function openoutreach_strongarm() {
+function openoutreach_core_strongarm() {
   $export = array();
 
   $strongarm = new stdClass;

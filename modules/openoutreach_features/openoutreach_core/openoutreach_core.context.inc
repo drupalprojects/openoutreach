@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * openoutreach.context.inc
+ * openoutreach_core.context.inc
  */
 
 /**
  * Implements hook_context_default_contexts().
  */
-function openoutreach_context_default_contexts() {
+function openoutreach_core_context_default_contexts() {
   $export = array();
 
   $context = new stdClass;

@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * openoutreach.features.user_permission.inc
+ * openoutreach_core.features.user_permission.inc
  */
 
 /**
  * Implementation of hook_user_default_permissions().
  */
-function openoutreach_user_default_permissions() {
+function openoutreach_core_user_default_permissions() {
   $permissions = array();
 
   // Exported permission: access administration pages
