@@ -178,11 +178,9 @@ function openoutreach_enable_features(&$install_state) {
   if (!empty($features)) {
     $operations = array();
     foreach ($features as $module) {
-      if (isset($files[$module])) {
-        $module_info = system_get_info('module', $module);
-        $module_name = isset($module_info['name']) ? $module_info['name'] : $module;
-        $operations[] = array('app_profile_enable_module', array($module, $module_name));
-      }
+      $module_info = system_get_info('module', $module);
+      $module_name = isset($module_info['name']) ? $module_info['name'] : $module;
+      $operations[] = array('app_profile_enable_module', array($module, $module_name));
     }
     if (!empty($operations)) {
       $batch = array(
