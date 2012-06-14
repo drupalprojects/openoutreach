@@ -5,6 +5,8 @@
  * Provides functionality to be used at install time.
  */
 
+define("APPS_INSTALL_PATH", 'sites/all/modules');
+
 /**
  * Generate an install task to install subprofile features.
  *
@@ -171,7 +173,7 @@ function openoutreach_apps_profile_apps_select_form_submit($form, &$form_state) 
  * Install selected Open Outreach features.
  */
 function openoutreach_enable_features(&$install_state) {
-  $features = array_keys($_SESSION['openoutreach_features']);
+  $features = $_SESSION['openoutreach_features'];
 
   if (!empty($features)) {
     $operations = array();
@@ -350,6 +352,10 @@ function openoutreach_apps_check($form, &$form_state) {
  * Form to talk about preparing the site for prime time.
  */
 function openoutreach_prepare($form, &$form_state) {
+  // Hide some messages from various modules that are just too chatty!
+  drupal_get_messages('status');
+  drupal_get_messages('warning');
+
   $form = array();
 
   $form['opening'] = array(
