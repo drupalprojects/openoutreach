@@ -5,8 +5,6 @@
  * Provides functionality to be used at install time.
  */
 
-define("APPS_INSTALL_PATH", 'sites/all/modules');
-
 /**
  * Generate an install task to install subprofile features.
  *
@@ -21,8 +19,8 @@ function openoutreach_install_tasks($install_state) {
   require_once(drupal_get_path('module', 'apps') . '/apps.profile.inc');
 
   // Set up a task to verify capability to run apps.
-  $tasks['openoutreach_apps_check'] = array(
-    'display_name' => t('Enable apps support'),
+  $tasks['openoutreach_apps_verify'] = array(
+    'display_name' => t('Verify apps support'),
     'type' => 'form',
   );
 
@@ -63,6 +61,16 @@ function openoutreach_install_tasks($install_state) {
     'type' => 'batch',
     'run' => (isset($_SESSION['openoutreach_features'])) ? INSTALL_TASK_RUN_IF_NOT_COMPLETED : INSTALL_TASK_SKIP,
     'function' => 'openoutreach_enable_features',
+  );
+
+  // Set up the theme selection and configuration tasks
+  $tasks['openoutreach_theme_form'] = array(
+    'display_name' => t('Choose a theme'),
+    'type' => 'form',
+  );
+  $tasks['openoutreach_theme_configure_form'] = array(
+    'display_name' => t('Configure theme settings'),
+    'type' => 'form',
   );
 
   // Set up the prepare task to close it out.
@@ -286,56 +294,10 @@ function openoutreach_install_permissions() {
 /**
  * Form to check to see if Apps support is possible.
  */
-function openoutreach_apps_check($form, &$form_state) {
-  $form = array();
+function openoutreach_apps_verify($form, &$form_state) {
 
-  $form['opening'] = array(
-    '#markup' => '<h1>' . t('Apps support verification') . '</h1>',
-  );
-
-  $form['openingtext'] = array(
-    '#markup' => '<p>' . t('Apps uses the same mechanism for installing modules as the Update module in core. This depends on certain php extensions to be installed on your server. Below is the documentation & verification for the various methods of installing.') . '</p>',
-  );
-
-  // Verify FTP support
-  $ftp_installed = extension_loaded('ftp');
-  $form['ftp'] = array(
-    '#type' => 'fieldset',
-    '#title' => t('FTP'),
-    '#description' => t('In order to install via ftp, you must have the ftp php extension enabled.<br /><br />')
-  );
-  $form['ftp']['#description'] .= $ftp_installed
-    ? t('<strong>You have the ftp extension enabled!</strong>')
-    : t('Your server does not have ftp installed. You will need to install it or use an alternative method. See <a href="http://us2.php.net/manual/en/book.ftp.php">http://us2.php.net/manual/en/book.ftp.php</a> for how to install the ftp php extension. You will also need an ftp username and password that has permissions to write to your site directory on your server. Be aware that FTP is not an encrypted protocol and your credentials will be transmitted in the clear.');
-
-  // Verify SSH support
-  $ssh_installed = extension_loaded('ssh2');
-  $form['ssh'] = array(
-    '#type' => 'fieldset',
-    '#title' => t('SSH'),
-    '#description' => t('In order to install via ssh, you must have the ssh2 php extension installed and enabled.<br/><br/>'),
-  );
-  $form['ssh']['#description'] .= $ssh_installed
-    ? t('<strong>You have the ssh2 extension enabled!</strong>')
-    : t('Your server does not have ssh2 installed. You will need to install it or use an alternative method. See <a href="http://us2.php.net/manual/en/book.ssh2.php">http://us2.php.net/manual/en/book.ssh2.php</a> for how to install the ssh2 php extension. You will also need a username and password of a user that can ssh into the server and has write permissions to your site directory on your server.');
-
-  // Verify web server write permissions
-  $install_permissions = is_writeable(drupal_realpath(APPS_INSTALL_PATH));
-  $vars = array('@install_path' => APPS_INSTALL_PATH);
-  $form['webserver'] = array(
-    '#type' => 'fieldset',
-    '#title' => t('Webserver Direct Install'),
-    '#description' => t('In order to install directly to the @install_path directory it needs to be writable by the web server.<br/><br/>', $vars),
-  );
-  $form['webserver']['#description'] .= $install_permissions
-    ? t('<strong>You have write permissions to @install_path</strong>', $vars)
-    : t('You do not have sufficient permissions. In order to do this go to the root of your drupal install and type <br/><br/><strong>sudo chmod -R 777 @install_path</strong><br/><br/>. Be aware that there are security issues with leaving your site in this state.', $vars);
-
-  // Note Pantheon requirements.
-  $form['pantheon'] = array(
-    '#title' => t('Pantheon'),
-    '#type' => 'fieldset',
-    '#description' => theme('image', array('path' => drupal_get_path('profile', 'openoutreach') . '/images/enable-apps-pantheon.png')) . t('If you are installing Open Outreach on Pantheon, you need to enable "On Server Development" to use apps.<br /><br />After you install your apps, you will need to use the "Commit" button to add them to the version control system.'),
+  $form['#attached']['css'] = array(
+    drupal_get_path('profile', 'openoutreach') . '/openoutreach.install.css',
   );
 
   $form['continue'] = array(
@@ -343,6 +305,229 @@ function openoutreach_apps_check($form, &$form_state) {
     '#value' => t('Continue'),
   );
 
+  return $form;
+}
+
+/**
+ * Show instructions and check system services to help guide direction
+ * for Apps installs.
+ */
+function Openoutreach_install_verify() {
+  $form = array();
+
+  $form['opening'] = array(
+    '#markup' => '<h1>' . t('Verify Apps support') . '</h1>',
+  );
+
+  $profiles = install_get_profiles();
+  $is_pantheon = isset($profiles['pantheon']);
+
+  if ($is_pantheon) {
+    // Note Pantheon requirements.
+    $form['pantheon'] = array(
+      '#title' => t('Pantheon'),
+      '#type' => 'fieldset',
+      '#description' => theme('image', array('path' => drupal_get_path('profile', 'openoutreach') . '/images/enable-apps-pantheon.png')) . t('If you are installing Open Outreach on Pantheon, you need to enable "On Server Development" to use apps.<br /><br />After you install your apps, you will need to use the "Commit" button to add them to the version control system.'),
+    );
+  }
+  else {
+    $form['openingtext'] = array(
+      '#markup' => '<p>' . t('Apps downloads the code needed to install apps using the same mechanism the Update module in Drupal core. This functionality depends on certain PHP extensions being enabled on your server. Below is the documentation & verification for the various methods of installing. <strong>Note that you need only <em>one</em> of these methods enabled in order to install apps.</strong>') . '</p>',
+      '#weight' => -10,
+    );
+
+    // Verify FTP support
+    $ftp_installed = extension_loaded('ftp');
+    $form['ftp'] = array(
+      '#type' => 'fieldset',
+      '#title' => t('FTP (!status)', array('!status' => $ftp_installed ? t('Enabled!') : t('Not enabled'))),
+      '#description' => '',
+      '#collapsible' => !$ftp_installed,
+      '#collapsed' => !$ftp_installed,
+      '#weight' => $ftp_installed ? 0 : 10,
+    );
+    if (!$ftp_installed) {
+      $form['ftp']['#description'] .= t('Your server does not have the FTP PHP extension. You will need to install it or use an alternative method. See <a href="http://us2.php.net/manual/en/book.ftp.php">http://us2.php.net/manual/en/book.ftp.php</a> for how to install the FTP PHP extension.') . '<br /><br />';
+    }
+    $form['ftp']['#description'] .= t('To install with FTP, you will need an FTP username and password that has permissions to write to your site directory on your server. Be aware that FTP is not an encrypted protocol and your credentials will be transmitted in the clear.');
+
+    // Verify SSH support
+    $ssh_installed = extension_loaded('ssh2');
+    $form['ssh'] = array(
+      '#type' => 'fieldset',
+      '#title' => t('SSH (!status)', array('!status' => $ssh_installed ? t('Enabled!') : t('Not enabled'))),
+      '#description' => '',
+      '#collapsible' => !$ssh_installed,
+      '#collapsed' => !$ssh_installed,
+      '#weight' => $ssh_installed ? 1 : 11,
+    );
+    if (!$ssh_installed) {
+      $form['ssh']['#description'] .= t('Your server does not have ssh2 installed. You will need to install it or use an alternative method. See <a href="http://us2.php.net/manual/en/book.ssh2.php">http://us2.php.net/manual/en/book.ssh2.php</a> for how to install the ssh2 php extension.') . '<br /><br />';
+    }
+    $form['ssh']['#description'] .= t('To install with SSH, you will need a username and password of a user that can SSH into the server and has write permissions to your site directory on your server.');
+
+    // Verify web server write permissions
+    $install_permissions = is_writeable(drupal_realpath('sites/all/modules'));
+    $vars = array('@install_path' => 'sites/all/modules');
+    $form['webserver'] = array(
+      '#type' => 'fieldset',
+      '#title' => t('Webserver direct install (!status)', array('!status' => $install_permissions ? t('Enabled!') : t('Not enabled'))),
+      '#description' => '',
+      '#collapsible' => !$install_permissions,
+      '#collapsed' => !$install_permissions,
+      '#weight' => $install_permissions ? 2 : 12,
+    );
+    $form['webserver']['#description'] .= $install_permissions
+      ? t('You have write permissions to @install_path and so can install using this method.', $vars) . '<br /><br />'
+      : t('You do not have sufficient permissions to instal by webserver direct install. In order to assign these permissions, go to the root of your drupal install and type <br/><br/><strong>sudo chmod -R 777 @install_path</strong>', $vars) . '<br /><br />';
+    $form['webserver']['#description'] .= t('Be aware that there are security issues with leaving your site in this state.');
+
+    // When altering this form and adding an install option, set this value to
+    // TRUE if your option is enabled (available). 
+    $form['app_enabled'] = array(
+      '#type' => 'value',
+      '#value' => $is_pantheon || $ftp_installed || $ssh_installed || $install_permissions ? TRUE : FALSE,
+    );
+
+    $form['#process'] = array('openoutreach_install_verify_process');
+  }
+
+  $form['continue'] = array(
+    '#type' => 'submit',
+    '#value' => t('Continue'),
+    '#weight' => 20,
+  );
+
+  return $form;
+}
+
+/**
+ * Process callback for apps_install_verify form.
+ *
+ * If no options are enabled, show all of them and a message.
+ */
+function openoutreach_install_verify_process($form) {
+  if (!$form['app_enabled']['#value']) {
+    foreach (element_children($form) as $key) {
+      if (isset($form[$key]['#type']) && $form[$key]['#type'] == 'fieldset') {
+        $form[$key]['#collapsible'] = FALSE;
+        $form[$key]['#collapsed'] = FALSE;
+      }
+    }
+    drupal_set_message(t('No enabled App install methods found.'), 'warning');
+  }
+  return $form;
+}
+
+
+/**
+ * Form to choose the starting theme from list of available options.
+ */
+function openoutreach_theme_form($form, &$form_state) {
+
+  // Create list of theme options, minus admin + testing + starter themes.
+  $themes = array();
+  foreach(system_rebuild_theme_data() as $theme) {
+    if (!in_array($theme->name, array('test_theme', 'update_test_basetheme', 'update_test_subtheme', 'block_test_theme', 'stark', 'seven', 'fusion_core', 'fusion_starter', 'fusion_starter_lite', 'garland'))) {
+      $themes[$theme->name] = theme('image', array('path' => $theme->info['screenshot'])) . '<strong>' . $theme->info['name'] . '</strong><br><p><em>' . strip_tags($theme->info['description']) . '</em></p><p class="clearfix"></p>';
+    }
+  }
+
+  // Move Bartik to last.
+  $bartik = $themes['bartik'];
+  unset($themes['bartik']);
+  $themes['bartik'] = $bartik;
+
+  $form['theme'] = array(
+    '#title' => t('Starting Theme'),
+    '#type' => 'radios',
+    '#options' => $themes,
+    '#default_value' => 'granada',
+  );
+
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => 'Choose theme',
+  );
+
+  $form['#attached']['css'] = array(
+    drupal_get_path('profile', 'openoutreach') . '/openoutreach.install.css',
+  );
+
+  return $form;
+}
+
+/**
+ * Form submit handler to select the theme.
+ */
+function openoutreach_theme_form_submit($form, &$form_state) {
+  // Enable and set the theme of choice.
+  $theme = $form_state['input']['theme'];
+  theme_enable(array($theme));
+  variable_set('theme_default', $theme);
+
+  // Enable modules used by the default theme.
+  $info = drupal_parse_info_file(drupal_get_path('theme', $theme) . "/$theme.info");
+  $dependencies = array(
+    'fusion' => array('fusion_apply_ui'),
+    'designkit' => array('designkit'),
+  );
+  foreach ($dependencies as $key => $modules) {
+    if (isset($info[$key])) {
+      module_enable($modules);
+    }
+  }
+
+  // Assign regions for the theme.
+  // TODO: how does Panopoly automate this?
+  $regions = system_region_list($theme);
+  $blocks = array();
+
+  $assignments = array(
+    'system' => array(
+      'main' => 'content',
+      'main-menu' => 'main_menu',
+      'help' => 'help',
+    ),
+  );
+
+  foreach ($assignments as $module => $module_blocks) {
+    foreach ($module_blocks as $delta => $region) {
+      if (isset($regions[$region])) {
+        $blocks[] = array(
+          'module' => $module,
+          'delta' => $delta,
+          'theme' => $theme,
+          'status' => 1,
+          'weight' => 0,
+          'region' => $region,
+          'pages' => '',
+          'cache' => -1,
+        );
+      }
+    }
+  }
+  if ($blocks) {
+    foreach ($blocks as $record) {
+      $query = db_merge('block')
+        ->key(array('module' => $record['module'], 'delta' => $module['delta']))
+        ->fields($record)
+        ->execute();
+    }
+  }
+
+  // Flush theme caches so things are right.
+  system_rebuild_theme_data();
+  drupal_theme_rebuild();
+}
+
+/**
+ * Form to choose the starting theme
+ */
+function openoutreach_theme_configure_form($form, &$form_state) {
+  $theme = variable_get('theme_default');
+  ctools_include('system.admin', 'system', '');
+  $form = system_theme_settings($form, $form_state, $theme); 
   return $form;
 }
 

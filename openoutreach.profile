@@ -24,6 +24,33 @@ function openoutreach_context_default_contexts_alter(&$contexts) {
 }
 
 /**
+ * Implements hook_block_info_alter().
+ *
+ * Assign regions for main content and menus for themes that support them.
+ */
+function openoutreach_block_info_alter(&$blocks, $theme, $code_blocks) {
+  $regions = system_region_list($theme);
+
+  $assignments = array(
+    'system' => array(
+      'main' => 'content',
+      'main-menu' => 'main_menu',
+      'help' => 'help',
+    ),
+  );
+
+  foreach ($assignments as $module => $module_blocks) {
+    if (isset($blocks[$module])) {
+      foreach ($module_blocks as $block => $region) {
+        if (isset($blocks[$module][$block]) && isset($regions[$region])) {
+          $blocks[$module][$block]['region'] = $region;
+        }
+      }
+    }
+  }
+}
+
+/**
  * Implements hook_admin_menu_output_build().
  *
  * Add links to the admin_menu shortcuts menu.
