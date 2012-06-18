@@ -589,8 +589,8 @@ function openoutreach_finished($form, &$form_state) {
     '#markup' => '<h2>' . t('Congratulations, you just installed Open Outreach!') . '</h2>',
   );
   
-  $form['openoutreach_icon'] = array(
-    '#markup' => theme('image', array('path' => drupal_get_path('profile', 'openoutreach') . '/images/openoutreach_icon.png')),
+  $form['openoutreach_logo'] = array(
+    '#markup' => theme('image', array('path' => drupal_get_path('profile', 'openoutreach') . '/images/openoutreach_logo.png')),
   );
 
   $form['submit'] = array(
