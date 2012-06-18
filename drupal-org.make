@@ -25,6 +25,8 @@ core = 7.x
 projects[admin_menu][subdir] = contrib
 projects[admin_menu][version] = 3.0-rc3
 projects[apps][subdir] = contrib
+; Use the Dev version until app display issues are resolved in next stable
+; release after 1.0-beta6.
 projects[apps][version] = 1.x-dev
 projects[designkit][subdir] = contrib
 projects[designkit][version] = 1.0-beta1
