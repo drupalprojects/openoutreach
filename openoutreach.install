@@ -141,3 +141,12 @@ function openoutreach_install() {
   shortcut_set_save($shortcut_set);
 }
 
+/**
+ * Enable openoutreach_core and apps modules.
+ */
+function openoutreach_update_7000() {
+  $module_list = array('openoutreach_core', 'apps');
+  module_enable($module_list);
+
+  return t('Open Outreach now uses the Apps module to install its features. Click the Apps link on your toolbar to see available and installed apps.');
+}
