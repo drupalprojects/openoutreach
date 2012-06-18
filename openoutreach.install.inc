@@ -295,31 +295,19 @@ function openoutreach_install_permissions() {
  * Form to check to see if Apps support is possible.
  */
 function openoutreach_apps_verify($form, &$form_state) {
+  $form = array();
 
   $form['#attached']['css'] = array(
     drupal_get_path('profile', 'openoutreach') . '/openoutreach.install.css',
   );
 
-  $form['continue'] = array(
-    '#type' => 'submit',
-    '#value' => t('Continue'),
-  );
-
-  return $form;
-}
-
-/**
- * Show instructions and check system services to help guide direction
- * for Apps installs.
- */
-function Openoutreach_install_verify() {
   $form = array();
 
   $form['opening'] = array(
     '#markup' => '<h1>' . t('Verify Apps support') . '</h1>',
   );
 
-  $profiles = install_get_profiles();
+  $profiles = install_find_profiles();
   $is_pantheon = isset($profiles['pantheon']);
 
   if ($is_pantheon) {
@@ -332,7 +320,7 @@ function Openoutreach_install_verify() {
   }
   else {
     $form['openingtext'] = array(
-      '#markup' => '<p>' . t('Apps downloads the code needed to install apps using the same mechanism the Update module in Drupal core. This functionality depends on certain PHP extensions being enabled on your server. Below is the documentation & verification for the various methods of installing. <strong>Note that you need only <em>one</em> of these methods enabled in order to install apps.</strong>') . '</p>',
+      '#markup' => '<p>' . t('Apps downloads the code needed to install apps using the same mechanism as the Update module in Drupal core. This functionality depends on certain PHP extensions being enabled on your server. Below is the documentation & verification for the various methods of installing. <strong>Note that you need only <em>one</em> of these methods enabled in order to install apps.</strong>') . '</p>',
       '#weight' => -10,
     );
 
