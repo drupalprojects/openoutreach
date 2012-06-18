@@ -498,7 +498,7 @@ function openoutreach_theme_form_submit($form, &$form_state) {
   if ($blocks) {
     foreach ($blocks as $record) {
       $query = db_merge('block')
-        ->key(array('module' => $record['module'], 'delta' => $module['delta']))
+        ->key(array('theme' => $record['theme'], 'module' => $record['module'], 'delta' => $record['delta']))
         ->fields($record)
         ->execute();
     }
