@@ -534,7 +534,7 @@ function openoutreach_prepare($form, &$form_state) {
   );
 
   $form['openingtext'] = array(
-    '#markup' => '<h2>' . t('Open Outreach now needs to do a bit more to get everything set up.') . '</h2>',
+    '#markup' => '<h2>' . t('Open Outreach now needs to do a bit more to get everything set up.') . '</h2><p>' . t('This step may take a few minutes.') . '</p>',
   );
 
   $form['submit'] = array(
