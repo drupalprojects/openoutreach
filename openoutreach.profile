@@ -24,30 +24,38 @@ function openoutreach_context_default_contexts_alter(&$contexts) {
 }
 
 /**
- * Implements hook_block_info_alter().
- *
- * Assign regions for main content and menus for themes that support them.
+ * Implements hook_block_info().
  */
-function openoutreach_block_info_alter(&$blocks, $theme, $code_blocks) {
-  $regions = system_region_list($theme);
-
-  $assignments = array(
-    'system' => array(
-      'main' => 'content',
-      'main-menu' => 'main_menu',
-      'help' => 'help',
-    ),
+function openoutreach_block_info() {
+  $blocks = array();
+  $blocks['powered-by'] = array(
+    'info' => t('Powered by Open Outreach'),
+    'weight' => '10',
+    'cache' => DRUPAL_NO_CACHE,
   );
+  return $blocks;
+}
 
-  foreach ($assignments as $module => $module_blocks) {
-    if (isset($blocks[$module])) {
-      foreach ($module_blocks as $block => $region) {
-        if (isset($blocks[$module][$block]) && isset($regions[$region])) {
-          $blocks[$module][$block]['region'] = $region;
-        }
-      }
-    }
+/**
+ * Implements hook_block_view().
+ *
+ * Display the powered by Open Outreach block.
+ */
+function openoutreach_block_view() {
+  global $user;
+  $admin_rid = variable_get('user_admin_role');
+
+  $block = array();
+  $block['subject'] = NULL;
+  $content = '<span class="powered-by">' . t('Powered by <a href="!poweredby">Open Outreach</a>.', array('!poweredby' => 'http://openoutreach.org'));
+
+  // If this is an admin role, show documentation links.
+  if (isset($user->roles[$admin_rid])) {
+    $content .= ' ' . t('Get started with <a href="!docs">user documentation</a> and <a href="!screencasts">screencasts</a>.', array('!docs' => 'http://openoutreach.org/section/using-open-outreach', '!screencasts' => 'http://openoutreach.org/screencasts'));
   }
+  $content .= '</span>';
+  $block['content'] = $content;
+  return $block;
 }
 
 /**
