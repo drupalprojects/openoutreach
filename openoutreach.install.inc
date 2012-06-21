@@ -317,9 +317,12 @@ function openoutreach_apps_verify($form, &$form_state) {
       '#description' => theme('image', array('path' => drupal_get_path('profile', 'openoutreach') . '/images/enable-apps-pantheon.png')),
     );
     if (!$pantheon_local_enabled) {
-      $form['#description'] .= t('Before installing Open Outreach on Pantheon, you need to enable "On Server Development" to use apps.') . '<br /><br />';
+      $form['pantheon']['#description'] .= t('Before installing Open Outreach on Pantheon, you need to enable "On Server Development" to use apps.') . '<br /><br />';
     }
-    $form['#description'] .= t('After you install your apps, you will need to use the "Commit" button to add them to the version control system.');
+    else {
+      $form['pantheon']['#description'] .= t('"On Server Development" is enabled, so you\'re good to go to install Open Outreach on Pantheon using apps.') . '<br /><br />';
+    }
+    $form['pantheon']['#description'] .= t('After you install your apps, you will need to use the "Commit" button to add them to the version control system.');
     $form['#attached']['css'] = array(
       drupal_get_path('profile', 'openoutreach') . '/openoutreach.install.css',
     );
