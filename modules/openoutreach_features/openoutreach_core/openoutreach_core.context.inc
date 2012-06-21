@@ -53,7 +53,6 @@ function openoutreach_core_context_default_contexts() {
       'values' => array(
         'contributor' => 'contributor',
         'editor' => 'editor',
-        'blogger' => 'blogger',
       ),
     ),
   );

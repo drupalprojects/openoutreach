@@ -12,18 +12,6 @@ if (defined('MAINTENANCE_MODE') && MAINTENANCE_MODE == 'install') {
 }
 
 /**
- * Implements hook_context_default_contexts_alter().
- *
- * If the debut_blogger module is enabled, display the shortcut block to users
- * with the blogger role.
- */
-function openoutreach_context_default_contexts_alter(&$contexts) {
-  if (isset($contexts['shortcut']) && module_exists('debut_blog') && !openoutreach_is_recreating('openoutreach')) {
-    $contexts['shortcut']->conditions['user']['values']['blogger'] = 'blogger';
-  }
-}
-
-/**
  * Implements hook_block_info().
  */
 function openoutreach_block_info() {
@@ -98,7 +86,6 @@ function openoutreach_is_recreating($feature = NULL) {
   }
   return FALSE;
 }
-
 
 /**
  * Implements hook_apps_servers_info().
