@@ -305,6 +305,7 @@ function openoutreach_apps_verify($form, &$form_state) {
 
   $profiles = install_find_profiles();
   $is_pantheon = isset($profiles['pantheon']);
+  $pantheon_local_enabled = FALSE;
 
   if ($is_pantheon) {
     // Note Pantheon requirements.
