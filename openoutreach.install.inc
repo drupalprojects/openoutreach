@@ -6,7 +6,7 @@
  */
 
 /**
- * Generate an install task to install subprofile features.
+ * Generate an install task to install apps.
  *
  * Adapted from panopoly_install_tasks().
  */
