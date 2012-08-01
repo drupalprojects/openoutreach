@@ -29,6 +29,7 @@ projects[apps][subdir] = contrib
 ; release after 1.0-beta6.
 projects[apps][version] = 1.x-dev
 projects[apps][patch][http://drupal.org/files/1479164-apps-permissions-check-modules-not-conf-reroll.patch] = http://drupal.org/files/1479164-apps-permissions-check-modules-not-conf-reroll.patch
+projects[apps][patch][http://drupal.org/files/profile-libraries-1623338-1.patch] = http://drupal.org/files/profile-libraries-1623338-1.patch
 projects[designkit][subdir] = contrib
 projects[designkit][version] = 1.0-beta1
 projects[fusion][subdir] = contrib
