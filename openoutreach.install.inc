@@ -297,8 +297,6 @@ function openoutreach_apps_verify($form, &$form_state) {
     drupal_get_path('profile', 'openoutreach') . '/openoutreach.install.css',
   );
 
-  $form = array();
-
   $form['opening'] = array(
     '#markup' => '<h1>' . t('Verify Apps support') . '</h1>',
   );
