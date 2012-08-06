@@ -49,17 +49,16 @@ function openoutreach_block_view() {
 /**
  * Implements hook_modules_installed().
  *
- * Add custom taxonomy terms to the event_type vocabulary if debut_event is
- * enabled.
+ * Add custom taxonomy terms to the event_type vocabulary if it is created.
  */
-function openoutreach_modules_installed($modules) {
-  if (in_array('debut_event', $modules) && $vocabulary = taxonomy_vocabulary_machine_name_load('event_type')) {
+function openoutreach_entity_insert($type, $entity) {
+  if ($type == 'taxonomy_vocabulary' && $entity->machine_name == 'event_type') {
     $names = array('Conference', 'Meeting', 'Workshop');
     foreach ($names as $name) {
       $term = new StdClass();
       $term->name = $name;
-      $term->vid = $vocabulary->vid;
-      $term->vocabulary_machine_name = 'event_type';
+      $term->vid = $entity->vid;
+      $term->vocabulary_machine_name = $entity->machine_name;
       taxonomy_term_save($term);
     }
   }
