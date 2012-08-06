@@ -28,7 +28,6 @@ function openoutreach_install_tasks($install_state) {
   $debut_server = array(
     'machine name' => 'debut',
     'default apps' => array(
-      'debut',
       'debut_article',
       'debut_bio',
       'debut_blog',
@@ -42,9 +41,7 @@ function openoutreach_install_tasks($install_state) {
       'debut_social',
       'debut_wysiwyg',
     ),
-    'required apps' => array(
-      'debut',
-    ),
+    'required apps' => array(),
   );
   $tasks = $tasks + apps_profile_install_tasks($install_state, $debut_server);
 

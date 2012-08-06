@@ -5,7 +5,6 @@ core = 7.x
 ; See http://drupal.org/node/1427752.
 
 ; Debut features.
-; includes[debut] = "http://drupalcode.org/project/debut.git/blob_plain/refs/heads/7.x-1.x:/debut.make.inc"
 ; includes[debut_article] = "http://drupalcode.org/project/debut_article.git/blob_plain/refs/heads/7.x-1.x:/debut_article.make.inc"
 ; includes[debut_bio] = "http://drupalcode.org/project/debut_bio.git/blob_plain/refs/heads/7.x-1.x:/debut_bio.make.inc"
 ; includes[debut_blog] = "http://drupalcode.org/project/debut_blog.git/blob_plain/refs/heads/7.x-1.x:/debut_blog.make.inc"
@@ -93,8 +92,6 @@ projects[debut_seo][subdir] = contrib
 projects[debut_seo][version] = 1.0-rc1
 projects[debut_social][subdir] = contrib
 projects[debut_social][version] = 1.0-rc1
-projects[debut][subdir] = contrib
-projects[debut][version] = 1.0-rc1
 projects[debut_wysiwyg][subdir] = contrib
 projects[debut_wysiwyg][version] = 1.0-rc1
 projects[entity][subdir] = contrib
