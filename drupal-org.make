@@ -28,7 +28,9 @@ projects[apps][subdir] = contrib
 ; Use the Dev version until app display issues are resolved in next stable
 ; release after 1.0-beta6.
 projects[apps][version] = 1.x-dev
-projects[apps][patch][http://drupal.org/files/1479164-apps-permissions-check-modules-not-conf-reroll.patch] = http://drupal.org/files/1479164-apps-permissions-check-modules-not-conf-reroll.patch
+; Since this patch conflicts with one below, using a combined version.
+; projects[apps][patch][http://drupal.org/files/1479164-apps-permissions-check-modules-not-conf-reroll.patch] = http://drupal.org/files/1479164-apps-permissions-check-modules-not-conf-reroll.patch
+projects[apps][patch][http://drupal.org/files/skip-install-tasks-1714552-1+apps-permissions-check-1479164.patch] = http://drupal.org/files/skip-install-tasks-1714552-1+apps-permissions-check-1479164.patch
 projects[apps][patch][http://drupal.org/files/profile-libraries-1623338-1.patch] = http://drupal.org/files/profile-libraries-1623338-1.patch
 projects[designkit][subdir] = contrib
 projects[designkit][version] = 1.0-beta1
