@@ -51,7 +51,7 @@ function openoutreach_block_view() {
  *
  * Add custom taxonomy terms to the event_type vocabulary if it is created.
  */
-function openoutreach_entity_insert($type, $entity) {
+function openoutreach_entity_insert($entity, $type) {
   if ($type == 'taxonomy_vocabulary' && $entity->machine_name == 'event_type') {
     $names = array('Conference', 'Meeting', 'Workshop');
     foreach ($names as $name) {
