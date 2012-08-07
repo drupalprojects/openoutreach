@@ -82,30 +82,6 @@ function openoutreach_admin_menu_output_build(&$content) {
 }
 
 /**
- * Determine whether a feature is being recreated.
- */
-function openoutreach_is_recreating($feature = NULL) {
-  // Test for Drush usage.
-  if (function_exists('drush_get_command') && $command = drush_get_command()) {
-    switch($command['command']) {
-      case 'features-update-all':
-        return TRUE;
-      case 'features-update':
-        // If a specific feature was requested, test for it. If not, return
-        // true for any feature recreation.
-        return is_null($feature) || in_array($feature, $command['arguments']);
-    }
-  }
-
-  // Test for admin UI usage.
-  $feature = is_null($feature) ? arg(3) : $feature;
-  if ($_GET['q'] == "admin/structure/features/{$feature}/recreate") {
-    return TRUE;
-  }
-  return FALSE;
-}
-
-/**
  * Implements hook_apps_servers_info().
  */
 function openoutreach_apps_servers_info() {
