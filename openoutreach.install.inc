@@ -18,12 +18,6 @@ function openoutreach_install_tasks($install_state) {
   // Summon the power of the Apps module.
   require_once(drupal_get_path('module', 'apps') . '/apps.profile.inc');
 
-  // Set up a task to verify capability to run apps.
-  $tasks['openoutreach_apps_verify'] = array(
-    'display_name' => t('Verify apps support'),
-    'type' => 'form',
-  );
-
   // Set up the openoutreach Apps install task.
   $debut_server = array(
     'machine name' => 'debut',
@@ -43,7 +37,22 @@ function openoutreach_install_tasks($install_state) {
     ),
     'required apps' => array(),
   );
-  $tasks = $tasks + apps_profile_install_tasks($install_state, $debut_server);
+
+  // Insert the apps support verification test after the apps select form so
+  // that it shows only if needed.
+  $apps_tasks = apps_profile_install_tasks($install_state, $debut_server);
+  $apps_select_form_task = $apps_tasks['apps_profile_apps_select_form_debut'];
+  unset($apps_tasks['apps_profile_apps_select_form_debut']);
+  $tasks['apps_profile_apps_select_form_debut'] = $apps_select_form_task;
+
+  // Set up a task to verify capability to run apps.
+  $tasks['openoutreach_apps_verify'] = array(
+    'display_name' => t('Verify apps support'),
+    'type' => 'form',
+    'run' => (!empty($_SESSION['apps_downloads'])) ? INSTALL_TASK_RUN_IF_NOT_COMPLETED : INSTALL_TASK_SKIP,
+  );
+
+  $tasks = $tasks + $apps_tasks;
 
   // Rename one of the default apps tasks. In the case of a non-interactive
   // installation, apps_profile_install_tasks() never defines this task, so we
