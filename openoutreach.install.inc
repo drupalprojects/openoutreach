@@ -41,9 +41,12 @@ function openoutreach_install_tasks($install_state) {
   // Insert the apps support verification test after the apps select form so
   // that it shows only if needed.
   $apps_tasks = apps_profile_install_tasks($install_state, $debut_server);
-  $apps_select_form_task = $apps_tasks['apps_profile_apps_select_form_debut'];
-  unset($apps_tasks['apps_profile_apps_select_form_debut']);
-  $tasks['apps_profile_apps_select_form_debut'] = $apps_select_form_task;
+  $task_name = 'apps_profile_apps_select_form_debut';
+  if (isset($apps_tasks[$task_name])) {
+    $apps_select_form_task = $apps_tasks[$task_name];
+    unset($apps_tasks[$task_name]);
+    $tasks[$task_name] = $apps_select_form_task;
+  }
 
   // Set up a task to verify capability to run apps.
   $tasks['openoutreach_apps_verify'] = array(
@@ -134,6 +137,8 @@ function openoutreach_form_apps_profile_apps_select_form_alter(&$form, $form_sta
     }
     ksort($options);
     $form['apps_fieldset']['apps']['#options'] = $options;
+    // Remove the deprecated Debut app.
+    unset($form['apps_fieldset']['apps']['#options']['debut']);
   }
 
   // Enable installation of Open Outreach features.
