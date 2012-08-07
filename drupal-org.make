@@ -58,6 +58,7 @@ projects[captcha][subdir] = contrib
 projects[captcha][version] = 1.0-beta2
 projects[comment_notify][subdir] = contrib
 projects[comment_notify][version] = 1.1
+projects[comment_notify][patch][http://drupal.org/files/1434718_dont_mess_with_buttons.patch] = http://drupal.org/files/1434718_dont_mess_with_buttons.patch
 projects[content_access][subdir] = contrib
 projects[content_access][version] = 1.x-dev
 projects[context][subdir] = contrib
