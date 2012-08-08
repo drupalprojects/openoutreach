@@ -49,6 +49,18 @@ function openoutreach_block_view() {
 /**
  * Implements hook_modules_installed().
  *
+ * Unset distracting messages at install time.
+ */
+function openoutreach_modules_enabled($modules) {
+  if (defined('MAINTENANCE_MODE') && MAINTENANCE_MODE == 'install' && array_intersect($modules, array('captcha', 'date_api'))) {
+    drupal_get_messages('status');
+    drupal_get_messages('warning');
+  }
+}
+
+/**
+ * Implements hook_modules_installed().
+ *
  * Add custom taxonomy terms to the event_type vocabulary if it is created.
  */
 function openoutreach_entity_insert($entity, $type) {
