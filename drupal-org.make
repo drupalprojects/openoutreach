@@ -29,7 +29,9 @@ projects[apps][subdir] = contrib
 projects[apps][version] = 1.x-dev
 ; Since this patch conflicts with one below, using a combined version.
 ; projects[apps][patch][http://drupal.org/files/1479164-apps-permissions-check-modules-not-conf-reroll.patch] = http://drupal.org/files/1479164-apps-permissions-check-modules-not-conf-reroll.patch
-projects[apps][patch][http://drupal.org/files/skip-install-tasks-1714552-2+apps-permissions-check-1479164.patch] = http://drupal.org/files/skip-install-tasks-1714552-2+apps-permissions-check-1479164.patch
+; And now, using all three combined...
+; projects[apps][patch][http://drupal.org/files/skip-install-tasks-1714552-2+apps-permissions-check-1479164.patch] = http://drupal.org/files/skip-install-tasks-1714552-2+apps-permissions-check-1479164.patch
+projects[apps][patch][http://drupal.org/files/apps-drush-install-1561652-9.patch] = http://drupal.org/files/apps-drush-install-1561652-9.patch
 projects[apps][patch][http://drupal.org/files/profile-libraries-1623338-1.patch] = http://drupal.org/files/profile-libraries-1623338-1.patch
 projects[apps_compatible][subdir] = contrib
 projects[apps_compatible][version] = 1.0-alpha1

@@ -177,9 +177,6 @@ function openoutreach_form_apps_profile_apps_select_form_alter(&$form, $form_sta
  */
 function openoutreach_apps_profile_apps_select_form_submit($form, &$form_state) {
   if ($form_state['values']['op'] == t('Install Apps')) {
-    // Hide some messages from various modules that are just too chatty!
-    drupal_get_messages('status');
-    drupal_get_messages('warning');
     $features = array_keys(array_filter($form_state['values']['openoutreach_features']));
     if (!empty($features)) {
       $_SESSION['openoutreach_features'] = $features;
@@ -210,6 +207,7 @@ function openoutreach_enable_features(&$install_state) {
         'file' => drupal_get_path('module', 'apps') . '/apps.profile.inc',
       );
     }
+    unset($_SESSION['openoutreach_features']);
     return $batch;
   }
 }
