@@ -207,7 +207,6 @@ function openoutreach_enable_features(&$install_state) {
         'file' => drupal_get_path('module', 'apps') . '/apps.profile.inc',
       );
     }
-    unset($_SESSION['openoutreach_features']);
     return $batch;
   }
 }
