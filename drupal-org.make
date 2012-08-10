@@ -45,7 +45,7 @@ projects[granada][subdir] = contrib
 projects[granada][version] = 2.0-beta1
 projects[mix_and_match][subdir] = contrib
 projects[mix_and_match][version] = 1.0
-projects[mix_and_match][patch][http://drupal.org/files/mix_and_match-fusion_apply-1372052-7.patch] = http://drupal.org/files/mix_and_match-fusion_apply-1372052-7.patch
+projects[mix_and_match][patch][http://drupal.org/files/mix_and_match-fusion_apply-1372052-8.patch] = http://drupal.org/files/mix_and_match-fusion_apply-1372052-8.patch
 projects[panels][subdir] = contrib
 projects[panels][version] = 3.2
 
