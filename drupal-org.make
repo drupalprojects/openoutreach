@@ -152,7 +152,7 @@ projects[styles][patch][http://drupal.org/files/issues/1186624-styles-media-fiel
 projects[styles][subdir] = contrib
 projects[styles][version] = 2.0-alpha8
 projects[token][subdir] = contrib
-projects[token][version] = 1.1
+projects[token][version] = 1.2
 projects[transliteration][subdir] = contrib
 projects[transliteration][version] = 3.1
 projects[views_slideshow][subdir] = contrib
