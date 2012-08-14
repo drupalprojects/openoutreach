@@ -36,6 +36,10 @@ projects[apps][patch][http://drupal.org/files/profile-libraries-1623338-1.patch]
 projects[apps][patch][http://drupal.org/files/apps-enable-success-1721548-3.patch] = http://drupal.org/files/apps-enable-success-1721548-3.patch
 projects[apps_compatible][subdir] = contrib
 projects[apps_compatible][version] = 1.0-alpha2
+projects[ctools][subdir] = contrib
+projects[ctools][version] = 1.1
+; Patch addresses an issue in openoutreach_front_page feature, so added here.
+projects[ctools][patch][http://drupal.org/files/ctools-1724332-1-combined.patch] = http://drupal.org/files/ctools-1724332-1-combined.patch
 projects[designkit][subdir] = contrib
 projects[designkit][version] = 1.0-beta1
 projects[fusion][subdir] = contrib
@@ -69,8 +73,6 @@ projects[content_access][subdir] = contrib
 projects[content_access][version] = 1.x-dev
 projects[context][subdir] = contrib
 projects[context][version] = 3.0-beta4
-projects[ctools][subdir] = contrib
-projects[ctools][version] = 1.1
 projects[date][subdir] = contrib
 projects[date][version] = 2.6
 projects[date_ical][subdir] = contrib
