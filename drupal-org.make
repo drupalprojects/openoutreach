@@ -33,6 +33,7 @@ projects[apps][version] = 1.x-dev
 ; projects[apps][patch][http://drupal.org/files/skip-install-tasks-1714552-2+apps-permissions-check-1479164.patch] = http://drupal.org/files/skip-install-tasks-1714552-2+apps-permissions-check-1479164.patch
 projects[apps][patch][http://drupal.org/files/apps-drush-install-1561652-15.patch] = http://drupal.org/files/apps-drush-install-1561652-15.patch
 projects[apps][patch][http://drupal.org/files/profile-libraries-1623338-1.patch] = http://drupal.org/files/profile-libraries-1623338-1.patch
+projects[apps][patch][http://drupal.org/files/apps-enable-success-1721548-3.patch] = http://drupal.org/files/apps-enable-success-1721548-3.patch
 projects[apps_compatible][subdir] = contrib
 projects[apps_compatible][version] = 1.0-alpha2
 projects[designkit][subdir] = contrib
