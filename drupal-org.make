@@ -27,9 +27,7 @@ projects[apps][version] = 1.0-beta7
 projects[apps_compatible][subdir] = contrib
 projects[apps_compatible][version] = 1.0-alpha2
 projects[ctools][subdir] = contrib
-projects[ctools][version] = 1.1
-; Patch addresses an issue in openoutreach_front_page feature, so added here.
-projects[ctools][patch][http://drupal.org/files/ctools-1724332-1-combined.patch] = http://drupal.org/files/ctools-1724332-1-combined.patch
+projects[ctools][version] = 1.2
 projects[designkit][subdir] = contrib
 projects[designkit][version] = 1.0-beta1
 projects[fusion][subdir] = contrib
@@ -42,7 +40,7 @@ projects[mix_and_match][subdir] = contrib
 projects[mix_and_match][version] = 1.0
 projects[mix_and_match][patch][http://drupal.org/files/mix_and_match-fusion_apply-1372052-8.patch] = http://drupal.org/files/mix_and_match-fusion_apply-1372052-8.patch
 projects[panels][subdir] = contrib
-projects[panels][version] = 3.2
+projects[panels][version] = 3.3
 
 
 ; TODO: delete everything below once http://drupal.org/node/1427752 is fixed.
@@ -102,7 +100,7 @@ projects[eva][version] = 1.2
 projects[features][subdir] = contrib
 projects[features][version] = 1.0
 projects[file_admin][subdir] = contrib
-projects[file_admin][version] = 1.0-alpha1
+projects[file_admin][version] = 1.0-alpha2
 projects[file_entity][subdir] = contrib
 projects[file_entity][version] = 2.0-unstable6
 projects[follow][subdir] = contrib
@@ -151,7 +149,7 @@ projects[transliteration][version] = 3.1
 projects[views_slideshow][subdir] = contrib
 projects[views_slideshow][version] = 3.0
 projects[views][subdir] = contrib
-projects[views][version] = 3.3
+projects[views][version] = 3.5
 projects[wysiwyg][subdir] = contrib
 projects[wysiwyg][version] = 2.x-dev
 projects[xmlsitemap][subdir] = contrib
