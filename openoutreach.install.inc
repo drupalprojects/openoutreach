@@ -18,6 +18,25 @@ function openoutreach_install_tasks($install_state) {
   // Summon the power of the Apps module.
   require_once(drupal_get_path('module', 'apps') . '/apps.profile.inc');
 
+   // Set up the Panopoly Apps install task
+  $panopoly_server = array(
+    'machine name' => 'panopoly',
+    'default apps' => array(
+      'panopoly_admin', 'panopoly_core', 'panopoly_images', 'panopoly_magic', 'panopoly_pages', 'panopoly_search', 'panopoly_theme', 'panopoly_users', 'panopoly_widgets', 'panopoly_wysiwyg',
+    ),
+    'required apps' => array(
+      'panopoly_admin', 'panopoly_core', 'panopoly_images', 'panopoly_magic', 'panopoly_pages', 'panopoly_search', 'panopoly_theme', 'panopoly_users', 'panopoly_widgets', 'panopoly_wysiwyg',
+    ),
+  );
+  $tasks = $tasks + apps_profile_install_tasks($install_state, $panopoly_server);
+
+  // Rename one of the default apps tasks. In the case of a non-interactive
+  // installation, apps_profile_install_tasks() never defines this task, so we
+  // need to make sure we don't accidentally create it when it doesn't exist.
+  if (isset($tasks['apps_profile_apps_select_form_panopoly'])) {
+    $tasks['apps_profile_apps_select_form_panopoly']['display_name'] = t('Install apps for Panopoly');
+  }
+
   // Set up the openoutreach Apps install task.
   $debut_server = array(
     'machine name' => 'debut',

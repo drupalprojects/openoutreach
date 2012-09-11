@@ -99,23 +99,23 @@ function openoutreach_admin_menu_output_build(&$content) {
 function openoutreach_apps_servers_info() {
   $profile = variable_get('install_profile', 'standard');
   $info =  drupal_parse_info_file(drupal_get_path('profile', $profile) . '/' . $profile . '.info');
+  
   $return = array(
+    'panopoly' => array(
+      'title' => t('Panopoly'),
+      'description' => t('Apps for Panopoly'),
+      'manifest' => 'http://apps.getpantheon.com/panopoly',
+      'profile' => $profile,
+      'profile_version' => isset($info['version']) ? $info['version'] : '7.x-1.x',
+    ),
     'debut' => array(
-      'title' => 'debut',
+      'title' => t('Debut'),
       'description' => t('Debut apps'),
       'manifest' => 'http://appserver.openoutreach.org/app/query',
       'profile' => $profile,
       'profile_version' => isset($info['version']) ? $info['version'] : '7.x-1.x',
     ),
   );
-
-  if (isset($_SERVER['SERVER_NAME'])) {
-    $return['debut']['server_name'] = $_SERVER['SERVER_NAME'];
-  }
- 
-  if (isset($_SERVER['SERVER_ADDR'])) {
-    $return['debut']['server_ip'] = $_SERVER['SERVER_ADDR'];
-  }
 
   return $return;
 }
