@@ -184,7 +184,7 @@ function openoutreach_form_apps_profile_apps_select_form_alter(&$form, $form_sta
  * features to be installed.
  */
 function openoutreach_apps_profile_apps_select_form_submit($form, &$form_state) {
-  if ($form_state['values']['op'] == t('Install Apps')) {
+  if (isset($form_state['values']['op']) && ($form_state['values']['op'] == t('Install Apps'))) {
     $features = array_keys(array_filter($form_state['values']['openoutreach_features']));
     if (!empty($features)) {
       $_SESSION['openoutreach_features'] = $features;
@@ -348,7 +348,7 @@ function openoutreach_theme_form($form, &$form_state) {
  */
 function openoutreach_theme_form_submit($form, &$form_state) {
   // Enable and set the theme of choice.
-  $theme = $form_state['input']['theme'];
+  $theme = $form_state['values']['theme'];
   theme_enable(array($theme));
   variable_set('theme_default', $theme);
 
