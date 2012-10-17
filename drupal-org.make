@@ -1,5 +1,5 @@
 api = 2
-core = 7.x
+core = 7.16
 
 ; Includes are not yet supported on drupal-org.make files.
 ; See http://drupal.org/node/1427752.
@@ -45,7 +45,6 @@ projects[mix_and_match][patch][http://drupal.org/files/mix_and_match-fusion_appl
 projects[panels][subdir] = contrib
 projects[panels][version] = 3.3
 
-
 ; TODO: delete everything below once http://drupal.org/node/1427752 is fixed.
 projects[addressfield][subdir] = contrib
 projects[addressfield][version] = 1.0-beta3
@@ -54,7 +53,7 @@ projects[advanced_forum][version] = 2.0
 projects[advanced_help][subdir] = contrib
 projects[advanced_help][version] = 1.0
 projects[better_exposed_filters][subdir] = contrib
-projects[better_exposed_filters][version] = 3.0-beta1
+projects[better_exposed_filters][version] = 3.0-beta3
 projects[calendar][subdir] = contrib
 projects[calendar][version] = 3.4
 projects[captcha][subdir] = contrib
@@ -105,7 +104,7 @@ projects[debut_wysiwyg][version] = 1.0-rc2
 projects[entity][subdir] = contrib
 projects[entity][version] = 1.0-rc3
 projects[entityreference][subdir] = contrib
-projects[entityreference][version] = 1.0-rc3
+projects[entityreference][version] = 1.0-rc5
 projects[eva][subdir] = contrib
 projects[eva][version] = 1.2
 projects[features][subdir] = contrib
@@ -117,7 +116,7 @@ projects[file_entity][version] = 2.0-unstable6
 projects[follow][subdir] = contrib
 projects[follow][version] = 1.0-alpha1
 projects[forward][subdir] = contrib
-projects[forward][version] = 1.3
+projects[forward][version] = 1.4
 projects[geocoder][subdir] = contrib
 projects[geocoder][version] = 1.2
 projects[geofield][subdir] = contrib
@@ -174,7 +173,7 @@ projects[service_links][version] = 2.1
 projects[strongarm][subdir] = contrib
 projects[strongarm][version] = 2.0
 projects[token][subdir] = contrib
-projects[token][version] = 1.3
+projects[token][version] = 1.4
 projects[transliteration][subdir] = contrib
 projects[transliteration][version] = 3.1
 projects[views_slideshow][subdir] = contrib
