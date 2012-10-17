@@ -18,10 +18,8 @@ function openoutreach_install_tasks($install_state) {
   // Summon the power of the Apps module.
   require_once(drupal_get_path('module', 'apps') . '/apps.profile.inc');
 
-  // Set up the openoutreach Apps install task.
-  $debut_server = array(
-    'machine name' => 'debut',
-    'default apps' => array(
+  if ($install_state['interactive']) {
+    $default_apps = array(
       'debut_article',
       'debut_bio',
       'debut_blog',
@@ -34,7 +32,19 @@ function openoutreach_install_tasks($install_state) {
       'debut_seo',
       'debut_social',
       'debut_wysiwyg',
-    ),
+    );
+  }
+  // When installing automatically, there is no opportunity to select which
+  // apps to install. Therefore, don't enable any and let a site admin choose
+  // post-install.
+  else {
+    $default_apps = array();
+  }
+
+  // Set up the openoutreach Apps install task.
+  $debut_server = array(
+    'machine name' => 'debut',
+    'default apps' => $defaut_apps,
     'required apps' => array(),
   );
 
