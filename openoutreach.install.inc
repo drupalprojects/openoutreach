@@ -314,7 +314,7 @@ function openoutreach_theme_form($form, &$form_state) {
   // Create list of theme options, minus admin + testing + starter themes.
   $themes = array();
   foreach(system_rebuild_theme_data() as $theme) {
-    if (!in_array($theme->name, array('test_theme', 'update_test_basetheme', 'update_test_subtheme', 'block_test_theme', 'stark', 'seven', 'fusion_core', 'fusion_starter', 'fusion_starter_lite', 'garland'))) {
+    if (!in_array($theme->name, array('adaptivetheme', 'granada', 'mix_and_match', 'test_theme', 'update_test_basetheme', 'update_test_subtheme', 'block_test_theme', 'stark', 'seven', 'fusion_core', 'fusion_starter', 'fusion_starter_lite', 'garland'))) {
       $themes[$theme->name] = theme('image', array('path' => $theme->info['screenshot'])) . '<strong>' . $theme->info['name'] . '</strong><br><p><em>' . strip_tags($theme->info['description']) . '</em></p><p class="clearfix"></p>';
     }
   }
@@ -328,7 +328,7 @@ function openoutreach_theme_form($form, &$form_state) {
     '#title' => t('Starting Theme'),
     '#type' => 'radios',
     '#options' => $themes,
-    '#default_value' => 'granada',
+    '#default_value' => 'outreach',
   );
 
   $form['submit'] = array(
@@ -352,27 +352,25 @@ function openoutreach_theme_form_submit($form, &$form_state) {
   theme_enable(array($theme));
   variable_set('theme_default', $theme);
 
-  // Enable modules used by the default theme.
-  $info = drupal_parse_info_file(drupal_get_path('theme', $theme) . "/$theme.info");
+  // Enable theme-specific modules.
   $dependencies = array(
-    'fusion' => array('fusion_apply_ui'),
-    'designkit' => array('designkit'),
+    'outreach' => array('superfish'),
+    'sky' => array('superfish'),
   );
-  foreach ($dependencies as $key => $modules) {
-    if (isset($info[$key])) {
+  if (isset($dependencies[$theme])) {
+    foreach ($dependencies[$theme] as $modules) {
       module_enable($modules);
     }
   }
 
   // Assign regions for the theme.
-  // TODO: how does Panopoly automate this?
   $regions = system_region_list($theme);
   $blocks = array();
 
   $assignments = array(
     'system' => array(
       'main' => 'content',
-      'main-menu' => 'main_menu',
+      'main-menu' => 'menu_bar',
       'help' => 'help',
     ),
   );
