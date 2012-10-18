@@ -44,7 +44,7 @@ function openoutreach_install_tasks($install_state) {
   // Set up the openoutreach Apps install task.
   $debut_server = array(
     'machine name' => 'debut',
-    'default apps' => $defaut_apps,
+    'default apps' => $default_apps,
     'required apps' => array(),
   );
 
