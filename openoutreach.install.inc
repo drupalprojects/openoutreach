@@ -370,7 +370,8 @@ function openoutreach_theme_form_submit($form, &$form_state) {
   $assignments = array(
     'system' => array(
       'main' => 'content',
-      'main-menu' => 'menu_bar',
+      // If the superfish module is enabled, assign its block to the menu bar.
+      module_exists('superfish') ? 'superfish_1' : 'main-menu' => 'menu_bar',
       'help' => 'help',
     ),
   );
