@@ -358,9 +358,7 @@ function openoutreach_theme_form_submit($form, &$form_state) {
     'sky' => array('superfish'),
   );
   if (isset($dependencies[$theme])) {
-    foreach ($dependencies[$theme] as $modules) {
-      module_enable($modules);
-    }
+    module_enable($dependencies[$theme]);
   }
 
   // Assign regions for the theme.
