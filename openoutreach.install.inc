@@ -311,12 +311,19 @@ function openoutreach_install_permissions() {
  */
 function openoutreach_theme_form($form, &$form_state) {
 
-  // Create list of theme options, minus admin + testing + starter themes.
+  // Declare a white list of themes offered for selection along with data used
+  // to determine what modules should be enabled and what blocks configured.
+  $form_state['theme dependencies'] = array(
+    'outreach' => array('superfish'),
+    'sky' => array('superfish'),
+    'bartik' => array(),
+  );
+
+  // Create list of theme options.
+  $theme_data = array_intersect_key(system_rebuild_theme_data(), $form_state['theme dependencies']);
   $themes = array();
-  foreach(system_rebuild_theme_data() as $theme) {
-    if (!in_array($theme->name, array('adaptivetheme', 'adaptivetheme_admin', 'adaptivetheme_subtheme', 'granada', 'mix_and_match', 'test_theme', 'update_test_basetheme', 'update_test_subtheme', 'block_test_theme', 'stark', 'seven', 'fusion_core', 'fusion_starter', 'fusion_starter_lite', 'garland'))) {
-      $themes[$theme->name] = theme('image', array('path' => $theme->info['screenshot'])) . '<strong>' . $theme->info['name'] . '</strong><br><p><em>' . strip_tags($theme->info['description']) . '</em></p><p class="clearfix"></p>';
-    }
+  foreach($theme_data as $theme) {
+    $themes[$theme->name] = theme('image', array('path' => $theme->info['screenshot'])) . '<strong>' . $theme->info['name'] . '</strong><br><p><em>' . strip_tags($theme->info['description']) . '</em></p><p class="clearfix"></p>';
   }
 
   // Move Bartik to last.
@@ -351,13 +358,10 @@ function openoutreach_theme_form_submit($form, &$form_state) {
   $theme = $form_state['values']['theme'];
   theme_enable(array($theme));
   variable_set('theme_default', $theme);
+  // Enable and set the theme of choice.
+  $dependencies = $form_state['theme dependencies'];
 
-  // Enable theme-specific modules.
-  $dependencies = array(
-    'outreach' => array('superfish'),
-    'sky' => array('superfish'),
-  );
-  if (isset($dependencies[$theme])) {
+  if (!empty($dependencies[$theme])) {
     module_enable($dependencies[$theme]);
   }
 
@@ -365,15 +369,19 @@ function openoutreach_theme_form_submit($form, &$form_state) {
   $regions = system_region_list($theme);
   $blocks = array();
 
-  $assignments = array(
-    'system' => array(
-      'main' => 'content',
-      // If the superfish module is enabled, assign its block to the menu bar.
-      module_exists('superfish') ? 'superfish_1' : 'main-menu' => 'menu_bar',
-      'help' => 'help',
-    ),
+  $assignments = array();
+  $assignments['system'] = array(
+    'main' => 'content',
+    'help' => 'help',
   );
 
+  if (module_exists('superfish')) {
+    $assignments['superfish'] = array(
+      // 'menu_bar' is the region used by adaptivetheme subthemes.
+      'superfish_1' => 'menu_bar',
+    );
+  }
+    
   foreach ($assignments as $module => $module_blocks) {
     foreach ($module_blocks as $delta => $region) {
       if (isset($regions[$region])) {
@@ -411,7 +419,7 @@ function openoutreach_prepare($form, &$form_state) {
   $form = array();
 
   $form['opening'] = array(
-    '#markup' => '<h1>' . t('Prepare Site'),
+    '#markup' => '<h1>' . t('Prepare Site') . '</h1>',
   );
 
   $form['openingtext'] = array(
