@@ -314,7 +314,7 @@ function openoutreach_theme_form($form, &$form_state) {
   // Create list of theme options, minus admin + testing + starter themes.
   $themes = array();
   foreach(system_rebuild_theme_data() as $theme) {
-    if (!in_array($theme->name, array('adaptivetheme', 'granada', 'mix_and_match', 'test_theme', 'update_test_basetheme', 'update_test_subtheme', 'block_test_theme', 'stark', 'seven', 'fusion_core', 'fusion_starter', 'fusion_starter_lite', 'garland'))) {
+    if (!in_array($theme->name, array('adaptivetheme', 'adaptivetheme_admin', 'adaptivetheme_subtheme', 'granada', 'mix_and_match', 'test_theme', 'update_test_basetheme', 'update_test_subtheme', 'block_test_theme', 'stark', 'seven', 'fusion_core', 'fusion_starter', 'fusion_starter_lite', 'garland'))) {
       $themes[$theme->name] = theme('image', array('path' => $theme->info['screenshot'])) . '<strong>' . $theme->info['name'] . '</strong><br><p><em>' . strip_tags($theme->info['description']) . '</em></p><p class="clearfix"></p>';
     }
   }
