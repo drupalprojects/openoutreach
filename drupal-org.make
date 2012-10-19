@@ -23,6 +23,8 @@ core = 7.16
 ; includes[debut_wysiwyg] = "http://drupalcode.org/project/debut_wysiwyg.git/blob_plain/refs/heads/7.x-1.x:/debut_wysiwyg.make.inc"
 
 ; Projects specific to Open Outreach.
+projects[adaptivetheme][subdir] = contrib
+projects[adaptivetheme][version] = 3.1
 projects[admin_menu][subdir] = contrib
 projects[admin_menu][version] = 3.0-rc3
 projects[apps][subdir] = contrib
@@ -42,8 +44,18 @@ projects[granada][version] = 2.0-rc2
 projects[mix_and_match][subdir] = contrib
 projects[mix_and_match][version] = 1.0
 projects[mix_and_match][patch][http://drupal.org/files/mix_and_match-fusion_apply-1372052-8.patch] = http://drupal.org/files/mix_and_match-fusion_apply-1372052-8.patch
+projects[outreach][subdir] = contrib
+projects[outreach][version] = 1.x-dev
 projects[panels][subdir] = contrib
 projects[panels][version] = 3.3
+projects[sky][subdir] = contrib
+projects[sky][version] = 3.0-rc1
+projects[superfish][subdir] = contrib
+projects[superfish][version] = 1.8
+
+libraries[superfish][directory_name] = "superfish"
+libraries[superfish][download][type] = "get"
+libraries[superfish][download][url] = "https://github.com/mehrpadin/Superfish-for-Drupal/zipball/master"
 
 ; TODO: delete everything below once http://drupal.org/node/1427752 is fixed.
 projects[addressfield][subdir] = contrib

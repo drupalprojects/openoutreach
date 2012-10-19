@@ -71,7 +71,7 @@ function openoutreach_entity_insert($entity, $type) {
       case 'contact_type':
         $names = array('Staff', 'Volunteer', 'Media', 'Funder');
         break;
-      case 'organization_type':
+      case 'org_type':
         $names = array('Nonprofit', 'Foundation', 'Government', 'Business');
         break;
       // Add custom event types for the vocabulary created by debut_event.
