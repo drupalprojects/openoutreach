@@ -1,5 +1,5 @@
 api = 2
-core = 7.16
+core = 7.17
 
 ; Includes are not yet supported on drupal-org.make files.
 ; See http://drupal.org/node/1427752.
@@ -157,9 +157,9 @@ projects[media_vimeo][version] = 1.0-beta5
 projects[media_youtube][subdir] = contrib
 projects[media_youtube][version] = 1.0-beta3
 projects[message][subdir] = contrib
-projects[message][version] = 1.5
+projects[message][version] = 1.6
 projects[metatag][subdir] = contrib
-projects[metatag][version] = 1.0-beta1
+projects[metatag][version] = 1.0-beta2
 projects[multiform][subdir] = contrib
 projects[multiform][version] = 1.0
 projects[openlayers][subdir] = contrib
