@@ -122,7 +122,7 @@ projects[eva][version] = 1.2
 projects[features][subdir] = contrib
 projects[features][version] = 1.0
 projects[file_admin][subdir] = contrib
-projects[file_admin][version] = 1.0-alpha2
+projects[file_admin][version] = 1.0-beta1
 projects[file_entity][subdir] = contrib
 projects[file_entity][version] = 2.0-unstable7
 projects[follow][subdir] = contrib
@@ -132,12 +132,9 @@ projects[forward][version] = 1.4
 projects[geocoder][subdir] = contrib
 projects[geocoder][version] = 1.2
 projects[geofield][subdir] = contrib
-; No stable 2.x release yet. Use one when it's available.
-projects[geofield][version] = 2.x-dev
+projects[geofield][version] = 2.0-alpha1
 projects[geophp][subdir] = contrib
-; Use dev release until the first stble release after 1.6
-; for the fix to http://drupal.org/node/1774098.
-projects[geophp][version] = 1.x-dev
+projects[geophp][version] = 1.7
 projects[globalredirect][subdir] = contrib
 projects[globalredirect][version] = 1.5
 projects[jcarousel][subdir] = contrib
