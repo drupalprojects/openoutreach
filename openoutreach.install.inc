@@ -24,7 +24,6 @@ function openoutreach_install_tasks($install_state) {
       'debut_bio',
       'debut_blog',
       'debut_comment',
-      'debut_event',
       'debut_highlighted',
       'debut_link',
       'debut_media',
