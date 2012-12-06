@@ -76,7 +76,7 @@ projects[comment_notify][patch][http://drupal.org/files/1434718_dont_mess_with_b
 projects[content_access][subdir] = contrib
 projects[content_access][version] = 1.x-dev
 projects[context][subdir] = contrib
-projects[context][version] = 3.0-beta4
+projects[context][version] = 3.0-beta5
 projects[date][subdir] = contrib
 projects[date][version] = 2.6
 projects[date_ical][subdir] = contrib
