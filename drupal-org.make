@@ -34,7 +34,7 @@ projects[apps_compatible][version] = 1.0-alpha3
 projects[ctools][subdir] = contrib
 projects[ctools][version] = 1.2
 projects[designkit][subdir] = contrib
-projects[designkit][version] = 1.0-beta1
+projects[designkit][version] = 1.0-beta2
 projects[fusion][subdir] = contrib
 projects[fusion][version] = 2.0-beta2
 projects[fusion_accelerator][subdir] = contrib
@@ -190,7 +190,7 @@ projects[views_slideshow][version] = 3.0
 projects[views][subdir] = contrib
 projects[views][version] = 3.5
 projects[wysiwyg][subdir] = contrib
-projects[wysiwyg][version] = 2.x-dev
+projects[wysiwyg][version] = 2.2
 projects[xmlsitemap][subdir] = contrib
 projects[xmlsitemap][version] = 2.0-rc1
 
