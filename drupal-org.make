@@ -160,9 +160,7 @@ projects[metatag][version] = 1.0-beta4
 projects[multiform][subdir] = contrib
 projects[multiform][version] = 1.0
 projects[openlayers][subdir] = contrib
-; Using dev for fixes to marker tokens.
-; Switch back to stable with first release after 2.0-beta1.
-projects[openlayers][version] = 2.x-dev
+projects[openlayers][version] = 2.0-beta3
 projects[pathauto][subdir] = contrib
 projects[pathauto][version] = 1.2
 projects[profile2][subdir] = contrib
