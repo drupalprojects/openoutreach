@@ -1,5 +1,5 @@
 api = 2
-core = 7.18
+core = 7.19
 
 ; Includes are not yet supported on drupal-org.make files.
 ; See http://drupal.org/node/1427752.
