@@ -441,9 +441,13 @@ function openoutreach_prepare($form, &$form_state) {
 function openoutreach_prepare_submit($form, &$form_state) {
   openoutreach_install_permissions();
 
+  // Try to allocate enough time to rebuild features.
+  drupal_set_time_limit(240);
+
   // Flush all caches to ensure that any full bootstraps during the installer
   // do not leave stale cached data, and that any content types or other items
-  // registered by the install profile are registered correctly.
+  // registered by the install profile are registered correctly. Flushing also
+  // triggers features component rebuilding.
   drupal_flush_all_caches();
 
   // Remember the profile which was used.
