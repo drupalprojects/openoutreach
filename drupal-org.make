@@ -196,10 +196,10 @@ projects[xmlsitemap][version] = 2.0-rc2
 
 libraries[ckeditor][directory_name] = "ckeditor"
 libraries[ckeditor][download][type] = "get"
-libraries[ckeditor][download][url] = "http://download.cksource.com/CKEditor/CKEditor/CKEditor%203.6.2/ckeditor_3.6.2.tar.gz"
+libraries[ckeditor][download][url] = "http://ckeditor.com/downloads/ckeditor_4.0.1_basic.zip"
 libraries[colorbox][directory_name] = "colorbox"
 libraries[colorbox][download][type] = "get"
-libraries[colorbox][download][url] = "https://github.com/jackmoore/colorbox/zipball/v1.3.16"
+libraries[colorbox][download][url] = "https://github.com/jackmoore/colorbox/archive/master.zip"
 libraries[jquery.cycle][download][type] = "get"
 ; Permissions wrong when specifying single file. See http://drupal.org/node/1459618.
 ; libraries[jquery.cycle][download][url] = "https://raw.github.com/malsup/cycle/master/jquery.cycle.all.js"
