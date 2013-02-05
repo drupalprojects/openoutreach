@@ -1,26 +1,69 @@
 api = 2
 core = 7.19
 
-; Includes are not yet supported on drupal-org.make files.
-; See http://drupal.org/node/1427752.
+; The Panopoly Foundation
 
-; Debut features.
-; includes[debut_article] = "http://drupalcode.org/project/debut_article.git/blob_plain/refs/heads/7.x-1.x:/debut_article.make.inc"
-; includes[debut_bio] = "http://drupalcode.org/project/debut_bio.git/blob_plain/refs/heads/7.x-1.x:/debut_bio.make.inc"
-; includes[debut_blog] = "http://drupalcode.org/project/debut_blog.git/blob_plain/refs/heads/7.x-1.x:/debut_blog.make.inc"
-; includes[debut_comment] = "http://drupalcode.org/project/debut_comment.git/blob_plain/refs/heads/7.x-1.x:/debut_comment.make.inc"
-; includes[debut_event] = "http://drupalcode.org/project/debut_event.git/blob_plain/refs/heads/7.x-1.x:/debut_event.make.inc"
-; includes[debut_forum] = "http://drupalcode.org/project/debut_forum.git/blob_plain/refs/heads/7.x-1.x:/debut_forum.make.inc"
-; includes[debut_highlighted] = "http://drupalcode.org/project/debut_highlighted.git/blob_plain/refs/heads/7.x-1.x:/debut_highlighted.make.inc"
-; includes[debut_link] = "http://drupalcode.org/project/debut_link.git/blob_plain/refs/heads/7.x-1.x:/debut_link.make.inc"
-; includes[debut_location] = "http://drupalcode.org/project/debut_location.git/blob_plain/refs/heads/7.x-1.x:/debut_location.make.inc"
-; includes[debut_media] = "http://drupalcode.org/project/debut_media.git/blob_plain/refs/heads/7.x-1.x:/debut_media.make.inc"
-; includes[debut_member] = "http://drupalcode.org/project/debut_member.git/blob_plain/refs/heads/7.x-1.x:/debut_member.make.inc"
-; includes[debut_redhen] = "http://drupalcode.org/project/debut_redhen.git/blob_plain/refs/heads/7.x-1.x:/debut_redhen.make.inc"
-; includes[debut_section] = "http://drupalcode.org/project/debut_section.git/blob_plain/refs/heads/7.x-1.x:/debut_section.make.inc"
-; includes[debut_seo] = "http://drupalcode.org/project/debut_seo.git/blob_plain/refs/heads/7.x-1.x:/debut_seo.make.inc"
-; includes[debut_social] = "http://drupalcode.org/project/debut_social.git/blob_plain/refs/heads/7.x-1.x:/debut_social.make.inc"
-; includes[debut_wysiwyg] = "http://drupalcode.org/project/debut_wysiwyg.git/blob_plain/refs/heads/7.x-1.x:/debut_wysiwyg.make.inc"
+projects[panopoly_core][version] = 1.x-dev
+projects[panopoly_core][subdir] = panopoly
+projects[panopoly_core][download][type] = git
+projects[panopoly_core][download][revision] = 3bcd157
+projects[panopoly_core][download][branch] = 7.x-1.x
+
+projects[panopoly_images][version] = 1.x-dev
+projects[panopoly_images][subdir] = panopoly
+projects[panopoly_images][download][type] = git
+projects[panopoly_images][download][revision] = 98eb0f5
+projects[panopoly_images][download][branch] = 7.x-1.x
+
+projects[panopoly_theme][version] = 1.x-dev
+projects[panopoly_theme][subdir] = panopoly
+projects[panopoly_theme][download][type] = git
+projects[panopoly_theme][download][revision] = 372aeb0
+projects[panopoly_theme][download][branch] = 7.x-1.x
+
+projects[panopoly_magic][version] = 1.x-dev
+projects[panopoly_magic][subdir] = panopoly
+projects[panopoly_magic][download][type] = git
+projects[panopoly_magic][download][revision] = 64d984e
+projects[panopoly_magic][download][branch] = 7.x-1.x
+
+projects[panopoly_widgets][version] = 1.x-dev
+projects[panopoly_widgets][subdir] = panopoly
+projects[panopoly_widgets][download][type] = git
+projects[panopoly_widgets][download][revision] = 2a98c9e
+projects[panopoly_widgets][download][branch] = 7.x-1.x
+
+projects[panopoly_admin][version] = 1.x-dev
+projects[panopoly_admin][subdir] = panopoly
+projects[panopoly_admin][download][type] = git
+projects[panopoly_admin][download][revision] = 165fafb
+projects[panopoly_admin][download][branch] = 7.x-1.x
+
+projects[panopoly_users][version] = 1.x-dev
+projects[panopoly_users][subdir] = panopoly
+projects[panopoly_users][download][type] = git
+projects[panopoly_users][download][revision] = cb4ca09
+projects[panopoly_users][download][branch] = 7.x-1.x
+
+; The Panopoly Toolset
+
+projects[panopoly_pages][version] = 1.x-dev
+projects[panopoly_pages][subdir] = panopoly
+projects[panopoly_pages][download][type] = git
+projects[panopoly_pages][download][revision] = 9a30d63
+projects[panopoly_pages][download][branch] = 7.x-1.x
+
+projects[panopoly_wysiwyg][version] = 1.x-dev
+projects[panopoly_wysiwyg][subdir] = panopoly
+projects[panopoly_wysiwyg][download][type] = git
+projects[panopoly_wysiwyg][download][revision] = c745f0f
+projects[panopoly_wysiwyg][download][branch] = 7.x-1.x
+
+projects[panopoly_search][version] = 1.x-dev
+projects[panopoly_search][subdir] = panopoly
+projects[panopoly_search][download][type] = git
+projects[panopoly_search][download][revision] = 39aeea8
+projects[panopoly_search][download][branch] = 7.x-1.x
 
 ; Projects specific to Open Outreach.
 projects[adaptivetheme][subdir] = contrib
