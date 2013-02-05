@@ -120,7 +120,7 @@ projects[entityreference][version] = 1.0
 projects[eva][subdir] = contrib
 projects[eva][version] = 1.2
 projects[features][subdir] = contrib
-projects[features][version] = 2.0-beta1
+projects[features][version] = 1.0
 projects[file_admin][subdir] = contrib
 projects[file_admin][version] = 1.0-beta2
 projects[file_entity][subdir] = contrib
@@ -196,7 +196,7 @@ projects[xmlsitemap][version] = 2.0-rc2
 
 libraries[ckeditor][directory_name] = "ckeditor"
 libraries[ckeditor][download][type] = "get"
-libraries[ckeditor][download][url] = "http://download.cksource.com/CKEditor/CKEditor/CKEditor%204.0.1/ckeditor_4.0.1_standard.tar.gz"
+libraries[ckeditor][download][url] = "http://download.cksource.com/CKEditor/CKEditor/CKEditor%203.6.6/ckeditor_3.6.6.zip"
 libraries[colorbox][directory_name] = "colorbox"
 libraries[colorbox][download][type] = "get"
 libraries[colorbox][download][url] = "https://github.com/jackmoore/colorbox/archive/master.zip"
