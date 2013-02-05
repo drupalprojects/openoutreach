@@ -116,13 +116,6 @@ function openoutreach_apps_servers_info() {
   $info =  drupal_parse_info_file(drupal_get_path('profile', $profile) . '/' . $profile . '.info');
   
   $return = array(
-    'panopoly' => array(
-      'title' => t('Panopoly'),
-      'description' => t('Apps for Panopoly'),
-      'manifest' => 'http://apps.getpantheon.com/panopoly',
-      'profile' => $profile,
-      'profile_version' => isset($info['version']) ? $info['version'] : '7.x-1.x',
-    ),
     'debut' => array(
       'title' => t('Debut'),
       'description' => t('Debut apps'),

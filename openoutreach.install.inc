@@ -18,8 +18,6 @@ function openoutreach_install_tasks($install_state) {
   // Summon the power of the Apps module.
   require_once(drupal_get_path('module', 'apps') . '/apps.profile.inc');
 
-  $tasks = $tasks + apps_profile_install_tasks($install_state, array('machine name' => 'panopoly', 'default apps' => array('panopoly_demo')));
-
   if ($install_state['interactive']) {
     $default_apps = array(
       'debut_article',

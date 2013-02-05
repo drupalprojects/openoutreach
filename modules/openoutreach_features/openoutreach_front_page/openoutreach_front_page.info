@@ -18,3 +18,4 @@ features[page_manager_pages][] = front_page
 features[panels_mini][] = front_page_upper_section
 features[variable][] = site_frontpage
 features[views_view][] = front_page_top_stories
+
