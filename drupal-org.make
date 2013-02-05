@@ -150,9 +150,14 @@ projects[media_browser_plus][version] = 1.0-beta3
 projects[media][subdir] = contrib
 projects[media][version] = 2.0-unstable7
 projects[media_vimeo][subdir] = contrib
-projects[media_vimeo][version] = 1.0-beta5
+; Use development release for fix to http://drupal.org/node/1823078.
+; Use first stable release after 1.0-beta5 or first stable release in the 2.x
+; branch.
+projects[media_vimeo][version] = 1.x-dev
 projects[media_youtube][subdir] = contrib
-projects[media_youtube][version] = 2.0-rc1
+; Use development release for fix to http://drupal.org/node/1812976.
+; Use first stable release after 2.0-rc1.
+projects[media_youtube][version] = 2.x-dev
 projects[message][subdir] = contrib
 projects[message][version] = 1.7
 projects[metatag][subdir] = contrib
