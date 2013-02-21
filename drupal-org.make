@@ -1,5 +1,5 @@
 api = 2
-core = 7.19
+core = 7.20
 
 ; Includes are not yet supported on drupal-org.make files.
 ; See http://drupal.org/node/1427752.
@@ -61,7 +61,7 @@ libraries[superfish][download][url] = "https://github.com/mehrpadin/Superfish-fo
 projects[addressfield][subdir] = contrib
 projects[addressfield][version] = 1.0-beta3
 projects[advanced_forum][subdir] = contrib
-projects[advanced_forum][version] = 2.0
+projects[advanced_forum][version] = 2.1
 projects[advanced_help][subdir] = contrib
 projects[advanced_help][version] = 1.0
 projects[better_exposed_filters][subdir] = contrib
