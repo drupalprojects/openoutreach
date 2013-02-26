@@ -154,9 +154,7 @@ projects[media_vimeo][subdir] = contrib
 ; Use first stable release in 2.x branch.
 projects[media_vimeo][version] = 2.x-dev
 projects[media_youtube][subdir] = contrib
-; Use development release for fix to http://drupal.org/node/1812976.
-; Use first stable release after 2.0-rc1.
-projects[media_youtube][version] = 2.x-dev
+projects[media_youtube][version] = 2.0-rc2
 projects[message][subdir] = contrib
 projects[message][version] = 1.7
 projects[metatag][subdir] = contrib
