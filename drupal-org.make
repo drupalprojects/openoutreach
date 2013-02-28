@@ -65,15 +65,31 @@ projects[panopoly_search][download][type] = git
 projects[panopoly_search][download][revision] = 39aeea8
 projects[panopoly_search][download][branch] = 7.x-1.x
 
+; The Debut Toolset
+
+projects[debut_blog][version] = 2.x-dev
+projects[debut_blog][subdir] = debut
+
+projects[debut_comment][version] = 2.x-dev
+projects[debut_comment][subdir] = debut
+
 ; Projects specific to Open Outreach.
+
 projects[adaptivetheme][subdir] = contrib
 projects[adaptivetheme][version] = 3.1
+
 projects[apps][subdir] = contrib
 projects[apps][version] = 1.0-beta7
+
 projects[outreach][subdir] = contrib
 projects[outreach][version] = 1.0-beta1
+
 projects[sky][subdir] = contrib
 projects[sky][version] = 3.0-rc1
+
+projects[subprofiles][subdir] = contrib
+projects[subprofiles][version] = 1.0
+
 projects[superfish][subdir] = contrib
 projects[superfish][version] = 1.8
 

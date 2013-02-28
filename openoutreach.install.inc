@@ -12,74 +12,12 @@
  */
 function openoutreach_install_tasks($install_state) {
 
-  // Kick off the tasks.
-  $tasks = array();
-
-  // Summon the power of the Apps module.
-  require_once(drupal_get_path('module', 'apps') . '/apps.profile.inc');
-
-  $tasks = $tasks + apps_profile_install_tasks($install_state, array('machine name' => 'panopoly', 'default apps' => array('panopoly_demo')));
-
-  if ($install_state['interactive']) {
-    $default_apps = array(
-      'debut_article',
-      'debut_bio',
-      'debut_blog',
-      'debut_comment',
-      'debut_highlighted',
-      'debut_link',
-      'debut_media',
-      'debut_section',
-      'debut_seo',
-      'debut_social',
-      'debut_wysiwyg',
-    );
+  if (module_exists('subprofiles')) {
+    $tasks = _subprofiles_install_tasks($install_state);
   }
-  // When installing automatically, there is no opportunity to select which
-  // apps to install. Therefore, don't enable any and let a site admin choose
-  // post-install.
   else {
-    $default_apps = array();
+    $tasks = array();
   }
-
-  // Set up the openoutreach Apps install task.
-  $debut_server = array(
-    'machine name' => 'debut',
-    'default apps' => $default_apps,
-    'required apps' => array(),
-  );
-
-  // Insert the apps support verification test after the apps select form so
-  // that it shows only if needed.
-  $apps_tasks = apps_profile_install_tasks($install_state, $debut_server);
-  $select_task_name = 'apps_profile_apps_select_form_debut';
-  $verify_task_name = 'apps_install_verify';
-  if (isset($apps_tasks[$select_task_name]) && isset($apps_tasks[$verify_task_name])) {
-    $apps_select_form_task = $apps_tasks[$select_task_name];
-    $apps_verify_form_task = $apps_tasks[$verify_task_name];
-    unset($apps_tasks[$select_task_name]);
-    unset($apps_tasks[$verify_task_name]);
-    $tasks[$select_task_name] = $apps_select_form_task;
-    $apps_verify_form_task['run'] = (!empty($_SESSION['apps_downloads'])) ? INSTALL_TASK_RUN_IF_NOT_COMPLETED : INSTALL_TASK_SKIP;
-    $tasks[$verify_task_name] = $apps_verify_form_task;
-  }
-
-  $tasks = $tasks + $apps_tasks;
-
-  // Rename one of the default apps tasks. In the case of a non-interactive
-  // installation, apps_profile_install_tasks() never defines this task, so we
-  // need to make sure we don't accidentally create it when it doesn't exist.
-  if (isset($tasks['apps_profile_apps_select_form_debut'])) {
-    $tasks['apps_profile_apps_select_form_debut']['display_name'] = t('Install apps for Open Outreach');
-  }
-
-  // Enable any selected Open Outreach features.
-  $tasks['openoutreach_enable_features'] = array(
-    'display' => FALSE,
-    'type' => 'batch',
-    'run' => (isset($_SESSION['openoutreach_features'])) ? INSTALL_TASK_RUN_IF_NOT_COMPLETED : INSTALL_TASK_SKIP,
-    'function' => 'openoutreach_enable_features',
-  );
 
   // Set up the theme selection task.
   $tasks['openoutreach_theme_form'] = array(
@@ -125,105 +63,6 @@ function openoutreach_form_install_configure_form_alter(&$form, &$form_state) {
   }
   // Hide update notifications.
   $form['update_notifications']['#access'] = FALSE;
-}
-
-/**
- * Implements hook_form_FORM_ID_alter().
- *
- * Adapted from panopoly_apps_profile_apps_select_form_alter().
- *
- * @todo: restore hidden content fieldset when Debut apps support it.
- */
-function openoutreach_form_apps_profile_apps_select_form_alter(&$form, $form_state) {
-  // For some things there are no need.
-  $form['apps_message']['#access'] = FALSE;
-  $form['apps_fieldset']['apps']['#title'] = NULL;
-
-  // Debut doesn't yet support default content.
-  $form['default_content_fieldset']['#access'] = FALSE;
-
-  // Improve style of apps selection form.
-  if (isset($form['apps_fieldset'])) {
-    $options = array();
-    foreach($_SESSION['apps_manifest'] as $name => $app) {
-      if ($name != '#theme') {
-        $options[$name] = '<strong>' . $app['name'] . '</strong><p><div class="admin-options"><div class="form-item">' . theme('image', array('path' => $app['logo']['path'], 'height' => '32', 'width' => '32')) . '</div>' . $app['description'] . '</div></p>';
-      }
-    }
-    ksort($options);
-    $form['apps_fieldset']['apps']['#options'] = $options;
-    // Remove the deprecated Debut app.
-    unset($form['apps_fieldset']['apps']['#options']['debut']);
-  }
-
-  // Enable installation of Open Outreach features.
-  // Extract features checkboxes from the features admin form.
-  module_load_include('inc', 'features', 'features.admin');
-  $features_admin_form = features_admin_form(array(), array());
-  $features = $features_admin_form['features']['status'];
-  // Core will be enabled already.
-  unset($features['openoutreach_core']);
-  // Only show openoutreach features.
-  foreach (array_keys($features) as $name) {
-    if (strpos($name, 'openoutreach_') !== 0) {
-      unset($features[$name]);
-    }
-    else {
-      // Remove links to the feature, since they won't work here.
-      $features[$name]['#title'] = strip_tags($features[$name]['#title']);
-      // Default to enabled.
-      $features[$name]['#default_value'] = TRUE;
-    }
-  }
-  $form['openoutreach_features'] = array(
-    '#type' => 'fieldset',
-    '#title' => t('Select Open Outreach features'),
-    '#description' => t('Select the features you wish to enable. You will also have a chance to enable or disable features after installing.'),
-    '#weight' => -1,
-    '#tree' => TRUE,
-  ) + $features;
-
-  $form['#submit'][] = 'openoutreach_apps_profile_apps_select_form_submit';
-}
-
-/**
- * Submit handler for install_configure_form. Set a variable specifying the
- * features to be installed.
- */
-function openoutreach_apps_profile_apps_select_form_submit($form, &$form_state) {
-  if (isset($form_state['values']['op']) && ($form_state['values']['op'] == t('Install Apps'))) {
-    $features = array_keys(array_filter($form_state['values']['openoutreach_features']));
-    if (!empty($features)) {
-      $_SESSION['openoutreach_features'] = $features;
-    }
-  }
-}
-
-/**
- * Install selected Open Outreach features.
- */
-function openoutreach_enable_features(&$install_state) {
-  $features = $_SESSION['openoutreach_features'];
-
-  if (!empty($features)) {
-    $operations = array();
-    foreach ($features as $module) {
-      $module_info = system_get_info('module', $module);
-      $module_name = isset($module_info['name']) ? $module_info['name'] : $module;
-      $operations[] = array('app_profile_enable_module', array($module, $module_name));
-    }
-    if (!empty($operations)) {
-      $batch = array(
-        'title' => t('Enable Open Outreach features'),
-        'init_message' => t('Enabling features...'),
-        'progress_message' => t('Enabling @current out of @total features.'),
-        'operations' => $operations,
-        'error_message' => t('Feature enabling encountered an error.'),
-        'file' => drupal_get_path('module', 'apps') . '/apps.profile.inc',
-      );
-    }
-    return $batch;
-  }
 }
 
 /**

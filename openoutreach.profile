@@ -49,6 +49,17 @@ function openoutreach_block_view() {
 /**
  * Implements hook_modules_installed().
  *
+ * When a module is installed, enable the modules it recommends if they are
+ * present.
+ */
+function openoutreach_modules_installed($modules) {
+  module_load_include('inc', 'openoutreach', 'openoutreach.module_batch');
+  openoutreach_module_batch($modules);
+}
+
+/**
+ * Implements hook_modules_enabled().
+ *
  * Unset distracting messages at install time.
  */
 function openoutreach_modules_enabled($modules) {
@@ -59,7 +70,7 @@ function openoutreach_modules_enabled($modules) {
 }
 
 /**
- * Implements hook_modules_installed().
+ * Implements hook_modules_entity_insert().
  *
  * Add custom taxonomy terms to the event_type vocabulary if it is created.
  */
@@ -106,33 +117,6 @@ function openoutreach_admin_menu_output_build(&$content) {
     '#title' => t('My account'),
     '#href' => 'user',
   );
-}
-
-/**
- * Implements hook_apps_servers_info().
- */
-function openoutreach_apps_servers_info() {
-  $profile = variable_get('install_profile', 'standard');
-  $info =  drupal_parse_info_file(drupal_get_path('profile', $profile) . '/' . $profile . '.info');
-  
-  $return = array(
-    'panopoly' => array(
-      'title' => t('Panopoly'),
-      'description' => t('Apps for Panopoly'),
-      'manifest' => 'http://apps.getpantheon.com/panopoly',
-      'profile' => $profile,
-      'profile_version' => isset($info['version']) ? $info['version'] : '7.x-1.x',
-    ),
-    'debut' => array(
-      'title' => t('Debut'),
-      'description' => t('Debut apps'),
-      'manifest' => 'http://appserver.openoutreach.org/app/query',
-      'profile' => $profile,
-      'profile_version' => isset($info['version']) ? $info['version'] : '7.x-1.x',
-    ),
-  );
-
-  return $return;
 }
 
 /**

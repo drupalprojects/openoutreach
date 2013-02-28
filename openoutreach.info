@@ -49,5 +49,20 @@ dependencies[] = uuid
 dependencies[] = "apps"
 dependencies[] = "features"
 dependencies[] = "openoutreach_core"
+dependencies[] = "subprofiles"
+
+subprofiles[standard][name] = "Openoutreach standard"
+subprofiles[standard][description] = "Install a full version of Open Outreach with all commonly needed features enabled."
+subprofiles[standard][features][debut_blog] = TRUE
+subprofiles[standard][features][debut_comment] = TRUE
+subprofiles[standard][features][debut_event] = TRUE
+subprofiles[standard][features][debut_forum] = FALSE
+subprofiles[standard][features][debut_link] = TRUE
+subprofiles[standard][features][debut_member] = FALSE
+subprofiles[standard][features][debut_seo] = TRUE
+subprofiles[standard][features][debut_social] = TRUE
+subprofiles[standard][features][openoutreach_front_page] = TRUE
+subprofiles[minimal][name] = "Openoutreach minimal"
+subprofiles[minimal][description] = "Install a minimal Open Outreach site with article and comment functionality."
 
 files[] = "openoutreach.profile"
