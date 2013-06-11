@@ -1,7 +1,8 @@
 api = 2
 core = 7.22
 
-; Includes are not yet supported on drupal-org.make files.
+; Includes are now supported on drupal-org.make files.
+; Todo: revert to using the includes.
 ; See http://drupal.org/node/1427752.
 
 ; Debut features.
@@ -31,19 +32,12 @@ projects[apps][subdir] = contrib
 projects[apps][version] = 1.0-beta7
 projects[apps_compatible][subdir] = contrib
 projects[apps_compatible][version] = 1.0-alpha3
+projects[at-commerce][subdir] = contrib
+projects[at-commerce][version] = 3.0-rc1
 projects[ctools][subdir] = contrib
 projects[ctools][version] = 1.3
-projects[designkit][subdir] = contrib
-projects[designkit][version] = 1.0-beta2
-projects[fusion][subdir] = contrib
-projects[fusion][version] = 2.0-beta2
-projects[fusion_accelerator][subdir] = contrib
-projects[fusion_accelerator][version] = 2.0-beta1
-projects[granada][subdir] = contrib
-projects[granada][version] = 2.0-rc2
 projects[mix_and_match][subdir] = contrib
-projects[mix_and_match][version] = 1.0
-projects[mix_and_match][patch][http://drupal.org/files/mix_and_match-fusion_apply-1372052-8.patch] = http://drupal.org/files/mix_and_match-fusion_apply-1372052-8.patch
+projects[mix_and_match][version] = 2.1
 projects[outreach][subdir] = contrib
 projects[outreach][version] = 1.0-beta1
 projects[panels][subdir] = contrib
