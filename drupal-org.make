@@ -119,9 +119,9 @@ projects[file_admin][version] = 1.0-beta2
 projects[file_entity][subdir] = contrib
 projects[file_entity][version] = 2.0-unstable7
 projects[follow][subdir] = contrib
-projects[follow][version] = 1.0-alpha1
+projects[follow][version] = 2.0-alpha1
 projects[forward][subdir] = contrib
-projects[forward][version] = 1.4
+projects[forward][version] = 2.0-beta2
 projects[geocoder][subdir] = contrib
 projects[geocoder][version] = 1.2
 ; Use geofield prior to updates for OpenLayers 2.0-beta5.
