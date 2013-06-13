@@ -317,6 +317,8 @@ function openoutreach_theme_form($form, &$form_state) {
   $form_state['theme dependencies'] = array(
     'outreach' => array('superfish'),
     'sky' => array('superfish'),
+    'mix_and_match' => array('superfish'),
+    'at-commerce' => array('superfish'),
     'bartik' => array(),
   );
 
