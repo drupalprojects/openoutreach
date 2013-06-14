@@ -52,7 +52,7 @@ function openoutreach_block_view() {
  * Unset distracting messages at install time.
  */
 function openoutreach_modules_enabled($modules) {
-  if (defined('MAINTENANCE_MODE') && MAINTENANCE_MODE == 'install' && array_intersect($modules, array('captcha', 'date_api'))) {
+  if (defined('MAINTENANCE_MODE') && MAINTENANCE_MODE == 'install' && array_intersect($modules, array('captcha', 'date_api', 'superfish'))) {
     drupal_get_messages('status');
     drupal_get_messages('warning');
   }
