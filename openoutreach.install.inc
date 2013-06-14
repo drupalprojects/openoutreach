@@ -318,7 +318,7 @@ function openoutreach_theme_form($form, &$form_state) {
     'outreach' => array('superfish'),
     'sky' => array('superfish'),
     'mix_and_match' => array('superfish'),
-    'at-commerce' => array('superfish'),
+    'at_commerce' => array('superfish'),
     'bartik' => array(),
   );
 
@@ -328,6 +328,11 @@ function openoutreach_theme_form($form, &$form_state) {
   foreach($theme_data as $theme) {
     $themes[$theme->name] = theme('image', array('path' => $theme->info['screenshot'])) . '<strong>' . $theme->info['name'] . '</strong><br><p><em>' . strip_tags($theme->info['description']) . '</em></p><p class="clearfix"></p>';
   }
+
+  // Move Outreach to first.
+  $outreach = $themes['outreach'];
+  unset($themes['outreach']);
+  $themes = array('outreach' => $outreach) + $themes;
 
   // Move Bartik to last.
   $bartik = $themes['bartik'];
