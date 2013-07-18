@@ -19,6 +19,9 @@ dependencies[] = file
 dependencies[] = dblog
 dependencies[] = update
 
+; Added to satisfy OpenOutreach requirements. May remove later as Panopoly does not need block.
+dependencies[] = block
+
 ; Panopoly Foundation
 dependencies[] = panopoly_core
 dependencies[] = panopoly_images
