@@ -67,6 +67,14 @@ projects[panopoly_search][download][type] = git
 projects[panopoly_search][download][branch] = 7.x-1.x
 
 
+; Panopoly apps
+
+projects[panopoly_news][version] = 1.0-rc2
+projects[panopoly_news][subdir] = panopoly
+projects[panopoly_news][download][type] = git
+;projects[panopoly_news][download][branch] = 7.x-1.x
+
+
 ; The Debut toolset
 
 ;projects[debut_blog][version] = 2.x-dev
