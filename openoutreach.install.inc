@@ -37,16 +37,16 @@ function openoutreach_install_tasks($install_state) {
 /**
  * Implements hook_install_tasks_alter()
  */
-function openoutreach_install_tasks_alter(&$tasks, $install_state) {
-  // Magically go one level deeper in solving years of dependency problems.
-  require_once(drupal_get_path('module', 'panopoly_core') . '/panopoly_core.profile.inc');
-  $tasks['install_load_profile']['function'] = 'panopoly_core_install_load_profile';
+// function openoutreach_install_tasks_alter(&$tasks, $install_state) {
+//   // Magically go one level deeper in solving years of dependency problems.
+//   require_once(drupal_get_path('module', 'panopoly_core') . '/panopoly_core.profile.inc');
+//   $tasks['install_load_profile']['function'] = 'panopoly_core_install_load_profile';
 
-  // Create a more informative finished page.
-  $tasks['install_finished']['function'] = 'openoutreach_finished';
-  $tasks['install_finished']['display_name'] = t('Finished!');
-  $tasks['install_finished']['type'] = 'form';
-}
+//   // Create a more informative finished page.
+//   $tasks['install_finished']['function'] = 'openoutreach_finished';
+//   $tasks['install_finished']['display_name'] = t('Finished!');
+//   $tasks['install_finished']['type'] = 'form';
+// }
 
 /**
  * Implements hook_install_configure_form_alter().
@@ -74,63 +74,63 @@ function openoutreach_install_user_default_permissions() {
   $permissions = array();
 
   // Exported permission: access contextual links
-  $permissions['access contextual links'] = array(
-    'name' => 'access contextual links',
-    'roles' => array(
-      0 => 'administrator',
-      1 => 'editor',
-    ),
-    'module' => 'contextual',
-  );
+  // $permissions['access contextual links'] = array(
+  //   'name' => 'access contextual links',
+  //   'roles' => array(
+  //     0 => 'administrator',
+  //     1 => 'editor',
+  //   ),
+  //   'module' => 'contextual',
+  // );
 
-  // Exported permission: search content
-  $permissions['search content'] = array(
-    'name' => 'search content',
-    'roles' => array(
-      0 => 'administrator',
-      1 => 'anonymous user',
-      2 => 'authenticated user',
-    ),
-    'module' => 'search',
-  );
+  // // Exported permission: search content
+  // $permissions['search content'] = array(
+  //   'name' => 'search content',
+  //   'roles' => array(
+  //     0 => 'administrator',
+  //     1 => 'anonymous user',
+  //     2 => 'authenticated user',
+  //   ),
+  //   'module' => 'search',
+  // );
 
-  // Exported permission: use advanced search
-  $permissions['use advanced search'] = array(
-    'name' => 'use advanced search',
-    'roles' => array(
-      0 => 'administrator',
-      1 => 'anonymous user',
-      2 => 'authenticated user',
-    ),
-    'module' => 'search',
-  );
+  // // Exported permission: use advanced search
+  // $permissions['use advanced search'] = array(
+  //   'name' => 'use advanced search',
+  //   'roles' => array(
+  //     0 => 'administrator',
+  //     1 => 'anonymous user',
+  //     2 => 'authenticated user',
+  //   ),
+  //   'module' => 'search',
+  // );
 
-  // Exported permission: view advanced help index
-  $permissions['view advanced help index'] = array(
-    'name' => 'view advanced help index',
-    'roles' => array(
-      0 => 'administrator',
-    ),
-    'module' => 'advanced_help',
-  );
+  // // Exported permission: view advanced help index
+  // $permissions['view advanced help index'] = array(
+  //   'name' => 'view advanced help index',
+  //   'roles' => array(
+  //     0 => 'administrator',
+  //   ),
+  //   'module' => 'advanced_help',
+  // );
 
-  // Exported permission: view advanced help popup
-  $permissions['view advanced help popup'] = array(
-    'name' => 'view advanced help popup',
-    'roles' => array(
-      0 => 'administrator',
-    ),
-    'module' => 'advanced_help',
-  );
+  // // Exported permission: view advanced help popup
+  // $permissions['view advanced help popup'] = array(
+  //   'name' => 'view advanced help popup',
+  //   'roles' => array(
+  //     0 => 'administrator',
+  //   ),
+  //   'module' => 'advanced_help',
+  // );
 
-  // Exported permission: view advanced help topic
-  $permissions['view advanced help topic'] = array(
-    'name' => 'view advanced help topic',
-    'roles' => array(
-      0 => 'administrator',
-    ),
-    'module' => 'advanced_help',
-  );
+  // // Exported permission: view advanced help topic
+  // $permissions['view advanced help topic'] = array(
+  //   'name' => 'view advanced help topic',
+  //   'roles' => array(
+  //     0 => 'administrator',
+  //   ),
+  //   'module' => 'advanced_help',
+  // );
 
   return $permissions;
 }

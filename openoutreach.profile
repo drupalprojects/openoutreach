@@ -12,7 +12,7 @@ if (defined('MAINTENANCE_MODE') && MAINTENANCE_MODE == 'install') {
 }
 
 
-function openlocal_install_tasks_alter(&$tasks, $install_state) {
+function openoutreach_install_tasks_alter(&$tasks, $install_state) {
 
   // Magically go one level deeper in solving years of dependency problems
   require_once(drupal_get_path('module', 'panopoly_core') . '/panopoly_core.profile.inc');
@@ -23,7 +23,7 @@ function openlocal_install_tasks_alter(&$tasks, $install_state) {
 /**
 * Implements hook_install_tasks().
 */
-function openlocal_install_tasks($install_state) {
+function openoutreach_install_tasks($install_state) {
   $tasks = array();
 
   // Add the Panopoly App Server to the Installation Process
