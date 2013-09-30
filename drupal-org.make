@@ -124,11 +124,8 @@ projects[forward][subdir] = contrib
 projects[forward][version] = 2.0
 projects[geocoder][subdir] = contrib
 projects[geocoder][version] = 1.2
-; Use geofield prior to updates for OpenLayers 2.0-beta5.
 projects[geofield][subdir] = contrib
-projects[geofield][version] = 2.x-dev
-projects[geofield][download][type] = git
-projects[geofield][download][revision] = 27de4c9
+projects[geofield][version] = 2.0
 projects[geophp][subdir] = contrib
 projects[geophp][version] = 1.7
 projects[globalredirect][subdir] = contrib
