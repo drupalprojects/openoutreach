@@ -39,7 +39,7 @@ function openoutreach_block_view() {
 
   // If this is an admin role, show documentation links.
   if (isset($user->roles[$admin_rid])) {
-    $content .= ' ' . t('Get started with <a href="!docs">user documentation</a> and <a href="!screencasts">screencasts</a>.', array('!docs' => 'http://openoutreach.org/section/using-open-outreach', '!screencasts' => 'http://openoutreach.org/screencasts'));
+    $content .= ' ' . t('Get started with <a href="!docs">user documentation</a>.', array('!docs' => 'http://openoutreach.org/section/using-open-outreach'));
   }
   $content .= '</span>';
   $block['content'] = $content;
