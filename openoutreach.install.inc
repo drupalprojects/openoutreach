@@ -6,12 +6,9 @@
  */
 
 /**
- * Generate an install task to install apps.
- *
- * Adapted from panopoly_install_tasks().
+ * Generate install tasks for subprofiles, theme selection, and site preparation.
  */
 function openoutreach_install_tasks($install_state) {
-
   if (module_exists('subprofiles')) {
     $tasks = _subprofiles_install_tasks($install_state);
   }
@@ -37,16 +34,16 @@ function openoutreach_install_tasks($install_state) {
 /**
  * Implements hook_install_tasks_alter()
  */
-// function openoutreach_install_tasks_alter(&$tasks, $install_state) {
-//   // Magically go one level deeper in solving years of dependency problems.
-//   require_once(drupal_get_path('module', 'panopoly_core') . '/panopoly_core.profile.inc');
-//   $tasks['install_load_profile']['function'] = 'panopoly_core_install_load_profile';
+function openoutreach_install_tasks_alter(&$tasks, $install_state) {
+  // Magically go one level deeper in solving years of dependency problems.
+  require_once(drupal_get_path('module', 'panopoly_core') . '/panopoly_core.profile.inc');
 
-//   // Create a more informative finished page.
-//   $tasks['install_finished']['function'] = 'openoutreach_finished';
-//   $tasks['install_finished']['display_name'] = t('Finished!');
-//   $tasks['install_finished']['type'] = 'form';
-// }
+  $tasks['install_load_profile']['function'] = 'panopoly_core_install_load_profile';
+   // Create a more informative finished page.
+  $tasks['install_finished']['function'] = 'openoutreach_finished';
+  $tasks['install_finished']['display_name'] = t('Finished!');
+  $tasks['install_finished']['type'] = 'form';
+}
 
 /**
  * Implements hook_install_configure_form_alter().

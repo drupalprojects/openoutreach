@@ -11,63 +11,39 @@ if (defined('MAINTENANCE_MODE') && MAINTENANCE_MODE == 'install') {
   include_once('openoutreach.install.inc');
 }
 
-
-function openoutreach_install_tasks_alter(&$tasks, $install_state) {
-
-  // Magically go one level deeper in solving years of dependency problems
-  require_once(drupal_get_path('module', 'panopoly_core') . '/panopoly_core.profile.inc');
-  $tasks['install_load_profile']['function'] = 'panopoly_core_install_load_profile';
-}
-
-
-/**
-* Implements hook_install_tasks().
-*/
-function openoutreach_install_tasks($install_state) {
-  $tasks = array();
-
-  // Add the Panopoly App Server to the Installation Process
-  require_once(drupal_get_path('module', 'apps') . '/apps.profile.inc');
-  $tasks = $tasks + apps_profile_install_tasks($install_state, array('machine name' => 'panopoly', 'default apps' => array('panopoly_demo')));
-
-  return $tasks;
-}
-
-
 /**
  * Implements hook_block_info().
  */
-// function openoutreach_block_info() {
-//   $blocks = array();
-//   $blocks['powered-by'] = array(
-//     'info' => t('Powered by Open Outreach'),
-//     'weight' => '10',
-//     'cache' => DRUPAL_NO_CACHE,
-//   );
-//   return $blocks;
-// }
+function openoutreach_block_info() {
+  $blocks = array();
+  $blocks['powered-by'] = array(
+    'info' => t('Powered by Open Outreach'),
+    'weight' => '10',
+    'cache' => DRUPAL_NO_CACHE,
+  );
+  return $blocks;
+}
 
 /**
  * Implements hook_block_view().
  *
  * Display the powered by Open Outreach block.
  */
-// function openoutreach_block_view() {
-//   global $user;
-//   $admin_rid = variable_get('user_admin_role');
+function openoutreach_block_view() {
+  global $user;
+  $admin_rid = variable_get('user_admin_role');
+  $block = array();
+  $block['subject'] = NULL;
+  $content = '<span class="powered-by">' . t('Powered by <a href="!poweredby">Open Outreach</a>.', array('!poweredby' => 'http://openoutreach.org'));
 
-//   $block = array();
-//   $block['subject'] = NULL;
-//   $content = '<span class="powered-by">' . t('Powered by <a href="!poweredby">Open Outreach</a>.', array('!poweredby' => 'http://openoutreach.org'));
-
-//   // If this is an admin role, show documentation links.
-//   if (isset($user->roles[$admin_rid])) {
-//     $content .= ' ' . t('Get started with <a href="!docs">user documentation</a> and <a href="!screencasts">screencasts</a>.', array('!docs' => 'http://openoutreach.org/section/using-open-outreach', '!screencasts' => 'http://openoutreach.org/screencasts'));
-//   }
-//   $content .= '</span>';
-//   $block['content'] = $content;
-//   return $block;
-// }
+  // If this is an admin role, show documentation links.
+  if (isset($user->roles[$admin_rid])) {
+    $content .= ' ' . t('Get started with <a href="!docs">user documentation</a> and <a href="!screencasts">screencasts</a>.', array('!docs' => 'http://openoutreach.org/section/using-open-outreach', '!screencasts' => 'http://openoutreach.org/screencasts'));
+  }
+  $content .= '</span>';
+  $block['content'] = $content;
+  return $block;
+}
 
 /**
  * Implements hook_modules_installed().
