@@ -1,0 +1,8 @@
+name = Open Outreach Migrate
+description = Provide migration support for Open Outreach content.
+core = 7.x
+
+dependencies[] = migrate
+
+files[] = openoutreach_migrate.migrate.inc
+files[] = plugins/destinations/fields.inc
