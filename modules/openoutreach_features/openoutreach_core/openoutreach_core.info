@@ -33,9 +33,10 @@ features[variable][] = date_format_medium
 features[variable][] = date_format_short
 features[variable][] = menu_main_links_source
 features[variable][] = menu_secondary_links_source
+features[variable][] = theme_adaptivetheme_settings
+features[variable][] = theme_outreach_settings
 features[variable][] = user_picture_dimensions
 features[variable][] = user_picture_file_size
 features[variable][] = user_picture_style
 features[variable][] = user_pictures
 features[variable][] = user_register
-

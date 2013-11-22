@@ -319,7 +319,6 @@ function openoutreach_theme_form($form, &$form_state) {
     'sky' => array('superfish'),
     'mix_and_match' => array('superfish'),
     'at_commerce' => array('superfish'),
-    'bartik' => array(),
   );
 
   // Create list of theme options.
@@ -333,11 +332,6 @@ function openoutreach_theme_form($form, &$form_state) {
   $outreach = $themes['outreach'];
   unset($themes['outreach']);
   $themes = array('outreach' => $outreach) + $themes;
-
-  // Move Bartik to last.
-  $bartik = $themes['bartik'];
-  unset($themes['bartik']);
-  $themes['bartik'] = $bartik;
 
   $form['theme'] = array(
     '#title' => t('Starting Theme'),
@@ -364,13 +358,25 @@ function openoutreach_theme_form($form, &$form_state) {
 function openoutreach_theme_form_submit($form, &$form_state) {
   // Enable and set the theme of choice.
   $theme = $form_state['values']['theme'];
-  theme_enable(array($theme));
+  theme_enable(array($theme, 'adaptivetheme'));
   variable_set('theme_default', $theme);
   // Enable and set the theme of choice.
   $dependencies = $form_state['theme dependencies'];
 
   if (!empty($dependencies[$theme])) {
     module_enable($dependencies[$theme]);
+  }
+
+  // AdaptiveTheme requires that the system theme settings form
+  // be submitted in order for its themes' settings to be properly set
+  // and the resulting css files generated.
+  // For more background, see http://drupal.org/node/1776730.
+  module_load_include('inc', 'system', 'system.admin');
+  foreach (array('adaptivetheme', $theme) as $theme_name) {
+    $form_state = form_state_defaults();
+    $form_state['build_info']['args'][0] = $theme_name;
+    $form_state['values'] = array();
+    drupal_form_submit('system_theme_settings', $form_state);
   }
 
   // Assign regions for the theme.

@@ -24,8 +24,14 @@ core = 7.24
 ; includes[debut_wysiwyg] = "http://drupalcode.org/project/debut_wysiwyg.git/blob_plain/refs/heads/7.x-1.x:/debut_wysiwyg.make.inc"
 
 ; Projects specific to Open Outreach.
-projects[adaptivetheme][subdir] = contrib
-projects[adaptivetheme][version] = 3.1
+; Use a version that supports initializing configuration.
+; Switch to stable with the first release after 3.1.
+projects[adaptivetheme][type] = "theme"
+projects[adaptivetheme][subdir] = "contrib"
+projects[adaptivetheme][download][type] = "git"
+projects[adaptivetheme][download][url] = "git://git.drupal.org/project/adaptivetheme.git"
+projects[adaptivetheme][download][branch] = "7.x-3.x"
+projects[adaptivetheme][download][revision] = "4e29d43"
 projects[admin_menu][subdir] = contrib
 projects[admin_menu][version] = 3.0-rc4
 projects[apps][subdir] = contrib
