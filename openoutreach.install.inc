@@ -358,7 +358,7 @@ function openoutreach_theme_form($form, &$form_state) {
 function openoutreach_theme_form_submit($form, &$form_state) {
   // Enable and set the theme of choice.
   $theme = $form_state['values']['theme'];
-  theme_enable(array($theme, 'adaptivetheme'));
+  theme_enable(array($theme));
   variable_set('theme_default', $theme);
   // Enable and set the theme of choice.
   $dependencies = $form_state['theme dependencies'];
@@ -367,17 +367,23 @@ function openoutreach_theme_form_submit($form, &$form_state) {
     module_enable($dependencies[$theme]);
   }
 
+  // Copy over the 'outreach' settings if the selected theme is a different
+  // adaptivetheme subtheme.
+  if ($theme != 'outreach') {
+    global $conf;
+    cache_clear_all('variables', 'cache_bootstrap');
+    $conf['theme_' . $theme . '_settings'] = $conf['theme_outreach_settings'];
+  }
+
   // AdaptiveTheme requires that the system theme settings form
   // be submitted in order for its themes' settings to be properly set
   // and the resulting css files generated.
   // For more background, see http://drupal.org/node/1776730.
   module_load_include('inc', 'system', 'system.admin');
-  foreach (array('adaptivetheme', $theme) as $theme_name) {
-    $form_state = form_state_defaults();
-    $form_state['build_info']['args'][0] = $theme_name;
-    $form_state['values'] = array();
-    drupal_form_submit('system_theme_settings', $form_state);
-  }
+  $form_state = form_state_defaults();
+  $form_state['build_info']['args'][0] = $theme;
+  $form_state['values'] = array();
+  drupal_form_submit('system_theme_settings', $form_state);
 
   // Assign regions for the theme.
   $regions = system_region_list($theme);
