@@ -109,26 +109,6 @@ function openoutreach_admin_menu_output_build(&$content) {
 }
 
 /**
- * Implements hook_apps_servers_info().
- */
-function openoutreach_apps_servers_info() {
-  $profile = variable_get('install_profile', 'standard');
-  $info =  drupal_parse_info_file(drupal_get_path('profile', $profile) . '/' . $profile . '.info');
-  
-  $return = array(
-    'debut' => array(
-      'title' => t('Debut'),
-      'description' => t('Debut apps'),
-      'manifest' => 'http://appserver.openoutreach.org/app/query',
-      'profile' => $profile,
-      'profile_version' => isset($info['version']) ? $info['version'] : '7.x-1.x',
-    ),
-  );
-
-  return $return;
-}
-
-/**
  * Implements hook_form_FORM_ID_alter().
  */
 function openoutreach_form_update_settings_alter(&$form, &$form_state) {
@@ -148,10 +128,12 @@ function openoutreach_update_projects_alter(&$projects) {
   if (!variable_get('openoutreach_update_show_distro_projects', FALSE)) {
     // Enable update status for the Open Outreach profile.
     $modules = system_rebuild_module_data();
-    // The module object is shared in the request, so we need to clone it here.
-    $openoutreach = clone $modules['openoutreach'];
-    $openoutreach->info['hidden'] = FALSE;
-    _update_process_info_list($projects, array('openoutreach' => $openoutreach), 'module', TRUE);
+    if (isset($modules['openoutreach']))
+      // The module object is shared in the request, so we need to clone it here.
+      $openoutreach = clone $modules['openoutreach'];
+      $openoutreach->info['hidden'] = FALSE;
+      _update_process_info_list($projects, array('openoutreach' => $openoutreach), 'module', TRUE);
+    }
   }
 }
 
