@@ -34,8 +34,6 @@ projects[adaptivetheme][download][branch] = "7.x-3.x"
 projects[adaptivetheme][download][revision] = "4e29d43"
 projects[admin_menu][subdir] = contrib
 projects[admin_menu][version] = 3.0-rc4
-projects[apps][subdir] = contrib
-projects[apps][version] = 1.0-beta7
 projects[apps_compatible][subdir] = contrib
 projects[apps_compatible][version] = 1.0-alpha3
 projects[at-commerce][subdir] = contrib
@@ -52,6 +50,8 @@ projects[panels][subdir] = contrib
 projects[panels][version] = 3.3
 projects[sky][subdir] = contrib
 projects[sky][version] = 3.0-rc1
+projects[subprofiles][subdir] = contrib
+projects[subprofiles][version] = 1.1
 projects[superfish][subdir] = contrib
 projects[superfish][version] = 1.9
 
