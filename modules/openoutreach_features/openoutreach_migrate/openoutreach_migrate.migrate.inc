@@ -38,11 +38,11 @@ abstract class OpenOutreachMigration extends Migration {
   }
 
   /**
-   * Suppress distracting install-time messages.
+   * Suppress distracting install-time messages unless in Drush verbose mode.
    */
   public function saveMessage($message, $level = MigrationBase::MESSAGE_ERROR) {
-    if (!drupal_installation_attempted()) {
-      parent::saveMessage();
+    if (!drupal_installation_attempted() || (function_exists('drush_get_context') && drush_get_context(DRUSH_VERBOSE))) {
+      parent::saveMessage($message, $level);
     }
   }
 
