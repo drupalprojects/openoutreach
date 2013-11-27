@@ -101,7 +101,7 @@ abstract class OpenOutreachMigrationNode extends OpenOutreachMigration {
       ->defaultValue($this->getImageDirectoryPath());
 
     $this->addFieldMapping('body', 'body');
-    $this->addFieldMapping('body:format')->defaultValue(module_exists('debut_wysiwyg') ? 'wysiwyg_editor' : 'full_html');
+    $this->addFieldMapping('body:format')->defaultValue(module_exists('debut_wysiwyg') ? 'wysiwyg_editor' : 'filtered_html');
 
     if ($this->useTags) {
       $this->addFieldMapping('field_tags', 'tags')
