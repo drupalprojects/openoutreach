@@ -128,7 +128,7 @@ function openoutreach_update_projects_alter(&$projects) {
   if (!variable_get('openoutreach_update_show_distro_projects', FALSE)) {
     // Enable update status for the Open Outreach profile.
     $modules = system_rebuild_module_data();
-    if (isset($modules['openoutreach']))
+    if (isset($modules['openoutreach'])) {
       // The module object is shared in the request, so we need to clone it here.
       $openoutreach = clone $modules['openoutreach'];
       $openoutreach->info['hidden'] = FALSE;
