@@ -37,6 +37,15 @@ abstract class OpenOutreachMigration extends Migration {
     variable_set('menu_rebuild_needed', FALSE);
   }
 
+  /**
+   * Suppress distracting install-time messages.
+   */
+  public function saveMessage($message, $level = MigrationBase::MESSAGE_ERROR) {
+    if (!drupal_installation_attempted()) {
+      parent::saveMessage();
+    }
+  }
+
   protected function setProperties($type) {
     $path = drupal_get_path('module', 'openoutreach_migrate');
     $this->baseImportDirectory = (file_exists($path . '/local') ? $path . '/local' : $path . '/import');

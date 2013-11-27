@@ -173,9 +173,6 @@ function openoutreach_install_permissions() {
  * Form to choose the starting theme from list of available options.
  */
 function openoutreach_theme_form($form, &$form_state) {
-  // Unset notifications from migrate module.
-  drupal_get_messages('status');
-
   // Declare a white list of themes offered for selection along with data used
   // to determine what modules should be enabled and what blocks configured.
   $form_state['theme dependencies'] = array(

@@ -7,7 +7,7 @@
 
 // Include only when in install mode. MAINTENANCE_MODE is defined in
 // install.php and in drush_core_site_install().
-if (defined('MAINTENANCE_MODE') && MAINTENANCE_MODE == 'install') {
+if (drupal_installation_attempted()) {
   include_once('openoutreach.install.inc');
 }
 
@@ -52,7 +52,7 @@ function openoutreach_block_view() {
  * Unset distracting messages at install time.
  */
 function openoutreach_modules_enabled($modules) {
-  if (defined('MAINTENANCE_MODE') && MAINTENANCE_MODE == 'install' && array_intersect($modules, array('captcha', 'date_api', 'superfish'))) {
+  if (drupal_installation_attempted() && array_intersect($modules, array('captcha', 'date_api', 'superfish'))) {
     drupal_get_messages('status');
     drupal_get_messages('warning');
   }
