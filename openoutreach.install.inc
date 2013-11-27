@@ -46,6 +46,18 @@ function openoutreach_install_tasks_alter(&$tasks, $install_state) {
  * Implements hook_install_configure_form_alter().
  */
 function openoutreach_form_install_configure_form_alter(&$form, &$form_state) {
+  $form['sample_content'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Sample content'),
+    '#weight' => -20,
+  );
+  $form['sample_content']['migrate'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Install sample content'),
+    '#default_value' => TRUE,
+    '#description' => t('Select this box to get some initial content created on your site. Without sample content, the site may look empty before you start adding to it. Sample content also provides cues as to how to use and structure your site. You can later modify or delete the sample content.'),
+  );
+
   // Set some reasonable defaults for site configuration form.
   $form['site_information']['site_name']['#default_value'] = 'Open Outreach';
   $form['admin_account']['account']['name']['#default_value'] = 'admin';
@@ -57,6 +69,17 @@ function openoutreach_form_install_configure_form_alter(&$form, &$form_state) {
   }
   // Hide update notifications.
   $form['update_notifications']['#access'] = FALSE;
+  $form['#submit'][] = 'openoutreach_install_configure_form_submit';
+}
+
+/**
+ * Submit handler for subprofiles_install_configure_form_submit. Set a variable
+ * specifying the features to be installed.
+ */
+function openoutreach_install_configure_form_submit($form, &$form_state) {
+  if (!empty($form_state['values']['migrate'])) {
+    module_enable(array('openoutreach_migrate'));
+  }
 }
 
 /**
