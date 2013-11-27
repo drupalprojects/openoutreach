@@ -9,13 +9,11 @@
  * Generate install tasks.
  */
 function openoutreach_install_tasks($install_state) {
-  // Add Subprofiles install task.
-  if (module_exists('subprofiles')) {
-    $tasks = _subprofiles_install_tasks($install_state);
-  }
-  else {
-    $tasks = array();
-  }
+  $tasks = array();
+
+  // Add Subprofiles tasks.
+  require_once(drupal_get_path('module', 'subprofiles') . '/subprofiles.install.inc');
+  $tasks = $tasks + _subprofiles_install_tasks($install_state);
 
   // Set up the theme selection task.
   $tasks['openoutreach_theme_form'] = array(
@@ -73,8 +71,8 @@ function openoutreach_form_install_configure_form_alter(&$form, &$form_state) {
 }
 
 /**
- * Submit handler for subprofiles_install_configure_form_submit. Set a variable
- * specifying the features to be installed.
+ * Submit handler for install_configure_form. Conditionally enable sample
+ * content module.
  */
 function openoutreach_install_configure_form_submit($form, &$form_state) {
   if (!empty($form_state['values']['migrate'])) {
@@ -173,6 +171,8 @@ function openoutreach_install_permissions() {
  * Form to choose the starting theme from list of available options.
  */
 function openoutreach_theme_form($form, &$form_state) {
+  drupal_set_title(st('Choose a theme'));
+
   // Declare a white list of themes offered for selection along with data used
   // to determine what modules should be enabled and what blocks configured.
   $form_state['theme dependencies'] = array(
@@ -297,6 +297,8 @@ function openoutreach_theme_form_submit($form, &$form_state) {
  * Form to talk about preparing the site for prime time.
  */
 function openoutreach_prepare($form, &$form_state) {
+  drupal_set_title(st('Configure site'));
+
   $form = array();
 
   $form['opening'] = array(
@@ -381,8 +383,6 @@ function openoutreach_finished($form, &$form_state) {
 function openoutreach_finished_submit($form, &$form_state) {
   // Once more for good measure.
   drupal_flush_all_caches();
-
-  unset($_SESSION['openoutreach_features']);
 
   // And away we go.
   // $form_state['redirect'] won't work here since we are still in the
