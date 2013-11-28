@@ -4,7 +4,6 @@ core = 7.x
 package = Features
 php = 5.2.4
 dependencies[] = apps_compatible
-dependencies[] = contact
 dependencies[] = context
 dependencies[] = features
 dependencies[] = image
