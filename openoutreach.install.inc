@@ -85,22 +85,6 @@ function openoutreach_install_configure_form_submit($form, &$form_state) {
   }
   if (!empty($form_state['values']['contact'])) {
     module_enable(array('contact'));
-    // Create a Contact link in the main menu.
-    $item = array(
-      'link_title' => st('Contact'),
-      'link_path' => 'contact',
-      'menu_name' => 'main-menu',
-      'options' => array(
-        'attributes' => array(
-          'title' => st('Send us an email.'),
-        ),
-      ),
-      'weight' => '20',
-    );
-    menu_link_save($item);
-
-    // Update the menu router information.
-    menu_rebuild();
   }
 }
 
@@ -189,6 +173,28 @@ function openoutreach_install_permissions() {
   features_include();
   module_load_include('inc', 'features', 'features.export');
   user_permission_features_rebuild('openoutreach_install');
+  
+  // Conditionally create a Contact link in the main menu.
+  // Do so here rather than immediately after enabling the contact module to
+  // ensure the menu item is valid.
+  if (module_exists('contact')) {
+    // Create a Contact link in the main menu.
+    $item = array(
+      'link_title' => st('Contact'),
+      'link_path' => 'contact',
+      'menu_name' => 'main-menu',
+      'options' => array(
+        'attributes' => array(
+          'title' => st('Send us an email.'),
+        ),
+      ),
+      'weight' => '20',
+    );
+    menu_link_save($item);
+
+    // Update the menu router information.
+    menu_rebuild();
+  }
 }
 
 /**
