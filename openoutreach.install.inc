@@ -44,24 +44,18 @@ function openoutreach_install_tasks_alter(&$tasks, $install_state) {
  * Implements hook_install_configure_form_alter().
  */
 function openoutreach_form_install_configure_form_alter(&$form, &$form_state) {
-  $form['sample_content'] = array(
+  $form['site_elements'] = array(
     '#type' => 'fieldset',
-    '#title' => t('Sample content'),
+    '#title' => t('Site elements'),
     '#weight' => -20,
   );
-  $form['sample_content']['migrate'] = array(
+  $form['site_elements']['migrate'] = array(
     '#type' => 'checkbox',
     '#title' => t('Install sample content'),
     '#default_value' => TRUE,
     '#description' => t('Select this box to get some initial content created on your site. Without sample content, the site may look empty before you start adding to it. Sample content also provides cues as to how to use and structure your site. You can later modify or delete the sample content.'),
   );
-
-  $form['contact_form'] = array(
-    '#type' => 'fieldset',
-    '#title' => t('Contact form'),
-    '#weight' => -19,
-  );
-  $form['contact_form']['contact'] = array(
+  $form['site_elements']['contact'] = array(
     '#type' => 'checkbox',
     '#title' => t('Enable a contact form and accompanying menu item'),
     '#default_value' => TRUE,
