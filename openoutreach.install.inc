@@ -56,6 +56,17 @@ function openoutreach_form_install_configure_form_alter(&$form, &$form_state) {
     '#description' => t('Select this box to get some initial content created on your site. Without sample content, the site may look empty before you start adding to it. Sample content also provides cues as to how to use and structure your site. You can later modify or delete the sample content.'),
   );
 
+  $form['contact_form'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Contact form'),
+    '#weight' => -19,
+  );
+  $form['contact_form']['contact'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Enable a contact form and accompanying menu item'),
+    '#default_value' => TRUE,
+  );
+
   // Set some reasonable defaults for site configuration form.
   $form['site_information']['site_name']['#default_value'] = 'Open Outreach';
   $form['admin_account']['account']['name']['#default_value'] = 'admin';
@@ -77,6 +88,25 @@ function openoutreach_form_install_configure_form_alter(&$form, &$form_state) {
 function openoutreach_install_configure_form_submit($form, &$form_state) {
   if (!empty($form_state['values']['migrate'])) {
     module_enable(array('openoutreach_migrate'));
+  }
+  if (!empty($form_state['values']['contact'])) {
+    module_enable(array('contact'));
+    // Create a Contact link in the main menu.
+    $item = array(
+      'link_title' => st('Contact'),
+      'link_path' => 'contact',
+      'menu_name' => 'main-menu',
+      'options' => array(
+        'attributes' => array(
+          'title' => st('Send us an email.'),
+        ),
+      ),
+      'weight' => '20',
+    );
+    menu_link_save($item);
+
+    // Update the menu router information.
+    menu_rebuild();
   }
 }
 
