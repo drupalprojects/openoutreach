@@ -65,7 +65,7 @@ libraries[superfish][download][url] = "https://github.com/mehrpadin/Superfish-fo
 
 ; TODO: delete everything below once http://drupal.org/node/1427752 is fixed.
 projects[addressfield][subdir] = contrib
-projects[addressfield][version] = 1.0-beta4
+projects[addressfield][version] = 1.0-beta5
 projects[advanced_forum][subdir] = contrib
 projects[advanced_forum][version] = 2.3
 projects[advanced_help][subdir] = contrib
@@ -138,6 +138,8 @@ projects[geocoder][subdir] = contrib
 projects[geocoder][version] = 1.2
 projects[geofield][subdir] = contrib
 projects[geofield][version] = 2.1
+; Add Migrate support.
+projects[service_links][patch][http://drupal.org/files/issues/geofield-Field-handler-for-Migrate-module-1411836-9.patch] = https://drupal.org/files/issues/geofield-Field-handler-for-Migrate-module-1411836-9.patch
 projects[geophp][subdir] = contrib
 projects[geophp][version] = 1.7
 projects[globalredirect][subdir] = contrib
