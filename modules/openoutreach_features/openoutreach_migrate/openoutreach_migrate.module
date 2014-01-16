@@ -39,7 +39,7 @@ function openoutreach_migrate_map() {
   );
   // Allow other modules to alter the migrations to, for example, use
   // a custom class.
-  drupal_alter($map, 'openoutreach_migrate_map');
+  drupal_alter('openoutreach_migrate_map', $map);
   return array_filter($map, 'module_exists');
 }
 
