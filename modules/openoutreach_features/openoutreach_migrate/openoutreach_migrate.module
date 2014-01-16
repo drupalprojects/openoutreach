@@ -37,6 +37,9 @@ function openoutreach_migrate_map() {
     'OpenOutreachMigrationMenuLinksSection' => 'debut_section',
     'OpenOutreachMigrationNodeSection' => 'debut_section',
   );
+  // Allow other modules to alter the migrations to, for example, use
+  // a custom class.
+  drupal_alter($map, 'openoutreach_migrate_map');
   return array_filter($map, 'module_exists');
 }
 
