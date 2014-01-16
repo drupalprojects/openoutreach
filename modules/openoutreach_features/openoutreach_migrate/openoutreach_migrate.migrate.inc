@@ -56,7 +56,7 @@ abstract class OpenOutreachMigration extends Migration {
     $path = drupal_get_path('module', 'openoutreach_migrate');
     $this->baseImportDirectory = (file_exists($path . '/local') ? $path . '/local' : $path . '/import');
     $this->importFileName = $bundle . '.csv';
-    $this->bnundle = $bundle;
+    $this->bundle = $bundle;
   }
 
   protected function addImageCsvColumns(&$columns) {
