@@ -149,7 +149,7 @@ abstract class OpenOutreachMigrationNode extends OpenOutreachMigration {
     return $columns;
   }
 
-  function setProperties($bundle) {
+  protected function setProperties($bundle) {
     parent::setProperties($bundle);
     $this->bundle = $bundle;
     $this->imageDirectory = 'images/' . $bundle;
@@ -162,7 +162,7 @@ abstract class OpenOutreachMigrationNode extends OpenOutreachMigration {
 class OpenOutreachMigrationNodeArticle extends OpenOutreachMigrationNode {
 
   public function __construct() {
-    parent::setProperties('article');
+    $this->setProperties('article');
     parent::__construct();
     $this->description = t('Import article content.');
   }
@@ -175,7 +175,7 @@ class OpenOutreachMigrationNodeArticle extends OpenOutreachMigrationNode {
 class OpenOutreachMigrationNodeBlog extends OpenOutreachMigrationNode {
 
   public function __construct() {
-    parent::setProperties('blog');
+    $this->setProperties('blog');
     parent::__construct();
     $this->description = t('Import blog content.');
   }
@@ -188,7 +188,7 @@ class OpenOutreachMigrationNodeBlog extends OpenOutreachMigrationNode {
 class OpenOutreachMigrationNodeEvent extends OpenOutreachMigrationNode {
 
   public function __construct() {
-    parent::setProperties('event');
+    $this->setProperties('event');
     parent::__construct();
     $this->description = t('Import event content.');
     $this->addFieldMapping('field_event_date', 'from');
@@ -242,7 +242,7 @@ class OpenOutreachMigrationNodeEvent extends OpenOutreachMigrationNode {
 class OpenOutreachMigrationNodeHighlighted extends OpenOutreachMigrationNode {
 
   public function __construct() {
-    parent::setProperties('highlighted');
+    $this->setProperties('highlighted');
     $this->useTags = FALSE;
     parent::__construct();
     $this->description = t('Import highlighted content.');
@@ -265,7 +265,7 @@ class OpenOutreachMigrationNodeHighlighted extends OpenOutreachMigrationNode {
 class OpenOutreachMigrationNodeLocation extends OpenOutreachMigrationNode {
 
   public function __construct() {
-    parent::setProperties('location');
+    $this->setProperties('location');
     parent::__construct();
     $this->description = t('Import location content.');
     $this->addFieldMapping('field_address', 'address_country');
@@ -313,7 +313,7 @@ class OpenOutreachMigrationNodeLocation extends OpenOutreachMigrationNode {
 class OpenOutreachMigrationNodeSection extends OpenOutreachMigrationNode {
 
   public function __construct() {
-    parent::setProperties('section');
+    $this->setProperties('section');
     parent::__construct();
     $this->description = t('Import section content.');
   }
@@ -432,9 +432,8 @@ abstract class OpenOutreachMigrationTerm extends OpenOutreachMigration {
     return $columns;
   }
 
-  function setProperties($bundle) {
+  protected function setProperties($bundle) {
     parent::setProperties($bundle);
-    $this->bundle = $bundle;
     $this->imageDirectory = 'images/' . $bundle;
   }
 }
@@ -445,7 +444,7 @@ abstract class OpenOutreachMigrationTerm extends OpenOutreachMigration {
 class OpenOutreachMigrationTermLocationType extends OpenOutreachMigrationTerm {
 
   public function __construct() {
-    parent::setProperties('location_type');
+    $this->setProperties('location_type');
     parent::__construct();
     $this->description = t('Import location type terms.');
     $this->addImageFieldMappings('field_location_icon');
@@ -457,7 +456,7 @@ class OpenOutreachMigrationTermLocationType extends OpenOutreachMigrationTerm {
     return $columns;
   }
 
-  function setProperties($bundle) {
+  protected function setProperties($bundle) {
     parent::setProperties($bundle);
     $this->imageDirectory = 'images/' . $bundle;
   }
@@ -470,7 +469,7 @@ class OpenOutreachMigrationTermLocationType extends OpenOutreachMigrationTerm {
 class OpenOutreachMigrationTermLocationRegion extends OpenOutreachMigrationTerm {
 
   public function __construct() {
-    parent::setProperties('location_region');
+    $this->setProperties('location_region');
     parent::__construct();
     $this->description = t('Import location region terms.');
     $this->addFieldMapping('field_extent', 'extent');
@@ -604,7 +603,7 @@ abstract class OpenOutreachMigrationMenuLinks extends OpenOutreachMigration {
 class OpenOutreachMigrationMenuLinksSection extends OpenOutreachMigrationMenuLinks {
 
   public function __construct() {
-    parent::setProperties('section_menu');
+    $this->setProperties('section_menu');
     parent::__construct();
     // Require the nodes that are referenced.
     $this->dependencies[] = 'OpenOutreachMigrationNodeSection';
