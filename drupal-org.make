@@ -140,7 +140,7 @@ projects[geocoder][version] = 1.2
 projects[geofield][subdir] = contrib
 projects[geofield][version] = 2.1
 ; Add Migrate support.
-projects[geofield][patch][http://drupal.org/files/issues/geofield-Field-handler-for-Migrate-module-1411836-9.patch] = https://drupal.org/files/issues/geofield-Field-handler-for-Migrate-module-1411836-9.patch
+projects[geofield][patch][http://drupal.org/files/issues/geofield-Field-handler-for-Migrate-module-1411836-9.patch] = http://drupal.org/files/issues/geofield-Field-handler-for-Migrate-module-1411836-9.patch
 projects[geophp][subdir] = contrib
 projects[geophp][version] = 1.7
 projects[globalredirect][subdir] = contrib
