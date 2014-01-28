@@ -1,8 +1,9 @@
 api = 2
-core = 7.24
+core = 7.26
 
 ; Includes are now supported on drupal-org.make files.
-; Todo: revert to using the includes.
+; Todo: revert to using the includes, or else simply rename the .make
+; files to remove the .inc extension and add the projects here.
 ; See http://drupal.org/node/1427752.
 
 ; Debut features.
@@ -41,7 +42,7 @@ projects[at-commerce][version] = 3.0-rc1
 projects[ctools][subdir] = contrib
 projects[ctools][version] = 1.3
 projects[migrate][subdir] = contrib
-projects[migrate][version] = 1.3
+projects[migrate][version] = 2.5
 projects[mix_and_match][subdir] = contrib
 projects[mix_and_match][version] = 2.1
 projects[outreach][subdir] = contrib
@@ -69,7 +70,7 @@ projects[addressfield][version] = 1.0-beta5
 projects[advanced_forum][subdir] = contrib
 projects[advanced_forum][version] = 2.3
 projects[advanced_help][subdir] = contrib
-projects[advanced_help][version] = 1.0
+projects[advanced_help][version] = 1.1
 projects[better_exposed_filters][subdir] = contrib
 projects[better_exposed_filters][version] = 3.0-beta3
 projects[calendar][subdir] = contrib
@@ -83,7 +84,7 @@ projects[content_access][version] = 1.2-beta2
 projects[context][subdir] = contrib
 projects[context][version] = 3.1
 projects[date][subdir] = contrib
-projects[date][version] = 2.6
+projects[date][version] = 2.7
 projects[date_ical][subdir] = contrib
 projects[date_ical][version] = 2.13
 projects[debut_article][subdir] = contrib
@@ -119,7 +120,7 @@ projects[debut_social][version] = 1.1
 projects[debut_wysiwyg][subdir] = contrib
 projects[debut_wysiwyg][version] = 1.0
 projects[entity][subdir] = contrib
-projects[entity][version] = 1.2
+projects[entity][version] = 1.3
 projects[entityreference][subdir] = contrib
 projects[entityreference][version] = 1.1
 projects[eva][subdir] = contrib
@@ -127,7 +128,7 @@ projects[eva][version] = 1.2
 projects[features][subdir] = contrib
 projects[features][version] = 1.0
 projects[file_admin][subdir] = contrib
-projects[file_admin][version] = 1.0-beta4
+projects[file_admin][version] = 1.0-beta6
 projects[file_entity][subdir] = contrib
 projects[file_entity][version] = 2.0-alpha3
 projects[follow][subdir] = contrib
@@ -163,7 +164,7 @@ projects[media_youtube][version] = 2.0-rc4
 projects[message][subdir] = contrib
 projects[message][version] = 1.9
 projects[metatag][subdir] = contrib
-projects[metatag][version] = 1.0-beta7
+projects[metatag][version] = 1.0-beta9
 projects[multiform][subdir] = contrib
 projects[multiform][version] = 1.0
 projects[openlayers][subdir] = contrib
