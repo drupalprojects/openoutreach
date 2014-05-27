@@ -1,5 +1,5 @@
 api = 2
-core = 7.27
+core = 7.28
 
 ; Includes are now supported on drupal-org.make files.
 ; Todo: revert to using the includes, or else simply rename the .make
@@ -192,7 +192,7 @@ projects[transliteration][version] = 3.1
 projects[views_slideshow][subdir] = contrib
 projects[views_slideshow][version] = 3.1
 projects[views][subdir] = contrib
-projects[views][version] = 3.7
+projects[views][version] = 3.8
 projects[wysiwyg][subdir] = contrib
 projects[wysiwyg][version] = 2.2
 projects[xmlsitemap][subdir] = contrib
