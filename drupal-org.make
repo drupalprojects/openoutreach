@@ -1,5 +1,5 @@
 api = 2
-core = 7.28
+core = 7.29
 
 ; Includes are now supported on drupal-org.make files.
 ; Todo: revert to using the includes, or else simply rename the .make
@@ -62,7 +62,7 @@ libraries[superfish][download][url] = "https://github.com/mehrpadin/Superfish-fo
 projects[addressfield][subdir] = contrib
 projects[addressfield][version] = 1.0-beta5
 projects[advanced_forum][subdir] = contrib
-projects[advanced_forum][version] = 2.3
+projects[advanced_forum][version] = 2.4
 projects[advanced_help][subdir] = contrib
 projects[advanced_help][version] = 1.1
 projects[better_exposed_filters][subdir] = contrib
@@ -70,7 +70,7 @@ projects[better_exposed_filters][version] = 3.0-beta4
 projects[calendar][subdir] = contrib
 projects[calendar][version] = 3.4
 projects[captcha][subdir] = contrib
-projects[captcha][version] = 1.0
+projects[captcha][version] = 1.1
 projects[comment_notify][subdir] = contrib
 projects[comment_notify][version] = 1.2
 projects[content_access][subdir] = contrib
@@ -146,7 +146,7 @@ projects[libraries][version] = 2.2
 projects[link][subdir] = contrib
 projects[link][version] = 1.2
 projects[logintoboggan][subdir] = contrib
-projects[logintoboggan][version] = 1.3
+projects[logintoboggan][version] = 1.4
 projects[media_browser_plus][subdir] = contrib
 projects[media_browser_plus][version] = 1.0-beta3
 projects[media][subdir] = contrib
@@ -158,7 +158,7 @@ projects[media_youtube][version] = 2.0-rc4
 projects[message][subdir] = contrib
 projects[message][version] = 1.9
 projects[metatag][subdir] = contrib
-projects[metatag][version] = 1.0-beta9
+projects[metatag][version] = 1.0-rc1
 projects[multiform][subdir] = contrib
 projects[multiform][version] = 1.0
 projects[openlayers][subdir] = contrib
