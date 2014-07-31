@@ -1,5 +1,5 @@
 api = 2
-core = 7.30d
+core = 7.30
 
 ; Includes are now supported on drupal-org.make files.
 ; Todo: revert to using the includes, or else simply rename the .make
