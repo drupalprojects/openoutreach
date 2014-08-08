@@ -1,5 +1,5 @@
 api = 2
-core = 7.30
+core = 7.31
 
 ; Includes are now supported on drupal-org.make files.
 ; Todo: revert to using the includes, or else simply rename the .make
@@ -158,7 +158,7 @@ projects[media_youtube][version] = 2.0-rc4
 projects[message][subdir] = contrib
 projects[message][version] = 1.9
 projects[metatag][subdir] = contrib
-projects[metatag][version] = 1.0-rc1
+projects[metatag][version] = 1.0-rc2
 projects[multiform][subdir] = contrib
 projects[multiform][version] = 1.1
 projects[openlayers][subdir] = contrib
