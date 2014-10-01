@@ -94,6 +94,7 @@ function openoutreach_front_page_views_default_views() {
 
   /* Display: Feed */
   $handler = $view->new_display('feed', 'Feed', 'feed_1');
+  $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['style_plugin'] = 'rss';
   $handler->display->display_options['row_plugin'] = 'node_rss';
@@ -106,6 +107,7 @@ function openoutreach_front_page_views_default_views() {
     'panel_pane_4' => 0,
     'panel_pane_5' => 0,
   );
+  $handler->display->display_options['sitename_title'] = 1;
 
   /* Display: Content pane third level */
   $handler = $view->new_display('panel_pane', 'Content pane third level', 'panel_pane_3');
