@@ -84,7 +84,8 @@ function openoutreach_install_configure_form_submit($form, &$form_state) {
     module_enable(array('openoutreach_migrate'));
   }
   if (!empty($form_state['values']['contact'])) {
-    module_enable(array('contact'));
+    // We don't want contact without captcha.
+    module_enable(array('contact', 'captcha'));
   }
 }
 
@@ -173,11 +174,20 @@ function openoutreach_install_permissions() {
   features_include();
   module_load_include('inc', 'features', 'features.export');
   user_permission_features_rebuild('openoutreach_install');
-  
-  // Conditionally create a Contact link in the main menu.
-  // Do so here rather than immediately after enabling the contact module to
-  // ensure the menu item is valid.
-  if (module_exists('contact')) {
+
+  if (module_exists('contact') && module_exists('captcha')) {
+    // Assign permisions to access contact form.
+    foreach (array(DRUPAL_ANONYMOUS_RID, DRUPAL_AUTHENTICATED_RID) as $role_id) {
+      user_role_grant_permissions($role_id, array('access site-wide contact form'));
+    }
+
+    // Set Captcha on the contact form.
+    module_load_include('inc', 'captcha');
+    captcha_set_form_id_setting('contact_site_form', 'default');
+
+    // Conditionally create a Contact link in the main menu.
+    // Do so here rather than immediately after enabling the contact module to
+    // ensure the menu item is valid.
     // Create a Contact link in the main menu.
     $item = array(
       'link_title' => st('Contact'),
