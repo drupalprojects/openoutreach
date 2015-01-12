@@ -506,7 +506,7 @@ class OpenOutreachMigrationTermLocationRegion extends OpenOutreachMigrationTerm 
  */
 abstract class OpenOutreachMigrationMenuLinks extends OpenOutreachMigration {
   public function __construct($arguments) {
-    parent::__construct(MigrateGroup::getInstance('OpenOutreachMigrationMenuLinks'));
+    parent::__construct($arguments);
     $this->description = t('Creates sample menus.');
 
     $this->source = new MigrateSourceCSV($this->getImportFilePath(), $this->csvcolumns(), array('header_rows' => 1));
