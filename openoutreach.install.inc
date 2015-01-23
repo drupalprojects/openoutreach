@@ -361,6 +361,11 @@ function openoutreach_prepare($form, &$form_state) {
  * Submit form to prepare site for prime time.
  */
 function openoutreach_prepare_submit($form, &$form_state) {
+  // Set error messages to an appropriate setting for production sites.
+  // Don't do this in Features as sites may wish to turn on error reporting.
+  // Set here as features rebuilding may trigger distracting error messages.
+  variable_set('error_level', 0);
+
   openoutreach_install_permissions();
 
   // Try to allocate enough time to rebuild features.
