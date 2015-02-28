@@ -33,6 +33,8 @@ function openoutreach_install_tasks($install_state) {
  * Implements hook_install_configure_form_alter().
  */
 function openoutreach_form_install_configure_form_alter(&$form, &$form_state) {
+  global $install_state;
+
   $form['site_elements'] = array(
     '#type' => 'fieldset',
     '#title' => t('Site elements'),
@@ -51,7 +53,9 @@ function openoutreach_form_install_configure_form_alter(&$form, &$form_state) {
   );
 
   // Set some reasonable defaults for site configuration form.
-  $form['site_information']['site_name']['#default_value'] = openoutreach_get_distribution_name();
+  if (isset($install_state['profile_info']['distribution_name'])) {
+    $form['site_information']['site_name']['#default_value'] = $install_state['profile_info']['distribution_name'];
+  }
   $form['admin_account']['account']['name']['#default_value'] = 'admin';
   // Don't set the email address to "admin@localhost" as that will fail D7's
   // email address validation.
@@ -79,14 +83,6 @@ function openoutreach_install_configure_form_submit($form, &$form_state) {
     // We don't want contact without captcha.
     module_enable(array('contact', 'captcha'));
   }
-}
-
-/**
- * Returns the distribution name.
- */
-function openoutreach_get_distribution_name() {
-  $info = install_profile_info('openoutreach');
-  return $info['distribution_name'];
 }
 
 /**
