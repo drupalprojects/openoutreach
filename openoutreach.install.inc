@@ -73,11 +73,10 @@ function openoutreach_form_install_configure_form_alter(&$form, &$form_state) {
  * content module.
  */
 function openoutreach_install_configure_form_submit($form, &$form_state) {
-  global $install_state;
 
-  // Pass a migrate parameter that we'll later use to enable the migration module.
+  // Set a flag that we'll later test to enable the migration module.
   if (!empty($form_state['values']['migrate'])) {
-    $install_state['parameters']['migrate'] = 1;
+    variable_set('openoutreach_migrate', TRUE);
   }
   if (!empty($form_state['values']['contact'])) {
     // We don't want contact without captcha.
@@ -333,9 +332,9 @@ function openoutreach_theme_form_submit($form, &$form_state) {
  * Complete the install.
  */
 function openoutreach_wrapup(&$install_state) {
-  if (!empty($install_state['parameters']['migrate'])) {
+  if (variable_get('openoutreach_migrate', FALSE)) {
     module_enable(array('openoutreach_migrate'));
-    unset($install_state['parameters']['migrate']);
+    variable_del('openoutreach_migrate');
   }
 
   // Set error messages to an appropriate setting for production sites.
