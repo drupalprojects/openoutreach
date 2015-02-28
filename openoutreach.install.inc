@@ -17,27 +17,16 @@ function openoutreach_install_tasks($install_state) {
 
   // Set up the theme selection task.
   $tasks['openoutreach_theme_form'] = array(
-    'display_name' => t('Choose a theme'),
+    'display_name' => st('Choose a theme'),
     'type' => 'form',
   );
 
-  // Set up the prepare task to close it out.
-  $tasks['openoutreach_prepare'] = array(
-    'display_name' => t('Prepare site'),
-    'type' => 'form',
+  // Set up the wrapup task.
+  $tasks['openoutreach_wrapup'] = array(
+    'display_name' => st('Final details'),
   );
 
   return $tasks;
-}
-
-/**
- * Implements hook_install_tasks_alter()
- */
-function openoutreach_install_tasks_alter(&$tasks, $install_state) {
-  // Create a more informative finished page.
-  $tasks['install_finished']['function'] = 'openoutreach_finished';
-  $tasks['install_finished']['display_name'] = t('Finished!');
-  $tasks['install_finished']['type'] = 'form';
 }
 
 /**
@@ -80,8 +69,11 @@ function openoutreach_form_install_configure_form_alter(&$form, &$form_state) {
  * content module.
  */
 function openoutreach_install_configure_form_submit($form, &$form_state) {
+  global $install_state;
+
+  // Pass a migrate parameter that we'll later use to enable the migration module.
   if (!empty($form_state['values']['migrate'])) {
-    module_enable(array('openoutreach_migrate'));
+    $install_state['parameters']['migrate'] = 1;
   }
   if (!empty($form_state['values']['contact'])) {
     // We don't want contact without captcha.
@@ -90,8 +82,7 @@ function openoutreach_install_configure_form_submit($form, &$form_state) {
 }
 
 /**
- * Submit handler for install_configure_form. Conditionally enable sample
- * content module.
+ * Returns the distribution name.
  */
 function openoutreach_get_distribution_name() {
   $info = install_profile_info('openoutreach');
@@ -343,33 +334,14 @@ function openoutreach_theme_form_submit($form, &$form_state) {
 }
 
 /**
- * Form to talk about preparing the site for prime time.
+ * Complete the install.
  */
-function openoutreach_prepare($form, &$form_state) {
-  drupal_set_title(st('Configure site'));
+function openoutreach_wrapup(&$install_state) {
+  if (!empty($install_state['parameters']['migrate'])) {
+    module_enable(array('openoutreach_migrate'));
+    unset($install_state['parameters']['migrate']);
+  }
 
-  $form = array();
-
-  $form['opening'] = array(
-    '#markup' => '<h1>' . t('Prepare Site') . '</h1>',
-  );
-
-  $form['openingtext'] = array(
-    '#markup' => '<h2>' . t('!distribution_name now needs to do a bit more to get everything set up.', array('!distribution_name' => openoutreach_get_distribution_name())) . '</h2><p>' . t('This step may take a few minutes.') . '</p>',
-  );
-
-  $form['submit'] = array(
-    '#type' => 'submit',
-    '#value' => t('Prepare your site'),
-  );
-
-  return $form;
-}
-
-/**
- * Submit form to prepare site for prime time.
- */
-function openoutreach_prepare_submit($form, &$form_state) {
   // Set error messages to an appropriate setting for production sites.
   // Don't do this in Features as sites may wish to turn on error reporting.
   // Set here as features rebuilding may trigger distracting error messages.
@@ -377,76 +349,4 @@ function openoutreach_prepare_submit($form, &$form_state) {
 
   openoutreach_install_permissions();
 
-  // Try to allocate enough time to rebuild features.
-  drupal_set_time_limit(240);
-
-  // Flush all caches to ensure that any full bootstraps during the installer
-  // do not leave stale cached data, and that any content types or other items
-  // registered by the install profile are registered correctly. Flushing also
-  // triggers features component rebuilding.
-  drupal_flush_all_caches();
-
-  // Remember the profile which was used.
-  variable_set('install_profile', drupal_get_profile());
-
-  // Install profiles are always loaded last.
-  db_update('system')
-    ->fields(array('weight' => 1000))
-    ->condition('type', 'module')
-    ->condition('name', drupal_get_profile())
-    ->execute();
-
-  // Cache a fully-built schema.
-  drupal_get_schema(NULL, TRUE);
-
-  // Run cron to populate update status tables (if available) so that users
-  // will be warned if they've installed an out of date Drupal version.
-  // Will also trigger indexing of profile-supplied content or feeds.
-  drupal_cron_run();
-}
-
-/**
- * Form to finish it all out and send us on our way.
- */
-function openoutreach_finished($form, &$form_state) {
-  $form = array();
-
-  $form['opening'] = array(
-    '#markup' => '<h1>' . t('Finished!') . '</h1>',
-  );
-
-  $form['openingtext'] = array(
-    '#markup' => '<h2>' . t('Congratulations, you just installed !distribution_name!', array('!distribution_name' => openoutreach_get_distribution_name())) . '</h2>',
-  );
-
-  $form['openoutreach_logo'] = array(
-    '#markup' => theme('image', array('path' => drupal_get_path('profile', 'openoutreach') . '/images/openoutreach_logo.png')),
-  );
-
-  $form['submit'] = array(
-    '#type' => 'submit',
-    '#value' => t('Visit your new site'),
-  );
-
-  return $form;
-}
-
-/**
- * Submit form to finish it out and send us on our way!
- */
-function openoutreach_finished_submit($form, &$form_state) {
-  // Once more for good measure.
-  drupal_flush_all_caches();
-
-  // Explicitly set the 'done' install_state status.
-  // This really should be handled by Drupal core, but apparently sometimes it isn't....
-  variable_set('install_task', 'done');
-
-  // And away we go.
-  // $form_state['redirect'] won't work here since we are still in the
-  // installer, so use drupal_goto() (for interactive installs only) instead.
-  $install_state = $form_state['build_info']['args'][0];
-  if ($install_state['interactive']) {
-    drupal_goto('<front>');
-  }
 }

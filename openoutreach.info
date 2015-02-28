@@ -5,6 +5,7 @@ exclusive = TRUE
 core = "7.x"
 dependencies[] = "admin_menu_toolbar"
 dependencies[] = "advanced_help"
+dependencies[] = "apps_compatible"
 dependencies[] = "block"
 dependencies[] = "color"
 dependencies[] = "comment"
