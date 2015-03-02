@@ -27,7 +27,7 @@ projects[rules][version] = 2.8
 projects[sky][subdir] = contrib
 projects[sky][version] = 3.0
 projects[subprofiles][subdir] = contrib
-projects[subprofiles][version] = 1.1
+projects[subprofiles][version] = 1.2
 projects[superfish][subdir] = contrib
 projects[superfish][version] = 1.9
 
