@@ -206,7 +206,7 @@ function openoutreach_install_permissions() {
  * Form to choose the starting theme from list of available options.
  */
 function openoutreach_theme_form($form, &$form_state) {
-  drupal_set_title(st('Choose a theme'));
+  drupal_set_title(t('Choose a theme'));
 
   // Declare a white list of themes offered for selection along with data used
   // to determine what modules should be enabled and what blocks configured.
@@ -236,9 +236,15 @@ function openoutreach_theme_form($form, &$form_state) {
     '#default_value' => 'outreach',
   );
 
+  $distribution_name = isset($install_state['profile_info']['distribution_name']) ? $install_state['profile_info']['distribution_name'] : t('Open Outreach');
+
+  $form['openingtext'] = array(
+    '#markup' => '<h3>' . t('!distribution_name now needs to do a bit more to get everything set up.', array('!distribution_name' => $distribution_name)) . '</h3><p>' . t('This step may take a few minutes.') . '</p>',
+  );
+
   $form['submit'] = array(
     '#type' => 'submit',
-    '#value' => t('Choose theme'),
+    '#value' => t('Choose theme and set up site'),
   );
 
   $form['#attached']['css'] = array(
