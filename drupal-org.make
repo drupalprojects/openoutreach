@@ -166,7 +166,7 @@ projects[service_links][patch][http://drupal.org/files/drupal7-service_links-2.2
 projects[strongarm][subdir] = contrib
 projects[strongarm][version] = 2.0
 projects[token][subdir] = contrib
-projects[token][version] = 1.5
+projects[token][version] = 1.6
 projects[transliteration][subdir] = contrib
 projects[transliteration][version] = 3.2
 projects[views_slideshow][subdir] = contrib
