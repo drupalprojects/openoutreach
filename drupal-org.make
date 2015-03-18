@@ -1,5 +1,5 @@
 api = 2
-core = 7.34
+core = 7.35
 
 ; Projects specific to Open Outreach.
 projects[adaptivetheme][subdir] = "contrib"
@@ -11,7 +11,7 @@ projects[apps_compatible][version] = 1.0
 projects[at-commerce][subdir] = contrib
 projects[at-commerce][version] = 3.0
 projects[ctools][subdir] = contrib
-projects[ctools][version] = 1.6
+projects[ctools][version] = 1.7
 projects[migrate][subdir] = contrib
 projects[migrate][version] = 2.7
 projects[mix_and_match][subdir] = contrib
