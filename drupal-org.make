@@ -159,8 +159,6 @@ projects[remote_stream_wrapper][subdir] = contrib
 projects[remote_stream_wrapper][version] = 1.0-rc1
 projects[service_links][subdir] = contrib
 projects[service_links][version] = 2.3
-; Fix failing updates.
-projects[service_links][patch][http://drupal.org/files/drupal7-service_links-2.2-update_1.patch] = http://drupal.org/files/drupal7-service_links-2.2-update_1.patch
 projects[strongarm][subdir] = contrib
 projects[strongarm][version] = 2.0
 projects[token][subdir] = contrib
