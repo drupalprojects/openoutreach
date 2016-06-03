@@ -128,7 +128,6 @@ projects[logintoboggan][subdir] = contrib
 projects[logintoboggan][version] = 1.5
 projects[media][subdir] = contrib
 projects[media][version] = 2.0-beta2
-projects[media][patch][http://www.drupal.org/files/issues/media-browser_opens_twice-2554257-1.patch] = http://www.drupal.org/files/issues/media-browser_opens_twice-2554257-1.patch
 projects[media_browser_plus][subdir] = contrib
 projects[media_browser_plus][version] = 1.0-beta3
 projects[media_vimeo][subdir] = contrib
