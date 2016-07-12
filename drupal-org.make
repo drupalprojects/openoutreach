@@ -1,9 +1,9 @@
 api = 2
-core = 7.44
+core = 7.50
 
 ; Projects specific to Open Outreach.
 projects[adaptivetheme][subdir] = "contrib"
-projects[adaptivetheme][version] = 3.2
+projects[adaptivetheme][version] = 3.3
 projects[admin_menu][subdir] = contrib
 projects[admin_menu][version] = 3.0-rc5
 projects[apps_compatible][subdir] = contrib
@@ -25,7 +25,7 @@ projects[riddler][version] = 1.2
 projects[rules][subdir] = contrib
 projects[rules][version] = 2.9
 projects[sky][subdir] = contrib
-projects[sky][version] = 3.0
+projects[sky][version] = 3.1
 projects[subprofiles][subdir] = contrib
 projects[subprofiles][version] = 1.2
 projects[superfish][subdir] = contrib
@@ -135,9 +135,9 @@ projects[media_vimeo][version] = 2.1
 projects[media_youtube][subdir] = contrib
 projects[media_youtube][version] = 3.0
 projects[message][subdir] = contrib
-projects[message][version] = 1.11
+projects[message][version] = 1.12
 projects[metatag][subdir] = contrib
-projects[metatag][version] = 1.16
+projects[metatag][version] = 1.17
 projects[multiform][subdir] = contrib
 projects[multiform][version] = 1.1
 projects[openlayers][subdir] = contrib
