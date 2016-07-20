@@ -3,7 +3,7 @@ core = 7.50
 
 ; Projects specific to Open Outreach.
 projects[adaptivetheme][subdir] = "contrib"
-projects[adaptivetheme][version] = 3.3
+projects[adaptivetheme][version] = 3.4
 projects[admin_menu][subdir] = contrib
 projects[admin_menu][version] = 3.0-rc5
 projects[apps_compatible][subdir] = contrib
@@ -75,7 +75,7 @@ projects[debut_highlighted][version] = 1.5
 projects[debut_link][subdir] = contrib
 projects[debut_link][version] = 1.2
 projects[debut_location][subdir] = contrib
-projects[debut_location][version] = 1.3
+projects[debut_location][version] = 1.4
 projects[debut_media][subdir] = contrib
 projects[debut_media][version] = 1.6
 projects[debut_member][subdir] = contrib
@@ -151,7 +151,7 @@ projects[profile2][version] = 1.3
 projects[proj4js][subdir] = contrib
 projects[proj4js][version] = 1.2
 projects[redhen][subdir] = contrib
-projects[redhen][version] = 1.11
+projects[redhen][version] = 1.12
 projects[redhen_membership][subdir] = contrib
 projects[redhen_membership][version] = 1.0
 projects[registration][subdir] = contrib
