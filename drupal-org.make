@@ -1,5 +1,5 @@
 api = 2
-core = 7.50
+core = 7.51
 
 ; Projects specific to Open Outreach.
 projects[adaptivetheme][subdir] = "contrib"
@@ -83,7 +83,7 @@ projects[debut_member][version] = 1.1
 projects[debut_newsletter][subdir] = contrib
 projects[debut_newsletter][version] = 1.0
 projects[debut_redhen][subdir] = contrib
-projects[debut_redhen][version] = 1.1
+projects[debut_redhen][version] = 1.2
 projects[debut_section][subdir] = contrib
 projects[debut_section][version] = 1.2
 projects[debut_seo][subdir] = contrib
@@ -93,9 +93,9 @@ projects[debut_social][version] = 1.2
 projects[debut_wysiwyg][subdir] = contrib
 projects[debut_wysiwyg][version] = 1.2
 projects[entity][subdir] = contrib
-projects[entity][version] = 1.7
+projects[entity][version] = 1.8
 projects[entityreference][subdir] = contrib
-projects[entityreference][version] = 1.1
+projects[entityreference][version] = 1.2
 projects[eva][subdir] = contrib
 projects[eva][version] = 1.3
 projects[features][subdir] = contrib
