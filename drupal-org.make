@@ -1,5 +1,5 @@
 api = 2
-core = 7.51
+core = 7.52
 
 ; Projects specific to Open Outreach.
 projects[adaptivetheme][subdir] = "contrib"
@@ -11,7 +11,7 @@ projects[apps_compatible][version] = 1.0
 projects[at-commerce][subdir] = contrib
 projects[at-commerce][version] = 3.0
 projects[ctools][subdir] = contrib
-projects[ctools][version] = 1.10
+projects[ctools][version] = 1.11
 projects[migrate][subdir] = contrib
 projects[migrate][version] = 2.8
 projects[mix_and_match][subdir] = contrib
@@ -19,7 +19,7 @@ projects[mix_and_match][version] = 2.1
 projects[outreach][subdir] = contrib
 projects[outreach][version] = 1.0-beta1
 projects[panels][subdir] = contrib
-projects[panels][version] = 3.7
+projects[panels][version] = 3.8
 projects[riddler][subdir] = contrib
 projects[riddler][version] = 1.2
 projects[rules][subdir] = contrib
@@ -127,7 +127,7 @@ projects[link][version] = 1.4
 projects[logintoboggan][subdir] = contrib
 projects[logintoboggan][version] = 1.5
 projects[media][subdir] = contrib
-projects[media][version] = 2.0-beta2
+projects[media][version] = 2.0-beta7
 projects[media_browser_plus][subdir] = contrib
 projects[media_browser_plus][version] = 1.0-beta3
 projects[media_vimeo][subdir] = contrib
@@ -139,7 +139,7 @@ projects[message][version] = 1.12
 projects[metatag][subdir] = contrib
 projects[metatag][version] = 1.17
 projects[multiform][subdir] = contrib
-projects[multiform][version] = 1.1
+projects[multiform][version] = 1.3
 projects[openlayers][subdir] = contrib
 projects[openlayers][version] = 2.0-beta9
 ; Fix broken link in .make file.
