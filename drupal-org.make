@@ -55,7 +55,7 @@ projects[context][subdir] = contrib
 projects[context][version] = 3.7
 projects[date][subdir] = contrib
 projects[date][version] = 2.9
-projects[date][patch][http://www.drupal.org/files/issues/calendar_pager_broken-2375235-35.patch] = http://www.drupal.org/files/issues/calendar_pager_broken-2375235-35.patch
+projects[date][patch][http://drupal.org/files/issues/calendar_pager_broken-2375235-35.patch] = http://drupal.org/files/issues/calendar_pager_broken-2375235-35.patch
 projects[date_ical][subdir] = contrib
 projects[date_ical][version] = 3.9
 projects[debut_article][subdir] = contrib
@@ -143,7 +143,7 @@ projects[multiform][version] = 1.3
 projects[openlayers][subdir] = contrib
 projects[openlayers][version] = 2.0-beta9
 ; Fix broken link in .make file.
-projects[openlayers][patch][http://www.drupal.org/files/issues/openlayers-7.x-2.0-beta9_makefile_release_patch-2257461-5.patch] = https://www.drupal.org/files/issues/openlayers-7.x-2.0-beta9_makefile_release_patch-2257461-5.patch
+projects[openlayers][patch][http://drupal.org/files/issues/openlayers-7.x-2.0-beta9_makefile_release_patch-2257461-5.patch] = http://drupal.org/files/issues/openlayers-7.x-2.0-beta9_makefile_release_patch-2257461-5.patch
 projects[pathauto][subdir] = contrib
 projects[pathauto][version] = 1.3
 projects[profile2][subdir] = contrib
