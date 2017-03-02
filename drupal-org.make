@@ -143,7 +143,7 @@ projects[multiform][version] = 1.3
 projects[openlayers][subdir] = contrib
 projects[openlayers][version] = 2.0-beta9
 ; Fix broken link in .make file.
-projects[openlayers][patch][http://drupal.org/files/issues/openlayers-7.x-2.0-beta9_makefile_release_patch-2257461-5.patch] = http://drupal.org/files/issues/openlayers-7.x-2.0-beta9_makefile_release_patch-2257461-5.patch
+projects[openlayers][patch][http://drupal.org/files/issues/openlayers2-download-2857465-2.patch] = http://drupal.org/files/issues/openlayers2-download-2857465-2.patch
 projects[pathauto][subdir] = contrib
 projects[pathauto][version] = 1.3
 projects[profile2][subdir] = contrib
