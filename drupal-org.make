@@ -156,6 +156,7 @@ projects[redhen_membership][subdir] = contrib
 projects[redhen_membership][version] = 1.0
 projects[registration][subdir] = contrib
 projects[registration][version] = 2.0-beta1
+projects[registration][patch][http://drupal.org/files/issues/registration-installation_crashes_due_pdo_error-2652460-3.patch]= http://drupal.org/files/issues/registration-installation_crashes_due_pdo_error-2652460-3.patch
 projects[relation][subdir] = contrib
 projects[relation][version] = 1.0
 projects[remote_stream_wrapper][subdir] = contrib
