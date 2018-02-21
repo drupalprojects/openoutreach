@@ -1,5 +1,5 @@
 api = 2
-core = 7.56
+core = 7.57
 
 ; Projects specific to Open Outreach.
 projects[adaptivetheme][subdir] = "contrib"
@@ -13,7 +13,7 @@ projects[at-commerce][version] = 3.0
 projects[ctools][subdir] = contrib
 projects[ctools][version] = 1.13
 projects[migrate][subdir] = contrib
-projects[migrate][version] = 2.8
+projects[migrate][version] = 2.9
 projects[mix_and_match][subdir] = contrib
 projects[mix_and_match][version] = 2.1
 projects[outreach][subdir] = contrib
@@ -132,7 +132,7 @@ projects[media_browser_plus][version] = 1.0-beta3
 projects[media_vimeo][subdir] = contrib
 projects[media_vimeo][version] = 2.1
 projects[media_youtube][subdir] = contrib
-projects[media_youtube][version] = 3.6
+projects[media_youtube][version] = 3.7
 projects[message][subdir] = contrib
 projects[message][version] = 1.12
 projects[metatag][subdir] = contrib
