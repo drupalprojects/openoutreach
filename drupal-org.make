@@ -1,5 +1,5 @@
 api = 2
-core = 7.57
+core = 7.58
 
 ; Projects specific to Open Outreach.
 projects[adaptivetheme][subdir] = "contrib"
@@ -11,7 +11,7 @@ projects[apps_compatible][version] = 1.0
 projects[at-commerce][subdir] = contrib
 projects[at-commerce][version] = 3.0
 projects[ctools][subdir] = contrib
-projects[ctools][version] = 1.13
+projects[ctools][version] = 1.14
 projects[migrate][subdir] = contrib
 projects[migrate][version] = 2.9
 projects[mix_and_match][subdir] = contrib
@@ -21,7 +21,7 @@ projects[outreach][version] = 1.0-beta1
 projects[panels][subdir] = contrib
 projects[panels][version] = 3.9
 projects[riddler][subdir] = contrib
-projects[riddler][version] = 1.2
+projects[riddler][version] = 1.3
 projects[rules][subdir] = contrib
 projects[rules][version] = 2.10
 projects[sky][subdir] = contrib
@@ -146,7 +146,7 @@ projects[openlayers][patch][http://drupal.org/files/issues/openlayers2-download-
 projects[pathauto][subdir] = contrib
 projects[pathauto][version] = 1.3
 projects[profile2][subdir] = contrib
-projects[profile2][version] = 1.3
+projects[profile2][version] = 1.4
 projects[proj4js][subdir] = contrib
 projects[proj4js][version] = 1.2
 projects[redhen][subdir] = contrib
